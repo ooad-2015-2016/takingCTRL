@@ -7,11 +7,11 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="365c09ce-b416-4cfb-ab96-4989d48a4567"
+    Name="b0842528-bc29-4691-b3fa-7e601ae2f8be"
     Publisher="CN=Vasiona"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="365c09ce-b416-4cfb-ab96-4989d48a4567" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="b0842528-bc29-4691-b3fa-7e601ae2f8be" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>ProjekatAutootpad</DisplayName>
