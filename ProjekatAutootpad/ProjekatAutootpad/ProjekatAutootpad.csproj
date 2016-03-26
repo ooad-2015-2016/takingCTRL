@@ -114,6 +114,9 @@
       <DependentUpon>ProdajaRegKupac.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RadnikMenu.xaml.cs">
+      <DependentUpon>RadnikMenu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ServisiRadnik.xaml.cs">
       <DependentUpon>ServisiRadnik.xaml</DependentUpon>
     </Compile>
@@ -159,6 +162,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ProdajaRegKupac.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RadnikMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
