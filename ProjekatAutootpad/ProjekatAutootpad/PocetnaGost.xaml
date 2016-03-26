@@ -22,7 +22,7 @@
         <TextBlock x:Name="textBlock_ProizvođačPocetnaGost" HorizontalAlignment="Left" Margin="28,10,0,0" TextWrapping="Wrap" Text="Proizvođač:" VerticalAlignment="Top"/>
         <TextBox x:Name="textBox_ModelPocetnaGost" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Model:" VerticalAlignment="Top"/>
         <ComboBox x:Name="comboBox_ModelPocetnaGost" Grid.Column="1" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top" Width="120"/>
-        <ListView x:Name="listView" HorizontalAlignment="Stretch" Margin="30,10,100,0" Grid.Row="1" VerticalAlignment="Stretch" Grid.ColumnSpan="2" />
+        <ListView x:Name="listView_DijeloviPocetnaGost" HorizontalAlignment="Stretch" Margin="30,10,100,0" Grid.Row="1" VerticalAlignment="Stretch" Grid.ColumnSpan="2" />
 
     </Grid>
 </Page>
