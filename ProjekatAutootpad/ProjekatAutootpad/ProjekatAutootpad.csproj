@@ -101,6 +101,9 @@
     <Compile Include="DodavanjeDijelaRadnik.xaml.cs">
       <DependentUpon>DodavanjeDijelaRadnik.xaml</DependentUpon>
     </Compile>
+    <Compile Include="KupacRegistracija.xaml.cs">
+      <DependentUpon>KupacRegistracija.xaml</DependentUpon>
+    </Compile>
     <Compile Include="KupovinaRegKupac.xaml.cs">
       <DependentUpon>KupovinaRegKupac.xaml</DependentUpon>
     </Compile>
@@ -146,6 +149,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="DodavanjeDijelaRadnik.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="KupacRegistracija.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
