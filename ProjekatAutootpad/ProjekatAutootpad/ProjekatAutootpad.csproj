@@ -17,6 +17,7 @@
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <PackageCertificateKeyFile>ProjekatAutootpad_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateThumbprint>FA1B6E42BA6AD8B671A40B4689D186A11E1A4BF0</PackageCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -98,6 +99,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Baza\Models\DefaultPodaci.cs" />
+    <Compile Include="Baza\Models\NarudžbaDijela.cs" />
+    <Compile Include="Baza\Models\NarudžbaDijelaDbContext.cs" />
     <Compile Include="DodavanjeDijelaRadnik.xaml.cs">
       <DependentUpon>DodavanjeDijelaRadnik.xaml</DependentUpon>
     </Compile>
@@ -110,6 +114,11 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20160421135504_InitialMigration.cs" />
+    <Compile Include="Migrations\20160421135504_InitialMigration.designer.cs">
+      <DependentUpon>20160421135504_InitialMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\NarudžbaDijelaDbContextModelSnapshot.cs" />
     <Compile Include="PocetnaGost.xaml.cs">
       <DependentUpon>PocetnaGost.xaml</DependentUpon>
     </Compile>
@@ -184,6 +193,9 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Baza\Views\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
