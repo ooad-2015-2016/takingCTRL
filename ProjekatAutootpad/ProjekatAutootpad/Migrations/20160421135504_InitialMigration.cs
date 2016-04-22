@@ -17,7 +17,7 @@ namespace ProjekatAutootpadMigrations
                         //.Annotation("Sqlite:Autoincrement", true),
                     Model = table.Column(type: "TEXT", nullable: true),
                     NazivDijela = table.Column(type: "TEXT", nullable: true),
-                    Prihvaćena = table.Column(type: "BOOLEAN", nullable: false),
+                    Prihvaćena = table.Column(type: "INTEGER", nullable: false),
                     Proizvođač = table.Column(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
