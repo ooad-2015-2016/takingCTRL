@@ -37,7 +37,7 @@ namespace ProjekatAutootpad
             this.Suspending += OnSuspending;
 
 
-            using (var db = new NarudžbaDijelaDbContext())
+            using (var db = new OtpadDbContext())
             {
                 db.Database.ApplyMigrations();
                 DefaultPodaci.Initialize(db);

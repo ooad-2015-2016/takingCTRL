@@ -6,23 +6,31 @@ using ProjekatAutootpad.Baza.Models;
 
 namespace ProjekatAutootpadMigrations
 {
-    [ContextType(typeof(NarudžbaDijelaDbContext))]
-    partial class InitialMigration
+    [ContextType(typeof(OtpadDbContext))]
+    partial class OtpadDbContextModelSnapshot : ModelSnapshot
     {
-        public override string Id
-        {
-            get { return "20160421135504_InitialMigration"; }
-        }
-
-        public override string ProductVersion
-        {
-            get { return "7.0.0-beta6-13815"; }
-        }
-
-        public override void BuildTargetModel(ModelBuilder builder)
+        public override void BuildModel(ModelBuilder builder)
         {
             builder
                 .Annotation("ProductVersion", "7.0.0-beta6-13815");
+
+            builder.Entity("ProjekatAutootpad.Baza.Models.Korisnik", b =>
+                {
+                    b.Property<int>("KorisnikId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime>("datumRodjenja");
+
+                    b.Property<string>("email");
+
+                    b.Property<string>("imePrezime");
+
+                    b.Property<string>("password");
+
+                    b.Property<string>("username");
+
+                    b.Key("KorisnikId");
+                });
 
             builder.Entity("ProjekatAutootpad.Baza.Models.NarudžbaDijela", b =>
                 {

@@ -9,9 +9,10 @@ using Windows.Storage;
 
 namespace ProjekatAutootpad.Baza.Models
 {
-    class NarudžbaDijelaDbContext : DbContext
+    class OtpadDbContext : DbContext
     {
-        public DbSet<NarudžbaDijela> NarudžbeDijelova { get; set; }
+        public DbSet<NarudžbaDijela> NarudzbeDijelova { get; set; }
+        public DbSet<Korisnik> Korisnici { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

@@ -100,8 +100,9 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Baza\Models\DefaultPodaci.cs" />
+    <Compile Include="Baza\Models\Korisnik.cs" />
+    <Compile Include="Baza\Models\OtpadDbContext.cs" />
     <Compile Include="Baza\Models\NarudžbaDijela.cs" />
-    <Compile Include="Baza\Models\NarudžbaDijelaDbContext.cs" />
     <Compile Include="DodavanjeDijelaRadnik.xaml.cs">
       <DependentUpon>DodavanjeDijelaRadnik.xaml</DependentUpon>
     </Compile>
@@ -114,11 +115,11 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20160421135504_InitialMigration.cs" />
-    <Compile Include="Migrations\20160421135504_InitialMigration.designer.cs">
-      <DependentUpon>20160421135504_InitialMigration.cs</DependentUpon>
+    <Compile Include="Migrations\20160424202211_Migracija.cs" />
+    <Compile Include="Migrations\20160424202211_Migracija.designer.cs">
+      <DependentUpon>20160424202211_Migracija.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\NarudžbaDijelaDbContextModelSnapshot.cs" />
+    <Compile Include="Migrations\OtpadDbContextModelSnapshot.cs" />
     <Compile Include="PocetnaGost.xaml.cs">
       <DependentUpon>PocetnaGost.xaml</DependentUpon>
     </Compile>
