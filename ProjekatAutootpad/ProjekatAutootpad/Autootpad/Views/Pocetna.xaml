@@ -21,15 +21,15 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <TextBox x:Name="textBox_UsernameLogin" Grid.Column="2" HorizontalAlignment="Stretch" Width="Auto" Margin="36,32.8,0,0" Grid.Row="0" VerticalAlignment="Top" RenderTransformOrigin="0.418,1.025"/>
-        <TextBlock x:Name="textBLock_UsernameLogin" Grid.Column="1" Text="Username: "  HorizontalAlignment="Stretch" Width="Auto" Margin="36,32.8,0,0" Grid.Row="0" VerticalAlignment="Top" RenderTransformOrigin="0.418,1.025"/>
-        <PasswordBox x:Name="passwordBox_UsernameLogin" Grid.Column="2" HorizontalAlignment="Stretch" Width="Auto" Margin="36,32.8,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.418,1.025"/>
-        <TextBlock x:Name="textBLock_PassLogin" Grid.Column="1" HorizontalAlignment="Stretch" Width="Auto" Margin="36,32.8,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.418,1.025" Text="Password: "/>
+        <TextBox x:Name="textBox_UsernameLogin" Grid.Column="2" HorizontalAlignment="Stretch" Width="Auto" Margin="6,32.8,0,0" Grid.Row="0" VerticalAlignment="Top" RenderTransformOrigin="0.418,1.025"/>
+        <TextBlock x:Name="textBLock_UsernameLogin" Grid.Column="0" Text="Username: "  HorizontalAlignment="Right" Width="Auto" Margin="36,32.8,0,0" Grid.Row="0" VerticalAlignment="Top" RenderTransformOrigin="0.418,1.025" Grid.ColumnSpan="2"/>
+        <PasswordBox x:Name="passwordBox_UsernameLogin" Grid.Column="2" HorizontalAlignment="Stretch" Width="Auto" Margin="6,32.8,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.418,1.025"/>
+        <TextBlock x:Name="textBLock_PassLogin" Grid.Column="0" HorizontalAlignment="Right" Width="Auto" Margin="36,32.8,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.418,1.025" Text="Password: " Grid.ColumnSpan="2"/>
         <Button x:Name="button_LoginLogin" Content="Login" Grid.Column="3" Grid.ColumnSpan="1" HorizontalAlignment="Stretch" Width="Auto" Margin="36,32.8,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.418,1.025"/>
         <Button x:Name="button_GostLogin" Content="Uđi kao gost" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Width="Auto" Margin="36,32.8,0,0" Grid.Row="2" VerticalAlignment="Top" RenderTransformOrigin="0.418,1.025"/>
         <Button x:Name="button_RegistracijaLogin" Content="Registracija" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Width="Auto" Margin="36,32.8,0,0" Grid.Row="3" VerticalAlignment="Top" RenderTransformOrigin="0.418,1.025"/>
         <Button x:Name="button_AdministracijaLogin" Content="Administracija" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Width="Auto" Margin="36,32.8,0,0" Grid.Row="4" VerticalAlignment="Top" RenderTransformOrigin="0.418,1.025"/>
-        <Button x:Name="button_IzlazLogin" Content="Izlaz" Grid.Column="3" Grid.ColumnSpan="1" HorizontalAlignment="Stretch" Width="Auto" Margin="36,32.8,0,0" Grid.Row="4" VerticalAlignment="Top" RenderTransformOrigin="0.418,1.025"/>
+        <Button x:Name="button_IzlazLogin" Content="Izlaz" Grid.Column="3" Grid.ColumnSpan="1" HorizontalAlignment="Stretch" Width="Auto" Margin="36,32.8,0,0" Grid.Row="4" VerticalAlignment="Top" RenderTransformOrigin="0.418,1.025" Command="{Binding Path=Izlaz}"/>
 
     </Grid>
 </Page>

@@ -99,11 +99,15 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Autootpad\Helper\INavigationService.cs" />
+    <Compile Include="Autootpad\Helper\NavigationService.cs" />
+    <Compile Include="Autootpad\Helper\RelayCommand.cs" />
     <Compile Include="Autootpad\Models\DefaultPodaci.cs" />
     <Compile Include="Autootpad\Models\Dio.cs" />
     <Compile Include="Autootpad\Models\Korisnik.cs" />
     <Compile Include="Autootpad\Models\OtpadDbContext.cs" />
     <Compile Include="Autootpad\Models\NarudžbaDijela.cs" />
+    <Compile Include="Autootpad\ViewModels\PocetnaViewModel.cs" />
     <Compile Include="Autootpad\Views\DodavanjeDijelaRadnik.xaml.cs">
       <DependentUpon>DodavanjeDijelaRadnik.xaml</DependentUpon>
     </Compile>
@@ -196,10 +200,7 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Autootpad\Helper\" />
-    <Folder Include="Autootpad\ViewModels\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

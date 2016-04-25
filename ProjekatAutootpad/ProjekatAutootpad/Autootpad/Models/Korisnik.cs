@@ -17,5 +17,10 @@ namespace ProjekatAutootpad.Autootpad.Models
         public string password { get; set; }
         public DateTime datumRodjenja { get; set; }
         public string email { get; set; }
+
+        public Korisnik()
+        {
+
+        }
     }
 }
