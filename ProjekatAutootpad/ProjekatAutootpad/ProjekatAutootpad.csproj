@@ -99,42 +99,42 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Baza\Models\DefaultPodaci.cs" />
-    <Compile Include="Baza\Models\Dio.cs" />
-    <Compile Include="Baza\Models\Korisnik.cs" />
-    <Compile Include="Baza\Models\OtpadDbContext.cs" />
-    <Compile Include="Baza\Models\NarudžbaDijela.cs" />
-    <Compile Include="DodavanjeDijelaRadnik.xaml.cs">
+    <Compile Include="Autootpad\Models\DefaultPodaci.cs" />
+    <Compile Include="Autootpad\Models\Dio.cs" />
+    <Compile Include="Autootpad\Models\Korisnik.cs" />
+    <Compile Include="Autootpad\Models\OtpadDbContext.cs" />
+    <Compile Include="Autootpad\Models\NarudžbaDijela.cs" />
+    <Compile Include="Autootpad\Views\DodavanjeDijelaRadnik.xaml.cs">
       <DependentUpon>DodavanjeDijelaRadnik.xaml</DependentUpon>
     </Compile>
-    <Compile Include="KupacRegistracija.xaml.cs">
+    <Compile Include="Autootpad\Views\KupacRegistracija.xaml.cs">
       <DependentUpon>KupacRegistracija.xaml</DependentUpon>
     </Compile>
-    <Compile Include="KupovinaRegistrovaniKupac.xaml.cs">
+    <Compile Include="Autootpad\Views\KupovinaRegistrovaniKupac.xaml.cs">
       <DependentUpon>KupovinaRegistrovaniKupac.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainPage.xaml.cs">
-      <DependentUpon>MainPage.xaml</DependentUpon>
+    <Compile Include="Autootpad\Views\Pocetna.xaml.cs">
+      <DependentUpon>Pocetna.xaml</DependentUpon>
     </Compile>
     <Compile Include="Migrations\20160424202211_Migracija.cs" />
     <Compile Include="Migrations\20160424202211_Migracija.designer.cs">
       <DependentUpon>20160424202211_Migracija.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\OtpadDbContextModelSnapshot.cs" />
-    <Compile Include="PocetnaGost.xaml.cs">
+    <Compile Include="Autootpad\Views\PocetnaGost.xaml.cs">
       <DependentUpon>PocetnaGost.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ProdajaRegistrovaniKupac.xaml.cs">
+    <Compile Include="Autootpad\Views\ProdajaRegistrovaniKupac.xaml.cs">
       <DependentUpon>ProdajaRegistrovaniKupac.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RadnikMeni.xaml.cs">
+    <Compile Include="Autootpad\Views\RadnikMeni.xaml.cs">
       <DependentUpon>RadnikMeni.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ServisiRadnik.xaml.cs">
+    <Compile Include="Autootpad\Views\ServisiRadnik.xaml.cs">
       <DependentUpon>ServisiRadnik.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ZahtjevZaServisRegistrovaniKupac.xaml.cs">
+    <Compile Include="Autootpad\Views\ZahtjevZaServisRegistrovaniKupac.xaml.cs">
       <DependentUpon>ZahtjevZaServisRegistrovaniKupac.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -159,45 +159,46 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="DodavanjeDijelaRadnik.xaml">
+    <Page Include="Autootpad\Views\DodavanjeDijelaRadnik.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="KupacRegistracija.xaml">
+    <Page Include="Autootpad\Views\KupacRegistracija.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="KupovinaRegistrovaniKupac.xaml">
+    <Page Include="Autootpad\Views\KupovinaRegistrovaniKupac.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainPage.xaml">
+    <Page Include="Autootpad\Views\Pocetna.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="PocetnaGost.xaml">
+    <Page Include="Autootpad\Views\PocetnaGost.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ProdajaRegistrovaniKupac.xaml">
+    <Page Include="Autootpad\Views\ProdajaRegistrovaniKupac.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="RadnikMeni.xaml">
+    <Page Include="Autootpad\Views\RadnikMeni.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ServisiRadnik.xaml">
+    <Page Include="Autootpad\Views\ServisiRadnik.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ZahtjevZaServisRegistrovaniKupac.xaml">
+    <Page Include="Autootpad\Views\ZahtjevZaServisRegistrovaniKupac.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Baza\Views\" />
+    <Folder Include="Autootpad\Helper\" />
+    <Folder Include="Autootpad\ViewModels\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.Storage;
 
-namespace ProjekatAutootpad.Baza.Models
+namespace ProjekatAutootpad.Autootpad.Models
 {
     class OtpadDbContext : DbContext
     {

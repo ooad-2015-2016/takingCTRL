@@ -1,5 +1,5 @@
 ﻿using Microsoft.Data.Entity;
-using ProjekatAutootpad.Baza.Models;
+using ProjekatAutootpad.Autootpad.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -55,7 +55,8 @@ namespace ProjekatAutootpad
 #if DEBUG
             if (System.Diagnostics.Debugger.IsAttached)
             {
-                this.DebugSettings.EnableFrameRateCounter = true;
+                //izbacujemo FrameCounter
+                this.DebugSettings.EnableFrameRateCounter = false;
             }
 #endif
 
@@ -84,7 +85,7 @@ namespace ProjekatAutootpad
                 // When the navigation stack isn't restored navigate to the first page,
                 // configuring the new page by passing required information as a navigation
                 // parameter
-                rootFrame.Navigate(typeof(MainPage), e.Arguments);
+                rootFrame.Navigate(typeof(Pocetna), e.Arguments);
             }
             // Ensure the current window is active
             Window.Current.Activate();

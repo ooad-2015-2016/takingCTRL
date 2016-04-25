@@ -2,7 +2,7 @@ using System;
 using Microsoft.Data.Entity;
 using Microsoft.Data.Entity.Metadata;
 using Microsoft.Data.Entity.Migrations.Infrastructure;
-using ProjekatAutootpad.Baza.Models;
+using ProjekatAutootpad.Autootpad.Models;
 
 namespace ProjekatAutootpadMigrations
 {

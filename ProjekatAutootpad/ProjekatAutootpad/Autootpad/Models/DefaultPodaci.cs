@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjekatAutootpad.Baza.Models
+namespace ProjekatAutootpad.Autootpad.Models
 {
 
     class DefaultPodaci
