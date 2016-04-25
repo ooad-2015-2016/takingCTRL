@@ -100,6 +100,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Baza\Models\DefaultPodaci.cs" />
+    <Compile Include="Baza\Models\Dio.cs" />
     <Compile Include="Baza\Models\Korisnik.cs" />
     <Compile Include="Baza\Models\OtpadDbContext.cs" />
     <Compile Include="Baza\Models\NarudžbaDijela.cs" />

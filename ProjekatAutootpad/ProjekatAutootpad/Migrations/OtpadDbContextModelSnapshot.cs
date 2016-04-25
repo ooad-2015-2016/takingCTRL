@@ -47,6 +47,21 @@ namespace ProjekatAutootpadMigrations
 
                     b.Key("NarudžbaDijelaId");
                 });
+            builder.Entity("ProjekatAutootpad.Baza.Models.NarudžbaDijela", b =>
+            {
+                b.Property<int>("DioID")
+                    .ValueGeneratedOnAdd();
+
+                b.Property<decimal>("NabavnaCijena");
+
+                b.Property<decimal>("ProdajnaCijena");
+
+                b.Property<string>("Model");
+
+                b.Property<string>("Proizvodjac");
+
+                b.Key("DioID");
+            });
         }
     }
 }

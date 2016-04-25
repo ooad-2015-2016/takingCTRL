@@ -39,6 +39,19 @@ namespace ProjekatAutootpad.Baza.Models
                 );
                 context.SaveChanges();
             }
+            if (!context.Dijelovi.Any())
+            {
+                context.Dijelovi.AddRange(
+                    new Dio()
+                    {
+                        NabavnaCijena = 0,
+                        ProdajnaCijena = 0,
+                        Model = "Nepoznat",
+                        Proizvodjac = "Nepoznat"
+                    }
+                );
+                context.SaveChanges();
+            }
 
         }
 

@@ -40,12 +40,28 @@ namespace ProjekatAutootpadMigrations
                 {
                     table.PrimaryKey("PK_NarudžbaDijela", x => x.NarudžbaDijelaId);
                 });
+            migration.CreateTable(
+               name: "Dio",
+               columns: table => new
+               {
+                   DioID = table.Column(type: "INTEGER", nullable: false),
+                    //.Annotation("Sqlite:Autoincrement", true),
+                   NabavnaCijena = table.Column(type: "REAL", nullable: true),
+                   ProdajnaCijena = table.Column(type: "REAL", nullable: true),
+                   Model = table.Column(type: "TEXT", nullable: false),
+                   Proizvodjac = table.Column(type: "TEXT", nullable: true)
+               },
+               constraints: table =>
+               {
+                   table.PrimaryKey("PK_Dio", x => x.DioID);
+               });
         }
 
         public override void Down(MigrationBuilder migration)
         {
             migration.DropTable("Korisnik");
             migration.DropTable("NarudžbaDijela");
+            migration.DropTable("Dio");
         }
     }
 }
