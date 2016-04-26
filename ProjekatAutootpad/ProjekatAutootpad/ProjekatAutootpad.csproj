@@ -107,6 +107,7 @@
     <Compile Include="Autootpad\Models\Korisnik.cs" />
     <Compile Include="Autootpad\Models\OtpadDbContext.cs" />
     <Compile Include="Autootpad\Models\NarudžbaDijela.cs" />
+    <Compile Include="Autootpad\ViewModels\KupovinaViewModel.cs" />
     <Compile Include="Autootpad\ViewModels\PocetnaViewModel.cs" />
     <Compile Include="Autootpad\Views\DodavanjeDijelaRadnik.xaml.cs">
       <DependentUpon>DodavanjeDijelaRadnik.xaml</DependentUpon>

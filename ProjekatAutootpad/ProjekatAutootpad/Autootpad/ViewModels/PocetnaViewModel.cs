@@ -56,7 +56,9 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
         {
             using (var db = new OtpadDbContext())
             {
-                if (db.Korisnici.Where(x => x.username == UpisaniUsername && x.password == UpisaniPass).Count() == 0)
+                User = db.Korisnici.Where(x => x.username == UpisaniUsername && x.password == UpisaniPass).FirstOrDefault();
+
+                if (User == null)
                 {
                     VerifikacijaPoruka = "Kombinacija password/username je nepostojeća.";
                     NotifyPropertyChanged("VerifikacijaPoruka");
@@ -65,7 +67,7 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
                 {
                     VerifikacijaPoruka = "";
                     NotifyPropertyChanged("VerifikacijaPoruka");
-                    //prebaci na početnu stranicu registrovanog korisnika
+                    NavigationService.Navigate(typeof(KupovinaRegistrovaniKupac), new KupovinaViewModel(this));
                 }
             }
 
