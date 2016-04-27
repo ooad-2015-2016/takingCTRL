@@ -75,7 +75,7 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
 
         private void ulazKaoGost(object parametar)
         {
-            //implementirati otvaranje početne stranice za gosta
+            NavigationService.Navigate(typeof(PocetnaGost), new KupovinaViewModel(this));
         }
 
         private void adminLogin(object parametar)

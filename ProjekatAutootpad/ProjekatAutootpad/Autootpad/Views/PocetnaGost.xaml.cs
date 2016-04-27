@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjekatAutootpad.Autootpad.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -25,6 +26,19 @@ namespace ProjekatAutootpad
         public PocetnaGost()
         {
             this.InitializeComponent();
+            NavigationCacheMode = NavigationCacheMode.Required;
         }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            //Treba li ovo?
+            //var currentView = SystemNavigationManager.GetForCurrentView();
+            //currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
+
+            KupovinaViewModel kupovinaViewModel = e.Parameter as KupovinaViewModel;
+            DataContext = kupovinaViewModel;
+
+        }
+
     }
 }
