@@ -14,6 +14,10 @@ namespace ProjekatAutootpad.Autootpad.Models
         public DbSet<NarudžbaDijela> NarudzbeDijelova { get; set; }
         public DbSet<Korisnik> Korisnici { get; set; }
         public DbSet<Dio> Dijelovi { get; set; }
+        public DbSet<Servis> servisi { get; set; }
+        public DbSet<NarudzbaServisa> narudzbeServisa { get; set; }
+
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             string databaseFilePath = "Otpadbaza.db";

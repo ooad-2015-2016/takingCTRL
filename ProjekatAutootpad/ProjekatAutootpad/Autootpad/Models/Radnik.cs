@@ -8,7 +8,7 @@ namespace ProjekatAutootpad.Autootpad.Models
 {
     class Radnik: Korisnik
     {
-        public List<Servis> rasporedServisa { get; set; };
+        public List<Servis> rasporedServisa { get; set; }
 
     }
 }
