@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjekatAutootpad", "ProjekatAutootpad\ProjekatAutootpad.csproj", "{44A4D2AD-AB78-4EAA-9951-0514AF1B3ABF}"
 EndProject
@@ -15,9 +15,9 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{44A4D2AD-AB78-4EAA-9951-0514AF1B3ABF}.Debug|ARM.ActiveCfg = Debug|ARM
-		{44A4D2AD-AB78-4EAA-9951-0514AF1B3ABF}.Debug|ARM.Build.0 = Debug|ARM
-		{44A4D2AD-AB78-4EAA-9951-0514AF1B3ABF}.Debug|ARM.Deploy.0 = Debug|ARM
+		{44A4D2AD-AB78-4EAA-9951-0514AF1B3ABF}.Debug|ARM.ActiveCfg = Debug|x86
+		{44A4D2AD-AB78-4EAA-9951-0514AF1B3ABF}.Debug|ARM.Build.0 = Debug|x86
+		{44A4D2AD-AB78-4EAA-9951-0514AF1B3ABF}.Debug|ARM.Deploy.0 = Debug|x86
 		{44A4D2AD-AB78-4EAA-9951-0514AF1B3ABF}.Debug|x64.ActiveCfg = Debug|x64
 		{44A4D2AD-AB78-4EAA-9951-0514AF1B3ABF}.Debug|x64.Build.0 = Debug|x64
 		{44A4D2AD-AB78-4EAA-9951-0514AF1B3ABF}.Debug|x64.Deploy.0 = Debug|x64

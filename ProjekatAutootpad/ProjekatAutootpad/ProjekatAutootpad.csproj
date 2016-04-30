@@ -48,7 +48,7 @@
     <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
     <NoWarn>;2008</NoWarn>
     <DebugType>full</DebugType>
-    <PlatformTarget>ARM</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <ErrorReport>prompt</ErrorReport>
     <Prefer32Bit>true</Prefer32Bit>
@@ -105,10 +105,15 @@
     <Compile Include="Autootpad\Models\DefaultPodaci.cs" />
     <Compile Include="Autootpad\Models\Dio.cs" />
     <Compile Include="Autootpad\Models\Korisnik.cs" />
+    <Compile Include="Autootpad\Models\Kupac.cs" />
+    <Compile Include="Autootpad\Models\NarudzbaServisa.cs" />
     <Compile Include="Autootpad\Models\OtpadDbContext.cs" />
     <Compile Include="Autootpad\Models\NarudžbaDijela.cs" />
+    <Compile Include="Autootpad\Models\Radnik.cs" />
+    <Compile Include="Autootpad\Models\Servis.cs" />
     <Compile Include="Autootpad\ViewModels\KupovinaViewModel.cs" />
     <Compile Include="Autootpad\ViewModels\PocetnaViewModel.cs" />
+    <Compile Include="Autootpad\ViewModels\ZahtjevZaServisViewModel.cs" />
     <Compile Include="Autootpad\Views\DodavanjeDijelaRadnik.xaml.cs">
       <DependentUpon>DodavanjeDijelaRadnik.xaml</DependentUpon>
     </Compile>
@@ -121,6 +126,7 @@
     <Compile Include="Autootpad\Views\Pocetna.xaml.cs">
       <DependentUpon>Pocetna.xaml</DependentUpon>
     </Compile>
+    <Compile Include="db\servisi.cs" />
     <Compile Include="Migrations\20160424202211_Migracija.cs" />
     <Compile Include="Migrations\20160424202211_Migracija.designer.cs">
       <DependentUpon>20160424202211_Migracija.cs</DependentUpon>
