@@ -113,8 +113,7 @@
     <Compile Include="Autootpad\Models\Servis.cs" />
     <Compile Include="Autootpad\ViewModels\KupovinaViewModel.cs" />
     <Compile Include="Autootpad\ViewModels\PocetnaViewModel.cs" />
-    <Compile Include="Autootpad\ViewModels\ServisiRadnikViewModel.cs" />
-    <Compile Include="Autootpad\ViewModels\ZahtjevZaServisViewModel.cs" />
+    <Compile Include="Autootpad\ViewModels\ZahtjevZaServisRegistrovaniKupacViewModel.cs" />
     <Compile Include="Autootpad\Views\DodavanjeDijelaRadnik.xaml.cs">
       <DependentUpon>DodavanjeDijelaRadnik.xaml</DependentUpon>
     </Compile>
@@ -128,17 +127,17 @@
       <DependentUpon>Pocetna.xaml</DependentUpon>
     </Compile>
     <Compile Include="db\servisi.cs" />
-    <Compile Include="Migrations\20160424202211_Migracija.cs" />
-    <Compile Include="Migrations\20160424202211_Migracija.designer.cs">
-      <DependentUpon>20160424202211_Migracija.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\OtpadDbContextModelSnapshot.cs" />
     <Compile Include="Autootpad\Views\PocetnaGost.xaml.cs">
       <DependentUpon>PocetnaGost.xaml</DependentUpon>
     </Compile>
     <Compile Include="Autootpad\Views\ProdajaRegistrovaniKupac.xaml.cs">
       <DependentUpon>ProdajaRegistrovaniKupac.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20160430174056_Migracija.cs" />
+    <Compile Include="Migrations\20160430174056_Migracija.designer.cs">
+      <DependentUpon>20160430174056_Migracija.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\OtpadDbContextModelSnapshot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Autootpad\Views\RadnikMeni.xaml.cs">
       <DependentUpon>RadnikMeni.xaml</DependentUpon>
