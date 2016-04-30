@@ -22,16 +22,56 @@
             <ColumnDefinition Width="169*"/>
         </Grid.ColumnDefinitions>
         <TextBlock x:Name="textBlock_OpisKvaraServisRegKupac" HorizontalAlignment="Right" Margin="0,30,28,0" TextWrapping="WrapWholeWords" Text="Opis kvara: " VerticalAlignment="Top"/>
-        <TextBox x:Name="textBox_OpisKvaraServisRegKupac" HorizontalAlignment="Stretch" Margin="10,30,29,3" TextWrapping="Wrap" Text="" VerticalAlignment="Stretch" Grid.Column="1"/>
+        
+        <TextBox 
+            x:Name="textBox_OpisKvaraServisRegKupac" 
+            HorizontalAlignment="Stretch" 
+            Margin="10,30,29,3" 
+            TextWrapping="Wrap" 
+            Text="{Binding Path=narudzbaServisa.opisKvara}" 
+            VerticalAlignment="Stretch" 
+            Grid.Column="1"/>
+        
         <TextBlock x:Name="textBlock_ProizvođačServisRegKupac" Grid.Row="1" HorizontalAlignment="Right" Margin="0,10,28,0" TextWrapping="WrapWholeWords" Text="Proizvođač: " VerticalAlignment="Top"/>
-        <TextBox x:Name="textBox_ProizvođačServisRegKupac" Grid.Column="1" HorizontalAlignment="Stretch" Margin="10,10,29,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" />
+        
+        <TextBox 
+            x:Name="textBox_ProizvođačServisRegKupac" 
+            Grid.Column="1" 
+            HorizontalAlignment="Stretch" 
+            Margin="10,10,29,0" 
+            Grid.Row="1" 
+            TextWrapping="Wrap" 
+            Text="{Binding Path=narudzbaServisa.dioZaServisiranje.Proizvodjac}" 
+            VerticalAlignment="Top" />
+        
         <TextBlock x:Name="textBlock_ModelServisRegKupac" Grid.Row="2" HorizontalAlignment="Right" Margin="0,10,29,0" TextWrapping="WrapWholeWords" Text="Model: " VerticalAlignment="Top"/>
-        <TextBox x:Name="textBox_ModelServisRegKupac" HorizontalAlignment="Stretch" Margin="10,10,29,0" Grid.Row="2" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Grid.Column ="1"/>
+        
+        <TextBox 
+            x:Name="textBox_ModelServisRegKupac" 
+            HorizontalAlignment="Stretch" 
+            Margin="10,10,29,0" 
+            Grid.Row="2" 
+            TextWrapping="Wrap" 
+            Text="{Binding Path=narudzbaServisa.dioZaServisiranje.Model}" 
+            VerticalAlignment="Top" 
+            Grid.Column ="1"/>
+        
         <TextBlock x:Name="textBlock_DatumServisRegKupac" Grid.Row="3" HorizontalAlignment="Right" Margin="0,10,29,0" TextWrapping="WrapWholeWords" Text="Datum: " VerticalAlignment="Top"/>
         <DatePicker Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="3" VerticalAlignment="Top"/>
         <RadioButton x:Name="radioButton_PlaćanjePoDolaskuServisRegKupac" Content="Po dolasku" HorizontalAlignment="Left" Margin="10,4,0,0" Grid.Row="4" VerticalAlignment="Top" Grid.Column="1" GroupName="način_plaćanja"/>
         <TextBlock x:Name="textBlock_PlaćanjeServisRegKupac" Grid.Row="4" HorizontalAlignment="Right" Margin="0,10,29,0" TextWrapping="WrapWholeWords" Text="Način plaćanja: " VerticalAlignment="Top"/>
         <RadioButton x:Name="radioButton_PlaćanjeOnlineServisRegKupac" Content="Online" HorizontalAlignment="Left" Margin="10,4,0,0" Grid.Row="5" VerticalAlignment="Top" Grid.Column="1" GroupName="način_plaćanja"/>
-        <Button x:Name="button_NapraviZahtjevServisRegKupac" Content="Button" Grid.Column="1" HorizontalAlignment="Right" Margin="35,0,35,10" Grid.Row="6" VerticalAlignment="Bottom"/>
+        
+        <Button 
+            x:Name="button_NapraviZahtjevServisRegKupac" 
+            Content="Button" 
+            Grid.Column="1" 
+            HorizontalAlignment="Right" 
+            Margin="35,0,35,10" 
+            Grid.Row="6"
+            VerticalAlignment="Bottom"
+            Command="{Binding Path=Dodaj}"
+            />
+    
     </Grid>
 </Page>

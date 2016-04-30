@@ -18,3 +18,4 @@ namespace ProjekatAutootpad.Autootpad.Models
         public Dio dioZaServisiranje { get; set; } // Napomena: ovo treba dodati u dijagram klasa
     }
 }
+
