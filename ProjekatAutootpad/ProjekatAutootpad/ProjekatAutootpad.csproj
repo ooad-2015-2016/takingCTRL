@@ -113,6 +113,7 @@
     <Compile Include="Autootpad\Models\Servis.cs" />
     <Compile Include="Autootpad\ViewModels\KupovinaViewModel.cs" />
     <Compile Include="Autootpad\ViewModels\PocetnaViewModel.cs" />
+    <Compile Include="Autootpad\ViewModels\ServisiRadnikViewModel.cs" />
     <Compile Include="Autootpad\ViewModels\ZahtjevZaServisViewModel.cs" />
     <Compile Include="Autootpad\Views\DodavanjeDijelaRadnik.xaml.cs">
       <DependentUpon>DodavanjeDijelaRadnik.xaml</DependentUpon>
