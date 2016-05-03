@@ -111,6 +111,7 @@
     <Compile Include="Autootpad\Models\NarudžbaDijela.cs" />
     <Compile Include="Autootpad\Models\Radnik.cs" />
     <Compile Include="Autootpad\Models\Servis.cs" />
+    <Compile Include="Autootpad\ViewModels\DodavanjeDijelaRadnik.cs" />
     <Compile Include="Autootpad\ViewModels\KupovinaViewModel.cs" />
     <Compile Include="Autootpad\ViewModels\PocetnaViewModel.cs" />
     <Compile Include="Autootpad\ViewModels\ZahtjevZaServisRegistrovaniKupacViewModel.cs" />

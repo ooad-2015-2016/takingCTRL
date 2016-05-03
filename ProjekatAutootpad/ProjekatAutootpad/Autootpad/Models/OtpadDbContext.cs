@@ -16,6 +16,7 @@ namespace ProjekatAutootpad.Autootpad.Models
         public DbSet<Dio> Dijelovi { get; set; }
         public DbSet<Servis> servisi { get; set; }
         public DbSet<NarudzbaServisa> narudzbeServisa { get; set; }
+        public DbSet<Dio> ponudeniDijelovi { get; set; } // Dijelovi koje je korisnik ponudio da proda, id kojih radnik bira koje ce IbroAutootpad kupiti od korisnika sistema
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
