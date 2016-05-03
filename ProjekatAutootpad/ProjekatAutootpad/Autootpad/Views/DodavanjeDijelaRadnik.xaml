@@ -22,12 +22,31 @@
         </Grid.RowDefinitions>
         <TextBlock x:Name="textBlock_PonuđeniDijeloviDodavanjeDijelaRadnik" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Ponuđeni dijelovi:" VerticalAlignment="Top" Height="20" Width="117"/>
         <ListView x:Name="listView" Margin="30,30,30,30.2" Grid.Row="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.ColumnSpan="3"  />
-        <Button x:Name="button_OdbijPonuda" Content="Odbij" HorizontalAlignment="Left" Margin="20,19.8,0,0" Grid.Row="2" VerticalAlignment="Top" Height="32" Width="56"/>
+        
+        <Button x:Name="button_OdbijPonuda" 
+                Content="Odbij" 
+                HorizontalAlignment="Left" Margin="20,19.8,0,0" Grid.Row="2" 
+                VerticalAlignment="Top" Height="32" Width="56"
+                Command="{Binding Path=OdbijPonuduDijela}"
+                />
+        
         <TextBlock x:Name="textBlock_CijenaPonuda" Grid.Column="1" HorizontalAlignment="Right" Margin="0,19.8,10,0" Grid.Row="2" TextWrapping="Wrap" Text="Cijena: " VerticalAlignment="Top"/>
         <TextBox x:Name="textBox" Grid.Column="2" HorizontalAlignment="Left" Margin="10,19.8,0,0" Grid.Row="2" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" InputScope="CurrencyAmount"/>
-        <Button x:Name="button_Dodaj" Content="Dodaj" Grid.Column="2" HorizontalAlignment="Left" Margin="10,9.8,0,0" Grid.Row="3" VerticalAlignment="Top"/>
+        
+        <Button x:Name="button_Dodaj" Content="Dodaj" 
+                Grid.Column="2" HorizontalAlignment="Left" 
+                Margin="10,9.8,0,0" Grid.Row="3" 
+                VerticalAlignment="Top"
+                Command="{Binding Path=DodajDio}"
+                />
+        
         <CheckBox x:Name="checkBox_QR" Content="QR kod" HorizontalAlignment="Right" Margin="10,9.8,20,0" Grid.Row="3" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-        <Button x:Name="button_OtkažiDodavanjeDijela" Content="Otkaži" HorizontalAlignment="Left" Margin="20,20,20,20" Grid.Row="4" VerticalAlignment="Bottom"/>
+        
+        <Button x:Name="button_OtkažiDodavanjeDijela" 
+                Content="Otkaži" 
+                HorizontalAlignment="Left" Margin="20,20,20,20" Grid.Row="4" VerticalAlignment="Bottom"
+                Command="{Binding Path=OtkaziDodavanje}"
+                />
 
     </Grid>
 </Page>
