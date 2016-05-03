@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Igra.CSharp", "Igra.CSharp.csproj", "{E5953E34-C9EA-E550-01EC-EF1C2074FB2D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E5953E34-C9EA-E550-01EC-EF1C2074FB2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5953E34-C9EA-E550-01EC-EF1C2074FB2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5953E34-C9EA-E550-01EC-EF1C2074FB2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5953E34-C9EA-E550-01EC-EF1C2074FB2D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
