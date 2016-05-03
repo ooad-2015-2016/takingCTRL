@@ -80,7 +80,7 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
 
         private void adminLogin(object parametar)
         {
-            //implementirati otvaranje stranice za login admina
+            NavigationService.Navigate(typeof(Views.AdminLogin), new KupovinaViewModel(this));
         }
 
 
