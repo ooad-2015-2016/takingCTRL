@@ -40,5 +40,5 @@ public abstract class Auto : MonoBehaviour {
     }
 
     public abstract bool Gotov();
-    //public abstract void Ubrzaj();
+    public abstract void Ubrzaj();
 }

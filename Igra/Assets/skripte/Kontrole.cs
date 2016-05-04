@@ -3,8 +3,8 @@ using System.Collections;
 
 
 public class Kontrole : MonoBehaviour {
-    float brzina_skretanja_h = 4.0f;
-    float brzina_skretanja_v = 2.0f;
+    float brzina_skretanja_h = 5.0f;
+    float brzina_skretanja_v = 2.5f;
     float leftConstraint;
     float rightConstraint;
     float upConstraint;
@@ -16,7 +16,14 @@ public class Kontrole : MonoBehaviour {
     public Ambulanta ambulanta;
     bool postoji_novcic;
     bool prekid_novcica;
-    
+
+    public AudioClip levelUpZvuk;
+    public AudioClip poenZvuk;
+    public AudioClip sudarZvuk;
+    public AudioClip udaracZvuk;
+
+    AudioSource audio_s;
+
 
     ArrayList auta = new ArrayList();
 
@@ -29,6 +36,8 @@ public class Kontrole : MonoBehaviour {
         upConstraint = Camera.main.ScreenToWorldPoint(new Vector3(0.0f, Screen.height * 1.0f, 0.0f)).y;
         transform.position = new Vector2(Screen.width / 2, Screen.height * 0.494f);
         postoji_novcic = false;
+
+        audio_s = GetComponent<AudioSource>();
 
         auta = new ArrayList();
         Invoke("DodajNovcic", 5.0f);
@@ -105,15 +114,19 @@ public class Kontrole : MonoBehaviour {
         if (col.gameObject.name == "poeni(Clone)")
         {
             Destroy(col.gameObject);
+            audio_s.PlayOneShot(poenZvuk);
             bodovi += 10;
             if (bodovi % 50 == 0)
             {
                 ++nivo;
+                audio_s.PlayOneShot(levelUpZvuk);
                 var pozadina = GameObject.Find("pozadina").GetComponent<ScrollSkripta>().brzina += 0.1f;
-                auta.Add((Ambulanta)Instantiate((ambulanta), new Vector3(Random.Range(leftConstraint, rightConstraint), downConstraint, -5), Quaternion.identity));
-                auta.Add((ObicnoAuto)Instantiate(ob_auto, new Vector3(0, downConstraint, 0), Quaternion.identity));
-                auta.Add((ObicnoAuto)Instantiate(ob_auto, new Vector3(0, downConstraint, 0), Quaternion.identity));
+                auta.Add((Ambulanta)Instantiate((ambulanta), new Vector3(1000, 1000, 0), Quaternion.identity));
+                auta.Add((ObicnoAuto)Instantiate(ob_auto, new Vector3(1000, 1000, 0), Quaternion.identity));
+                auta.Add((ObicnoAuto)Instantiate(ob_auto, new Vector3(1000, 1000, 0), Quaternion.identity));
 
+                foreach (Auto a in auta)
+                    a.Ubrzaj();
             }
 
             postoji_novcic = false;
@@ -124,8 +137,11 @@ public class Kontrole : MonoBehaviour {
             if (System.Math.Abs(transform.position.x - col.transform.position.x) < 0.8f)
             {
                 var log = GameObject.Find("Logika");
+                audio_s.PlayOneShot(sudarZvuk);
                 log.GetComponent<PauzaSkripta>().Kraj();
             }
+            else
+                audio_s.PlayOneShot(udaracZvuk);
         }
 
         

@@ -57,7 +57,7 @@ public class PauzaSkripta : MonoBehaviour {
             Debug.Log("nastavljeno");
         }
 
-        if (Zavrseno && Input.anyKeyDown)
+        if (Zavrseno && Input.GetKeyDown(KeyCode.Space))
             SceneManager.LoadScene("mainmenu");
 
 
@@ -72,6 +72,6 @@ public class PauzaSkripta : MonoBehaviour {
             GUI.Label(new Rect(Screen.width / 2 - 50, Screen.height / 2 - 25, 150, 150), "<color=red><size=30>pauzirano</size></color>\n<size=15>ESC za izlaz, enter za nastavak</size>");
 
         if (Zavrseno)
-            GUI.Label(new Rect(Screen.width / 2 - 100, Screen.height / 2 - 25, 250, 150), "<color=red><size=30>Izgubili ste.</size>\n<size=15>Pritisnite bilo koju tipku za nastavak</size></color>");
+            GUI.Label(new Rect(Screen.width / 2 - 100, Screen.height / 2 - 25, 250, 150), "<color=red><size=30>Izgubili ste.</size>\n<size=15>Pritisnite SPACE za nastavak</size></color>");
     }
 }

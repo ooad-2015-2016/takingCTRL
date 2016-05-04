@@ -3,9 +3,8 @@ using System.Collections;
 
 public class Ambulanta : Auto {
 
-
-
     char smjer;
+    public AudioClip sirena;
 
     // Use this for initialization
     override protected void Start () {
@@ -14,7 +13,9 @@ public class Ambulanta : Auto {
         char smjer = 'l';
         InvokeRepeating("promijeni_smjer", 0.5f, 0.5f);
         base.vjerovatnoca = 0.9983f;
-	}
+        //GetComponent<AudioSource>().PlayOneShot(sirena);
+        //Postavi();
+    }
 
     private void promijeni_smjer()
     {
@@ -39,12 +40,17 @@ public class Ambulanta : Auto {
         float ofs = Random.Range(leftConstraint, rightConstraint);
         koristena_brzina = brzina;
 
-        transform.position = new Vector3(ofs, downConstraint, -5);
+        transform.position = new Vector3(ofs, downConstraint - 5, -5);
+        GetComponent<AudioSource>().PlayOneShot(sirena);
     }
 
     public override bool Gotov()
     {
         return transform.position.y > upConstraint;
-        
+    }
+
+    public override void Ubrzaj()
+    {
+        brzina += 0.1f;
     }
 }
