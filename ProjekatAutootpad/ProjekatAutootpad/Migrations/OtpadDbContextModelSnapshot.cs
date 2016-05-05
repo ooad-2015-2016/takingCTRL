@@ -30,24 +30,6 @@ namespace ProjekatAutootpadMigrations
                     b.Key("DioID");
                 });
 
-            builder.Entity("ProjekatAutootpad.Autootpad.Models.Korisnik", b =>
-                {
-                    b.Property<int>("KorisnikId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<DateTime>("datumRodjenja");
-
-                    b.Property<string>("email");
-
-                    b.Property<string>("imePrezime");
-
-                    b.Property<string>("password");
-
-                    b.Property<string>("username");
-
-                    b.Key("KorisnikId");
-                });
-
             builder.Entity("ProjekatAutootpad.Autootpad.Models.Kupac", b =>
                 {
                     b.Property<int>("kupacId")
@@ -101,10 +83,33 @@ namespace ProjekatAutootpadMigrations
                     b.Key("NarudžbaDijelaId");
                 });
 
+            builder.Entity("ProjekatAutootpad.Autootpad.Models.Radnik", b =>
+                {
+                    b.Property<int>("radnikId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("KorisnikId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime>("datumRodjenja");
+
+                    b.Property<string>("email");
+
+                    b.Property<string>("imePrezime");
+
+                    b.Property<string>("password");
+
+                    b.Property<string>("username");
+
+                    b.Key("radnikId");
+                });
+
             builder.Entity("ProjekatAutootpad.Autootpad.Models.Servis", b =>
                 {
                     b.Property<int>("servisId")
                         .ValueGeneratedOnAdd();
+
+                    b.Property<int?>("RadnikradnikId");
 
                     b.Property<decimal>("cijena");
 
@@ -128,6 +133,10 @@ namespace ProjekatAutootpadMigrations
 
             builder.Entity("ProjekatAutootpad.Autootpad.Models.Servis", b =>
                 {
+                    b.Reference("ProjekatAutootpad.Autootpad.Models.Radnik")
+                        .InverseCollection()
+                        .ForeignKey("RadnikradnikId");
+
                     b.Reference("ProjekatAutootpad.Autootpad.Models.NarudzbaServisa")
                         .InverseCollection()
                         .ForeignKey("narudzbaNarudzbaServisaId");

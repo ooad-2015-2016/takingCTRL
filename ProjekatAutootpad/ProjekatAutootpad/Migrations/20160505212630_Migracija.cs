@@ -25,22 +25,6 @@ namespace ProjekatAutootpadMigrations
                     table.PrimaryKey("PK_Dio", x => x.DioID);
                 });
             migration.CreateTable(
-                name: "Korisnik",
-                columns: table => new
-                {
-                    KorisnikId = table.Column(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    datumRodjenja = table.Column(type: "TEXT", nullable: false),
-                    email = table.Column(type: "TEXT", nullable: true),
-                    imePrezime = table.Column(type: "TEXT", nullable: true),
-                    password = table.Column(type: "TEXT", nullable: true),
-                    username = table.Column(type: "TEXT", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Korisnik", x => x.KorisnikId);
-                });
-            migration.CreateTable(
                 name: "Kupac",
                 columns: table => new
                 {
@@ -74,6 +58,24 @@ namespace ProjekatAutootpadMigrations
                     table.PrimaryKey("PK_NarudžbaDijela", x => x.NarudžbaDijelaId);
                 });
             migration.CreateTable(
+                name: "Radnik",
+                columns: table => new
+                {
+                    radnikId = table.Column(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    KorisnikId = table.Column(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    datumRodjenja = table.Column(type: "TEXT", nullable: false),
+                    email = table.Column(type: "TEXT", nullable: true),
+                    imePrezime = table.Column(type: "TEXT", nullable: true),
+                    password = table.Column(type: "TEXT", nullable: true),
+                    username = table.Column(type: "TEXT", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Radnik", x => x.radnikId);
+                });
+            migration.CreateTable(
                 name: "NarudzbaServisa",
                 columns: table => new
                 {
@@ -104,6 +106,7 @@ namespace ProjekatAutootpadMigrations
                 {
                     servisId = table.Column(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
+                    RadnikradnikId = table.Column(type: "INTEGER", nullable: true),
                     cijena = table.Column(type: "TEXT", nullable: false),
                     narudzbaNarudzbaServisaId = table.Column(type: "INTEGER", nullable: true),
                     odraden = table.Column(type: "INTEGER", nullable: false)
@@ -111,6 +114,11 @@ namespace ProjekatAutootpadMigrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Servis", x => x.servisId);
+                    table.ForeignKey(
+                        name: "FK_Servis_Radnik_RadnikradnikId",
+                        columns: x => x.RadnikradnikId,
+                        referencedTable: "Radnik",
+                        referencedColumn: "radnikId");
                     table.ForeignKey(
                         name: "FK_Servis_NarudzbaServisa_narudzbaNarudzbaServisaId",
                         columns: x => x.narudzbaNarudzbaServisaId,
@@ -121,9 +129,9 @@ namespace ProjekatAutootpadMigrations
 
         public override void Down(MigrationBuilder migration)
         {
-            migration.DropTable("Korisnik");
             migration.DropTable("NarudžbaDijela");
             migration.DropTable("Servis");
+            migration.DropTable("Radnik");
             migration.DropTable("NarudzbaServisa");
             migration.DropTable("Dio");
             migration.DropTable("Kupac");
