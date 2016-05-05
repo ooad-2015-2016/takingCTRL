@@ -56,7 +56,7 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
         {
             using (var db = new OtpadDbContext())
             {
-                User = db.Korisnici.Where(x => x.username == UpisaniUsername && x.password == UpisaniPass).FirstOrDefault();
+                User = db.Kupci.Where(x => x.username == UpisaniUsername && x.password == UpisaniPass).FirstOrDefault();
 
                 if (User == null)
                 {

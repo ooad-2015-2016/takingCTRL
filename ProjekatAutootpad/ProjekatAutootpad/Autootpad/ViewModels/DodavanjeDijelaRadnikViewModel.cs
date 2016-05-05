@@ -1,8 +1,11 @@
-﻿using System;
+﻿using ProjekatAutootpad.Autootpad.Helper;
+using ProjekatAutootpad.Autootpad.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace ProjekatAutootpad.Autootpad.ViewModels
 {
@@ -37,7 +40,8 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
         public void dodaj(object parametar)
         {
             var db = new OtpadDbContext();
-            db.Dijelovi.Add(); // Dodavanje u listu Dijelovi koja sluzi za Dijelove koji su u prodaji
+            // db.Dijelovi.Add(); // Dodavanje u listu Dijelovi koja sluzi za Dijelove koji su u prodaji
+            // Samo da ne javlja error zbog migracija, dodam dok skontam kako da povežem listu
         }
 
         public void odbij(object parametar)

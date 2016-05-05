@@ -112,7 +112,7 @@
     <Compile Include="Autootpad\Models\Radnik.cs" />
     <Compile Include="Autootpad\Models\Servis.cs" />
     <Compile Include="Autootpad\ViewModels\AdminPogledUposlenikaViewModel.cs" />
-    <Compile Include="Autootpad\ViewModels\DodavanjeDijelaRadnik.cs" />
+    <Compile Include="Autootpad\ViewModels\DodavanjeDijelaRadnikViewModel.cs" />
     <Compile Include="Autootpad\ViewModels\KupovinaViewModel.cs" />
     <Compile Include="Autootpad\ViewModels\PocetnaViewModel.cs" />
     <Compile Include="Autootpad\ViewModels\ZahtjevZaServisRegistrovaniKupacViewModel.cs" />
@@ -141,9 +141,9 @@
     <Compile Include="Autootpad\Views\ProdajaRegistrovaniKupac.xaml.cs">
       <DependentUpon>ProdajaRegistrovaniKupac.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20160430174056_Migracija.cs" />
-    <Compile Include="Migrations\20160430174056_Migracija.designer.cs">
-      <DependentUpon>20160430174056_Migracija.cs</DependentUpon>
+    <Compile Include="Migrations\20160505212630_Migracija.cs" />
+    <Compile Include="Migrations\20160505212630_Migracija.designer.cs">
+      <DependentUpon>20160505212630_Migracija.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\OtpadDbContextModelSnapshot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
