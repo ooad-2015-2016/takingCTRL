@@ -12,12 +12,12 @@ namespace ProjekatAutootpad.Autootpad.Models
     class OtpadDbContext : DbContext
     {
         public DbSet<NarudžbaDijela> NarudzbeDijelova { get; set; }
-        public DbSet<Korisnik> Korisnici { get; set; }
+        public DbSet<Kupac> Kupci { get; set; }
         public DbSet<Dio> Dijelovi { get; set; }
         public DbSet<Servis> servisi { get; set; }
         public DbSet<NarudzbaServisa> narudzbeServisa { get; set; }
         public DbSet<Dio> ponudeniDijelovi { get; set; } // Dijelovi koje je korisnik ponudio da proda, id kojih radnik bira koje ce IbroAutootpad kupiti od korisnika sistema
-
+        public DbSet<Radnik> Radnici { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

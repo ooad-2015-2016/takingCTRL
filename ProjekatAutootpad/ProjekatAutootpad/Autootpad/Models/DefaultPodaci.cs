@@ -25,10 +25,10 @@ namespace ProjekatAutootpad.Autootpad.Models
                 context.SaveChanges();
             }
 
-            if (!context.Korisnici.Any())
+            if (!context.Kupci.Any())
             {
-                context.Korisnici.AddRange(
-                    new Korisnik()
+                context.Kupci.AddRange(
+                    new Kupac()
                     {
                         imePrezime = "Alma Hodžić",
                         username = "ahodzic",
@@ -53,6 +53,17 @@ namespace ProjekatAutootpad.Autootpad.Models
                 context.SaveChanges();
             }
 
+            if (!context.servisi.Any())
+            {
+                context.servisi.AddRange(
+                    new Servis()
+                    {
+                        cijena = 400,
+                        odraden = true
+                    }
+                    );
+                context.SaveChanges();
+            }
 
         }
 
