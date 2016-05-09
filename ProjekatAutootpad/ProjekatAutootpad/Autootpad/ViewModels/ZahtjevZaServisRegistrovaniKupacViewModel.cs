@@ -10,7 +10,7 @@ using System.Windows.Input;
 
 namespace ProjekatAutootpad.Autootpad.ViewModels
 {
-    class ZahtjevZaServisRegistrovaniKupacViewModel: INotifyPropertyChanged
+    class ZahtjevZaServisRegistrovaniKupacViewModel
     {
         public NarudzbaServisa narudzbaServisa { get; set; }
         public ICommand Dodaj { get; set; }
