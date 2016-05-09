@@ -5,29 +5,84 @@
     xmlns:local="using:ProjekatAutootpad.Autootpad.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="using:ProjekatAutootpad.Autootpad.Models"
     mc:Ignorable="d">
 
+    <Page.Resources>
+        <DataTemplate x:Key="RadnikListTemplate"  x:DataType="models:Radnik">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <!--Auto, ne * jer bi onda redovi bili rasireni do dna forme. Auto zauzima onoliko koliko mu treba-->
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <!--* da na tri jednaka dijela dijeli kolone liste i potrebno je da se kolone rasire max koliko imaju prostora-->
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <!--Iz ViewModela koji je povezan sa Page ce uzeti objekat Komponenta i njen naziv staviti u textblok-->
+                <TextBlock Text="{x:Bind username}" HorizontalAlignment="Left"/>
+                <!--Kolicina i Cijena su direkt u view modelu. POTREBNO JE IMATI PUBLIC GET I SET tj ispravan Property da bi binding radio-->
+                <TextBlock Text="{x:Bind password}" Grid.Column="1" HorizontalAlignment="Center"/>
+                <TextBlock Text="{x:Bind email}" Grid.Column="2" HorizontalAlignment="Right"/>
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
+
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Grid HorizontalAlignment="Left" Height="100" Margin="520,130,-260,0" VerticalAlignment="Top" Width="100"/>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Uposlenici" VerticalAlignment="Top"/>
-        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="75" Margin="90,10,0,0" VerticalAlignment="Top" Width="175" RenderTransformOrigin="0.466,-0.35" BorderThickness="1"/>
-        <Button x:Name="button1" Content="Dodaj" HorizontalAlignment="Left" Margin="90,200,0,0" VerticalAlignment="Top" Width="175" Height="30"/>
-        <Button x:Name="button" Content="Izmijeni" HorizontalAlignment="Left" Margin="90,90,0,0" VerticalAlignment="Top" Width="175" Height="30" Click="button_Click" />
-        <Button x:Name="button2" Content="Obriši" HorizontalAlignment="Left" Margin="90,130,0,0" VerticalAlignment="Top" Width="175"/>
-        <Grid x:Name="grid1" HorizontalAlignment="Left" Height="270" Margin="34,295,0,0" VerticalAlignment="Top" Width="295" Visibility="Collapsed">
-            <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Ime i prezime:" VerticalAlignment="Top"/>
-            <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Margin="10,50,0,0" TextWrapping="Wrap" Text="Username:" VerticalAlignment="Top"/>
-            <TextBlock x:Name="textBlock3" HorizontalAlignment="Left" Margin="10,95,0,0" TextWrapping="Wrap" Text="Password:" VerticalAlignment="Top"/>
-            <TextBlock x:Name="textBlock4" HorizontalAlignment="Left" Margin="10,142,0,0" TextWrapping="Wrap" Text="Datum rođenja:" VerticalAlignment="Top"/>
-            <TextBlock x:Name="textBlock5" HorizontalAlignment="Left" Margin="10,190,0,0" TextWrapping="Wrap" Text="ID:" VerticalAlignment="Top"/>
-            <TextBlock x:Name="textBlock6" HorizontalAlignment="Left" Margin="10,239,0,0" TextWrapping="Wrap" Text="E-mail:" VerticalAlignment="Top"/>
-            <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="124,4,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="161"/>
-            <TextBox x:Name="textBox1" HorizontalAlignment="Left" Margin="124,46,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="161"/>
-            <PasswordBox x:Name="passwordBox" HorizontalAlignment="Left" Margin="124,90,0,0" VerticalAlignment="Top" Width="161"/>
-            <DatePicker HorizontalAlignment="Left" Margin="124,136,-125,0" VerticalAlignment="Top" Width="151" Height="46"/>
-            <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="124,185,0,0" VerticalAlignment="Top" Width="120"/>
-            <TextBox x:Name="textBox2" HorizontalAlignment="Left" Margin="124,234,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="161"/>
-        </Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="147*"/>
+            <ColumnDefinition Width="157*"/>
+            <ColumnDefinition Width="336*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="133*"/>
+            <RowDefinition Height="36*"/>
+            <RowDefinition Height="310*"/>
+            <RowDefinition Height="60*"/>
+        </Grid.RowDefinitions>
+
+        <Button Content="Izlaz" Grid.Column="2" Margin="0,0,10,10" Grid.Row="5" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
+        <TextBox  HorizontalAlignment="Left" Margin="28,70,0,0" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
+        <TextBlock HorizontalAlignment="Left" Margin="28,10,0,0" TextWrapping="Wrap" Text="Username:" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+        <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Password:" VerticalAlignment="Top"/>
+        <TextBox  Grid.Column="2" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top" Width="120"/>
+
+        <ListView  ItemTemplate="{StaticResource RadnikListTemplate}" ItemsSource="{Binding radnici}" HorizontalAlignment="Stretch" Margin="30,10,50,0" Grid.Row="2" VerticalAlignment="Stretch" Grid.ColumnSpan="3" Grid.RowSpan="1">
+            <ListView.Template>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock HorizontalAlignment="Left" Grid.Column="0">Username</TextBlock>
+                            <TextBlock HorizontalAlignment="Center" Grid.Column="1">Password</TextBlock>
+                            <TextBlock HorizontalAlignment="Right" Grid.Column="2">Email</TextBlock>
+                        </Grid>
+                        <!-- Ostatak da bude lista koja je orginalno trebala biti -->
+                        <ItemsPresenter Grid.Row="1"></ItemsPresenter>
+                    </Grid>
+                </ControlTemplate>
+            </ListView.Template>
+
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
+
+        <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2" TextWrapping="Wrap" Text="Radnici:" VerticalAlignment="Top"/>
+
 
     </Grid>
 </Page>

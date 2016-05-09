@@ -50,6 +50,7 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
             AdminLogin = new RelayCommand<object>(adminLogin);
             UlazKaoGost = new RelayCommand<object>(ulazKaoGost);
             Izlaz = new RelayCommand<object>(izlaz);
+
         }
 
         private void loginKupca(object parametar)

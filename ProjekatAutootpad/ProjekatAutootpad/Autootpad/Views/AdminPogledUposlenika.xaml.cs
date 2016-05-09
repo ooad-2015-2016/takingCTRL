@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjekatAutootpad.Autootpad.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -25,12 +26,14 @@ namespace ProjekatAutootpad.Autootpad.Views
         public AdminPogledUposlenika()
         {
             this.InitializeComponent();
+            NavigationCacheMode = NavigationCacheMode.Required;
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
+        protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            grid1.Visibility = Visibility.Visible;
-
+            AdminPogledUposlenikaViewModel adminPogledUposlenikaViewModel = e.Parameter as AdminPogledUposlenikaViewModel;
+            DataContext = adminPogledUposlenikaViewModel;
         }
+
     }
 }
