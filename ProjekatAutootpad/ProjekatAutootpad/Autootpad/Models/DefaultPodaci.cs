@@ -77,11 +77,22 @@ namespace ProjekatAutootpad.Autootpad.Models
                 );
                 context.SaveChanges();
             }
+
+            if (!context.Radnici.Any())
+            {
+                context.Radnici.AddRange(
+                    new Radnik()
+                    {
+                        KorisnikId = 2,
+                        imePrezime = "Mujo Mujic",
+                        username = "mmujic",
+                        password = "mujinpass",
+                        datumRodjenja = new DateTime(2000, 12, 2),
+                        email = "mujicmujo@gmail.com"
+                    }
+                );               
+            }
+
         }
-
-
-
-
-
     }
 }

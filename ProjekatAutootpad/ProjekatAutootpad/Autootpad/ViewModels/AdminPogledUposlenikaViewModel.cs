@@ -19,8 +19,7 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
         public ICommand DodavanjeRadnika { get; set; }
         public ICommand BrisanjeRadnika { get; set; }
 
-
-        List<Radnik> radnici
+        public List<Radnik> radnici
         {
             get
             {
