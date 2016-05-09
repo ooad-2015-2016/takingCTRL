@@ -13,16 +13,19 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <TextBox x:Name="textBox1" Grid.Column="2" HorizontalAlignment="Left" Margin="22,42,0,0" Grid.Row="1" TextWrapping="Wrap" Text=" " VerticalAlignment="Top" Width="80"/>
+        <TextBox x:Name="textBox1" Grid.Column="2" HorizontalAlignment="Left" Margin="22,42,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="80" Text="{Binding UpisaniPass, Mode=TwoWay}"/>
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="0,70,0,0" TextWrapping="Wrap" Text="Administrator: Ibro" VerticalAlignment="Top" Width="170" Grid.Column="1" Grid.ColumnSpan="2"/>
-        <TextBlock x:Name="textBlock1" Grid.Column="1" HorizontalAlignment="Left" Margin="32,47,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Password:" VerticalAlignment="Top"/>
-        <Button x:Name="button" Content="Login" Grid.Column="1" HorizontalAlignment="Left" Height="32" Margin="28,118,0,0" Grid.Row="2" VerticalAlignment="Top" Width="70" Command="{Binding Path=LoginAdmina}"/>
-        <Button x:Name="button1" Content="Nazad" HorizontalAlignment="Left" Margin="18,54,0,0" Grid.Row="3" VerticalAlignment="Top" Width="80" Command="{Binding Path=Nazad}"/>
+        <TextBlock x:Name="textBlock1" Grid.Column="1" HorizontalAlignment="Left" Margin="32,47,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Password: " VerticalAlignment="Top"/>
+        <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="32,47,0,0" Grid.Row="2" TextWrapping="Wrap" Text="{Binding VerifikacijaPoruka, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
+        <Button x:Name="button" Content="Login" Grid.Column="1" HorizontalAlignment="Left" Height="32" Margin="28,118,0,0" Grid.Row="2" VerticalAlignment="Top" Width="70" Command="{Binding LoginAdmina}"/>
+        <Button x:Name="button1" Content="Nazad" HorizontalAlignment="Left" Margin="18,54,0,0" Grid.Row="4" VerticalAlignment="Top" Width="80" Command="{Binding Nazad}"/>
     </Grid>
 </Page>
+<!---->

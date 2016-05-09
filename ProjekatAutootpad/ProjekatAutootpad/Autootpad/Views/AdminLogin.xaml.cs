@@ -36,8 +36,10 @@ namespace ProjekatAutootpad.Autootpad.Views
             //var currentView = SystemNavigationManager.GetForCurrentView();
             //currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
 
-            PocetnaViewModel pocetnaViewModel = e.Parameter as PocetnaViewModel;
-            DataContext = pocetnaViewModel;
+            AdminLoginViewModel adminLoginViewModel = e.Parameter as AdminLoginViewModel;
+            DataContext = adminLoginViewModel;
+
+
 
         }
     }

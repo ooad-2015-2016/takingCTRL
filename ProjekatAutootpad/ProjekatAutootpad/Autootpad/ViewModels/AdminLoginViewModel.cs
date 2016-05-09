@@ -19,6 +19,10 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
         public string VerifikacijaPoruka { get; set; }
         public string UpisaniPass { get; set; }
         public string Password { get; set; }
+        public string Pass_b { get; set; }
+
+
+    
 
         public INavigationService NavigationService { get; set; }
         public ICommand LoginAdmina { get; set; }
@@ -34,7 +38,7 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
             }
         }
 
-        public AdminLoginViewModel()
+        public AdminLoginViewModel(PocetnaViewModel pvm)
         {
             NavigationService = new NavigationService();
             User = new Korisnik();
@@ -58,8 +62,8 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
             else
             {
                 VerifikacijaPoruka = "";
-                NotifyPropertyChanged("VerifikacijaPoruka");
-                NavigationService.Navigate(typeof(AdminPogledUposlenika));
+                NavigationService.Navigate(typeof(AdminPogledUposlenika), new AdminPogledUposlenikaViewModel());
+
             }
         }
 
@@ -69,8 +73,5 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
         {
             NavigationService.Navigate(typeof(Pocetna), new PocetnaViewModel(this));
         }
-
-
-
     }
 }
