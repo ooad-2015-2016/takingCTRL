@@ -89,5 +89,10 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
         {
             Application.Current.Exit();
         }
+
+        public PocetnaViewModel(AdminLoginViewModel pvm)
+        {
+            User = pvm.User;
+        }
     }
 }
