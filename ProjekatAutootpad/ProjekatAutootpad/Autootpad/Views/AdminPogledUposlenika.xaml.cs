@@ -26,11 +26,5 @@ namespace ProjekatAutootpad.Autootpad.Views
         {
             this.InitializeComponent();
         }
-
-        private void button_Click(object sender, RoutedEventArgs e)
-        {
-            grid1.Visibility = Visibility.Visible;
-
-        }
     }
 }
