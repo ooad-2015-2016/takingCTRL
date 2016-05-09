@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjekatAutootpad.Autootpad.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -25,6 +26,12 @@ namespace ProjekatAutootpad
         public DodavanjeDijelaRadnik()
         {
             this.InitializeComponent();
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            DodavanjeDijelaRadnikViewModel dodavanjeDijelaRadnik = e.Parameter as DodavanjeDijelaRadnikViewModel;
+            DataContext = dodavanjeDijelaRadnik;
         }
     }
 }
