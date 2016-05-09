@@ -30,6 +30,7 @@ namespace ProjekatAutootpad.Autootpad.Models
                 context.Kupci.AddRange(
                     new Kupac()
                     {
+                        KorisnikId = 1,
                         imePrezime = "Alma Hodžić",
                         username = "ahodzic",
                         password = "mojPassword",

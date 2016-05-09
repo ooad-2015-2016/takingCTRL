@@ -13,8 +13,8 @@ namespace ProjekatAutootpadMigrations
                 name: "Dio",
                 columns: table => new
                 {
-                    DioID = table.Column(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                    DioID = table.Column(type: "INTEGER", nullable: false),
+//                        .Annotation("Sqlite:Autoincrement", true),
                     Model = table.Column(type: "TEXT", nullable: true),
                     NabavnaCijena = table.Column(type: "TEXT", nullable: false),
                     ProdajnaCijena = table.Column(type: "TEXT", nullable: false),
@@ -28,10 +28,10 @@ namespace ProjekatAutootpadMigrations
                 name: "Kupac",
                 columns: table => new
                 {
-                    kupacId = table.Column(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    KorisnikId = table.Column(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                    kupacId = table.Column(type: "INTEGER", nullable: false),
+//                        .Annotation("Sqlite:Autoincrement", true),
+                    KorisnikId = table.Column(type: "INTEGER", nullable: false),
+//                        .Annotation("Sqlite:Autoincrement", true),
                     datumRodjenja = table.Column(type: "TEXT", nullable: false),
                     email = table.Column(type: "TEXT", nullable: true),
                     imePrezime = table.Column(type: "TEXT", nullable: true),
@@ -46,8 +46,8 @@ namespace ProjekatAutootpadMigrations
                 name: "NarudžbaDijela",
                 columns: table => new
                 {
-                    NarudžbaDijelaId = table.Column(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                    NarudžbaDijelaId = table.Column(type: "INTEGER", nullable: false),
+  //                      .Annotation("Sqlite:Autoincrement", true),
                     Model = table.Column(type: "TEXT", nullable: true),
                     NazivDijela = table.Column(type: "TEXT", nullable: true),
                     Prihvaćena = table.Column(type: "INTEGER", nullable: false),
@@ -61,10 +61,10 @@ namespace ProjekatAutootpadMigrations
                 name: "Radnik",
                 columns: table => new
                 {
-                    radnikId = table.Column(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    KorisnikId = table.Column(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                    radnikId = table.Column(type: "INTEGER", nullable: false),
+             //           .Annotation("Sqlite:Autoincrement", true),
+                    KorisnikId = table.Column(type: "INTEGER", nullable: false),
+             //           .Annotation("Sqlite:Autoincrement", true),
                     datumRodjenja = table.Column(type: "TEXT", nullable: false),
                     email = table.Column(type: "TEXT", nullable: true),
                     imePrezime = table.Column(type: "TEXT", nullable: true),
@@ -79,8 +79,8 @@ namespace ProjekatAutootpadMigrations
                 name: "NarudzbaServisa",
                 columns: table => new
                 {
-                    NarudzbaServisaId = table.Column(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                    NarudzbaServisaId = table.Column(type: "INTEGER", nullable: false),
+              //          .Annotation("Sqlite:Autoincrement", true),
                     dioZaServisiranjeDioID = table.Column(type: "INTEGER", nullable: true),
                     narucilackupacId = table.Column(type: "INTEGER", nullable: true),
                     opisKvara = table.Column(type: "TEXT", nullable: true),
@@ -104,8 +104,8 @@ namespace ProjekatAutootpadMigrations
                 name: "Servis",
                 columns: table => new
                 {
-                    servisId = table.Column(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                    servisId = table.Column(type: "INTEGER", nullable: false),
+           //             .Annotation("Sqlite:Autoincrement", true),
                     RadnikradnikId = table.Column(type: "INTEGER", nullable: true),
                     cijena = table.Column(type: "TEXT", nullable: false),
                     narudzbaNarudzbaServisaId = table.Column(type: "INTEGER", nullable: true),

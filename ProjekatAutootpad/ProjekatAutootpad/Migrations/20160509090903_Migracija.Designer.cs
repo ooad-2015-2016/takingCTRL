@@ -11,7 +11,7 @@ namespace ProjekatAutootpadMigrations
     {
         public override string Id
         {
-            get { return "20160505212630_Migracija"; }
+            get { return "20160509090903_Migracija"; }
         }
 
         public override string ProductVersion
