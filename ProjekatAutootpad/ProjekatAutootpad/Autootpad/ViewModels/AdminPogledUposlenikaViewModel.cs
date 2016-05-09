@@ -13,13 +13,13 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
 {
     class AdminPogledUposlenikaViewModel
     {
+        public Radnik User { get; set; }
         public INavigationService NavigationService { get; set; }
         public ICommand IzmjenaRadnika { get; set; }
         public ICommand DodavanjeRadnika { get; set; }
         public ICommand BrisanjeRadnika { get; set; }
 
-
-        List<Radnik> radnici
+        public List<Radnik> radnici
         {
             get
             {
@@ -53,5 +53,7 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
         {
 
         }
+
+
     }
 }

@@ -13,5 +13,7 @@ namespace ProjekatAutootpad.Autootpad.Models
         public int radnikId { get; set; }
 
         public List<Servis> rasporedServisa { get; set; }
+
+
     }
 }

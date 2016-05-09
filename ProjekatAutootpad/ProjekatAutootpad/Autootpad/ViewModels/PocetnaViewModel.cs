@@ -81,13 +81,18 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
 
         private void adminLogin(object parametar)
         {
-            NavigationService.Navigate(typeof(Views.AdminLogin), new KupovinaViewModel(this));
+            NavigationService.Navigate(typeof(Views.AdminLogin), new AdminLoginViewModel(this));
         }
 
 
         private void izlaz(object parametar)
         {
             Application.Current.Exit();
+        }
+
+        public PocetnaViewModel(AdminLoginViewModel pvm)
+        {
+            User = pvm.User;
         }
     }
 }
