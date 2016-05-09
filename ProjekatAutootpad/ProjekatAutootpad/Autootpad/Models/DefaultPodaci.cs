@@ -30,6 +30,7 @@ namespace ProjekatAutootpad.Autootpad.Models
                 context.Kupci.AddRange(
                     new Kupac()
                     {
+                        KorisnikId = 1,
                         imePrezime = "Alma Hodžić",
                         username = "ahodzic",
                         password = "mojPassword",
@@ -37,7 +38,10 @@ namespace ProjekatAutootpad.Autootpad.Models
                         email = "ahodzic3@etf.unsa.ba"
                     }
                 );
-                context.SaveChanges();
+
+                //context.SaveChanges();
+                   
+
             }
             if (!context.Dijelovi.Any())
             {
@@ -50,7 +54,16 @@ namespace ProjekatAutootpad.Autootpad.Models
                         Proizvodjac = "Nepoznat"
                     }
                 );
-                context.SaveChanges();
+
+                try
+                {
+                    context.SaveChanges();
+                }
+                catch (Exception dbEx)
+                {
+
+                    throw dbEx.InnerException;
+                }
             }
 
             if (!context.servisi.Any())
@@ -61,10 +74,9 @@ namespace ProjekatAutootpad.Autootpad.Models
                         cijena = 400,
                         odraden = true
                     }
-                    );
+                );
                 context.SaveChanges();
             }
-
         }
 
 
