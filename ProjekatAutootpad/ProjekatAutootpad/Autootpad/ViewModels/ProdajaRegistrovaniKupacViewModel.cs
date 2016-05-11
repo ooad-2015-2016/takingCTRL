@@ -26,6 +26,9 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
         public ICommand ponudi { get; set; }
         public ICommand otkazi { get; set; }
 
+        public Dio selectedDio { get; set; }
+
+
         void ponudiDio(object parametar)
         {
             ponudi = new RelayCommand<object>(dodavanje, mozeLiSeDodati);
@@ -33,7 +36,8 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
 
         void dodavanje(object parametar)
         {
-
+            var db = new OtpadDbContext();
+            db.ponudeniDijelovi.Add(selectedDio);
         }
 
         bool mozeLiSeDodati(object parametar)
