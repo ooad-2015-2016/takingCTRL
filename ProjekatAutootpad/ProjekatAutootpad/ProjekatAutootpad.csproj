@@ -114,6 +114,7 @@
     <Compile Include="Autootpad\ViewModels\AdminLoginViewModel.cs" />
     <Compile Include="Autootpad\ViewModels\AdminPogledUposlenikaViewModel.cs" />
     <Compile Include="Autootpad\ViewModels\DodavanjeDijelaRadnikViewModel.cs" />
+    <Compile Include="Autootpad\ViewModels\ProdajaRegistrovaniKupacViewModel.cs" />
     <Compile Include="Autootpad\ViewModels\KupovinaViewModel.cs" />
     <Compile Include="Autootpad\ViewModels\PocetnaViewModel.cs" />
     <Compile Include="Autootpad\ViewModels\ZahtjevZaServisRegistrovaniKupacViewModel.cs" />

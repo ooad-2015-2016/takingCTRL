@@ -24,8 +24,8 @@
         <ListView x:Name="listView_TraženiDijeloviProdaja" Grid.Column="1" HorizontalAlignment="Stretch"  Margin="10,10,10,10" Grid.Row="1" VerticalAlignment="Stretch" Grid.RowSpan="1" Grid.ColumnSpan="2" />
         <TextBlock x:Name="listView_CijenaProdaja" Grid.Column="1" HorizontalAlignment="Right" Margin="10,10,10,10" Grid.Row="2" TextWrapping="Wrap" Text="Cijena: " VerticalAlignment="Center"/>
         <TextBox x:Name="textBox_CijenaProdaja" Grid.Column="2" HorizontalAlignment="Left" Margin="10,10,10,10" Grid.Row="2" TextWrapping="Wrap" Text="" VerticalAlignment="Center" InputScope="CurrencyAmount"/>
-        <Button x:Name="button_OtkažiProdaja" Content="Otkaži" Grid.Column="1" HorizontalAlignment="Left" Margin="15,15,15,15" Grid.Row="3" VerticalAlignment="Top"/>
-        <Button x:Name="button_PonudiProdaja" Content="Ponudi" Grid.Column="2" HorizontalAlignment="Left" Margin="15,15,15,15" Grid.Row="3" VerticalAlignment="Top"/>
+        <Button x:Name="button_OtkažiProdaja" Content="Otkaži" Grid.Column="1" HorizontalAlignment="Left" Margin="15,15,15,15" Grid.Row="3" VerticalAlignment="Top" />
+        <Button x:Name="button_PonudiProdaja" Content="Ponudi" Grid.Column="2" HorizontalAlignment="Left" Margin="15,15,15,15" Grid.Row="3" VerticalAlignment="Top" Command="{Binding Path= ponudi}"/>
 
     </Grid>
 </Page>
