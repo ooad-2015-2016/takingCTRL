@@ -30,12 +30,12 @@ namespace ProjekatAutootpad.Autootpad.Models
                 context.Kupci.AddRange(
                     new Kupac()
                     {
-                        KorisnikId = 1,
+//                        KorisnikId = 1,
                         imePrezime = "Alma Hodžić",
-                        username = "ahodzic",
-                        password = "mojPassword",
+                        Username = "ahodzic",
+                        Password = "mojPassword",
                         // datumRodjenja = 1998,04,30, -> poslije ću
-                        email = "ahodzic3@etf.unsa.ba"
+                        Email = "ahodzic3@etf.unsa.ba"
                     }
                 );
 
@@ -83,12 +83,12 @@ namespace ProjekatAutootpad.Autootpad.Models
                 context.Radnici.AddRange(
                     new Radnik()
                     {
-                        KorisnikId = 2,
+//                        KorisnikId = 2,
                         imePrezime = "Mujo Mujic",
-                        username = "mmujic",
-                        password = "mujinpass",
-                        datumRodjenja = new DateTime(2000, 12, 2),
-                        email = "mujicmujo@gmail.com"
+                        Username = "mmujic",
+                        Password = "mujinpass",
+                        Email = "mujicmujo@gmail.com",
+                        DatumRodjenja = new DateTime(2000, 12, 2)
                     }
                 );               
             }

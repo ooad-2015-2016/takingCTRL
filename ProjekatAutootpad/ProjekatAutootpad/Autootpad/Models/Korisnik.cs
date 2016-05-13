@@ -9,14 +9,14 @@ namespace ProjekatAutootpad.Autootpad.Models
 {
     class Korisnik
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int KorisnikId { get; set; }
+//        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+//        public int KorisnikId { get; set; }
 
         public string imePrezime { get; set; }
-        public string username { get; set; }
-        public string password { get; set; }
-        public DateTime datumRodjenja { get; set; }
-        public string email { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
+        public DateTime DatumRodjenja { get; set; }
+        public string Email { get; set; }
 
         public Korisnik()
         {

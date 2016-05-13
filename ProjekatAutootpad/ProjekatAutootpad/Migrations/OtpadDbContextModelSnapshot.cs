@@ -35,18 +35,15 @@ namespace ProjekatAutootpadMigrations
                     b.Property<int>("kupacId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("KorisnikId")
-                        .ValueGeneratedOnAdd();
+                    b.Property<DateTime>("DatumRodjenja");
 
-                    b.Property<DateTime>("datumRodjenja");
+                    b.Property<string>("Email");
 
-                    b.Property<string>("email");
+                    b.Property<string>("Password");
+
+                    b.Property<string>("Username");
 
                     b.Property<string>("imePrezime");
-
-                    b.Property<string>("password");
-
-                    b.Property<string>("username");
 
                     b.Key("kupacId");
                 });
@@ -88,18 +85,15 @@ namespace ProjekatAutootpadMigrations
                     b.Property<int>("radnikId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("KorisnikId")
-                        .ValueGeneratedOnAdd();
+                    b.Property<DateTime>("DatumRodjenja");
 
-                    b.Property<DateTime>("datumRodjenja");
+                    b.Property<string>("Email");
 
-                    b.Property<string>("email");
+                    b.Property<string>("Password");
+
+                    b.Property<string>("Username");
 
                     b.Property<string>("imePrezime");
-
-                    b.Property<string>("password");
-
-                    b.Property<string>("username");
 
                     b.Key("radnikId");
                 });
