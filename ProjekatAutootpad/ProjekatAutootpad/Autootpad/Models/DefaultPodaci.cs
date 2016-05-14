@@ -38,9 +38,7 @@ namespace ProjekatAutootpad.Autootpad.Models
                         Email = "ahodzic3@etf.unsa.ba"
                     }
                 );
-
-                //context.SaveChanges();
-                   
+                context.SaveChanges();
 
             }
             if (!context.Dijelovi.Any())
@@ -48,10 +46,10 @@ namespace ProjekatAutootpad.Autootpad.Models
                 context.Dijelovi.AddRange(
                     new Dio()
                     {
-                        NabavnaCijena = 0,
-                        ProdajnaCijena = 0,
-                        Model = "Nepoznat",
-                        Proizvodjac = "Nepoznat"
+                        ProdajnaCijena = 150.0M,
+                        Model = "Golf 4",
+                        Proizvodjac = "Volkswagen",
+                        ImeDijela = "Akumulator"
                     }
                 );
 

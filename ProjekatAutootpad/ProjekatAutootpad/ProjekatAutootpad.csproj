@@ -143,9 +143,9 @@
     <Compile Include="Autootpad\Views\ProdajaRegistrovaniKupac.xaml.cs">
       <DependentUpon>ProdajaRegistrovaniKupac.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20160513213527_Migracija.cs" />
-    <Compile Include="Migrations\20160513213527_Migracija.designer.cs">
-      <DependentUpon>20160513213527_Migracija.cs</DependentUpon>
+    <Compile Include="Migrations\20160514113317_Migracija.cs" />
+    <Compile Include="Migrations\20160514113317_Migracija.designer.cs">
+      <DependentUpon>20160514113317_Migracija.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\OtpadDbContextModelSnapshot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

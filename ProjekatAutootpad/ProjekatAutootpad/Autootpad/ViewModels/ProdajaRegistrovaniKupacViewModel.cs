@@ -2,6 +2,7 @@
 using ProjekatAutootpad.Autootpad.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,9 +10,21 @@ using System.Windows.Input;
 
 namespace ProjekatAutootpad.Autootpad.ViewModels
 {
-    class ProdajaRegistrovaniKupacViewModel
+    class ProdajaRegistrovaniKupacViewModel : INotifyPropertyChanged
     {
-        public decimal cijena { get; set; }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void NotifyPropertyChanged(String info)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(info));
+            }
+        }
+
+        public decimal Cijena { get; set; }
+
         public List<Dio> trazeniDijelovi
         {
             get
@@ -25,8 +38,7 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
 
         public ICommand ponudi { get; set; }
         public ICommand otkazi { get; set; }
-
-        public Dio selectedDio { get; set; }
+        public NarudžbaDijela IzabranaNarudžba { get; set; }
 
 
         void ponudiDio(object parametar)
@@ -37,7 +49,11 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
         void dodavanje(object parametar)
         {
             var db = new OtpadDbContext();
-            db.ponudeniDijelovi.Add(selectedDio);
+            db.Dijelovi.Add(new Dio(IzabranaNarudžba, Cijena));
+            db.NarudzbeDijelova.Remove(IzabranaNarudžba);
+            NotifyPropertyChanged("SveNarudzbe");
+
+            
         }
 
         bool mozeLiSeDodati(object parametar)

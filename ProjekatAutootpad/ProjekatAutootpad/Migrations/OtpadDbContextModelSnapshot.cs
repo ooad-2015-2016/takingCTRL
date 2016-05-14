@@ -19,6 +19,8 @@ namespace ProjekatAutootpadMigrations
                     b.Property<int>("DioID")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<string>("ImeDijela");
+
                     b.Property<string>("Model");
 
                     b.Property<decimal>("NabavnaCijena");
