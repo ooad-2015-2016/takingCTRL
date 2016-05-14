@@ -14,7 +14,6 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
 {
     class AdminLoginViewModel : INotifyPropertyChanged
     {
-        public Korisnik User { get; set; }
 
         public string VerifikacijaPoruka { get; set; }
         public string UpisaniPass { get; set; }
@@ -41,7 +40,6 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
         public AdminLoginViewModel(PocetnaViewModel pvm)
         {
             NavigationService = new NavigationService();
-            User = new Korisnik();
             VerifikacijaPoruka = "";
             UpisaniPass = "";
             Password = "adminpass";

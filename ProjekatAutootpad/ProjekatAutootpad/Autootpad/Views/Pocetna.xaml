@@ -15,6 +15,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -29,8 +30,11 @@
         <Button  Content="Login" Grid.Column="3" Grid.ColumnSpan="1" HorizontalAlignment="Stretch" Width="Auto" Margin="36,32.8,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.418,1.025" Command="{Binding Path=LoginKupca}"/>
         <Button Content="Uđi kao gost" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Width="Auto" Margin="36,32.8,0,0" Grid.Row="3" VerticalAlignment="Top" RenderTransformOrigin="0.418,1.025" Command="{Binding UlazKaoGost}"/>
         <Button Content="Registracija" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Width="Auto" Margin="36,32.8,0,0" Grid.Row="4" VerticalAlignment="Top" RenderTransformOrigin="0.418,1.025"/>
-        <Button  Content="Administracija" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Width="Auto" Margin="36,32.8,0,0" Grid.Row="5" VerticalAlignment="Top" RenderTransformOrigin="0.418,1.025" Command="{Binding Path=AdminLogin}"/>
-        <Button  Content="Izlaz" Grid.Column="3" Grid.ColumnSpan="1" HorizontalAlignment="Stretch" Width="Auto" Margin="36,35,0,0" Grid.Row="5" VerticalAlignment="Top" RenderTransformOrigin="0.418,1.025" Command="{Binding Path=Izlaz}"/>
+        <Button Content="Login radnika" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Width="Auto" Margin="36,32.8,0,0" Grid.Row="5" VerticalAlignment="Top" RenderTransformOrigin="0.418,1.025" Command="{Binding LoginRadnikaNavigacija}"/>
+        <Button  Content="Administracija" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Width="Auto" Margin="36,32.8,0,0" Grid.Row="6" VerticalAlignment="Top" RenderTransformOrigin="0.418,1.025" Command="{Binding Path=AdminLogin}"/>
+        <Button  Content="Izlaz" Grid.Column="3" Grid.ColumnSpan="1" HorizontalAlignment="Stretch" Width="Auto" Margin="36,35,0,0" Grid.Row="6" VerticalAlignment="Top" RenderTransformOrigin="0.418,1.025" Command="{Binding Path=Izlaz}"/>
+        
+        
         <TextBlock Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,9.667,0,0" Grid.Row="2" TextWrapping="Wrap"  Text="{Binding VerifikacijaPoruka, UpdateSourceTrigger=PropertyChanged}" Foreground="#FFEE1212"/>
 
     </Grid>

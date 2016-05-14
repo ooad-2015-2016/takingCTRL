@@ -13,7 +13,8 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
 {
     class PocetnaViewModel : INotifyPropertyChanged
     {
-        public Korisnik User { get; set; }
+        public Kupac User { get; set; }
+        public Radnik UlogovaniRadnik { get; set; }
 
         public string VerifikacijaPoruka { get; set; }
         public string UpisaniUsername { get; set; }
@@ -25,6 +26,8 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
         public ICommand UlazKaoGost { get; set; }
         public ICommand RegistracijaKupca { get; set; }
         public ICommand Izlaz { get; set; }
+        public ICommand LoginRadnikaNavigacija { get; set; }
+        public ICommand LoginRadnika { get; set; }
 
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -41,16 +44,50 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
         public PocetnaViewModel()
         {
             NavigationService = new NavigationService();
-            User = new Korisnik();
+            User = new Kupac();
             VerifikacijaPoruka = "";
             UpisaniPass = "";
             UpisaniUsername = "";
 
             LoginKupca = new RelayCommand<object>(loginKupca);
+            LoginRadnika = new RelayCommand<object>(loginRadnika);
             AdminLogin = new RelayCommand<object>(adminLogin);
             UlazKaoGost = new RelayCommand<object>(ulazKaoGost);
             Izlaz = new RelayCommand<object>(izlaz);
+            LoginRadnikaNavigacija = new RelayCommand<object>(loginRadnikaNavigacija);
+        }
 
+        public PocetnaViewModel(AdminLoginViewModel pvm)
+        {
+            NavigationService = new NavigationService();
+            User = new Kupac();
+            VerifikacijaPoruka = "";
+            UpisaniPass = "";
+            UpisaniUsername = "";
+
+            LoginKupca = new RelayCommand<object>(loginKupca);
+            LoginRadnika = new RelayCommand<object>(loginRadnika);
+            AdminLogin = new RelayCommand<object>(adminLogin);
+            UlazKaoGost = new RelayCommand<object>(ulazKaoGost);
+            Izlaz = new RelayCommand<object>(izlaz);
+            LoginRadnikaNavigacija = new RelayCommand<object>(loginRadnikaNavigacija);
+
+        }
+
+        public PocetnaViewModel(PocetnaViewModel pvm)
+        {
+            NavigationService = new NavigationService();
+            User = new Kupac();
+            VerifikacijaPoruka = "";
+            UpisaniPass = "";
+            UpisaniUsername = "";
+
+            LoginKupca = new RelayCommand<object>(loginKupca);
+            LoginRadnika = new RelayCommand<object>(loginRadnika);
+            AdminLogin = new RelayCommand<object>(adminLogin);
+            UlazKaoGost = new RelayCommand<object>(ulazKaoGost);
+            Izlaz = new RelayCommand<object>(izlaz);
+            LoginRadnikaNavigacija = new RelayCommand<object>(loginRadnikaNavigacija);
         }
 
         private void loginKupca(object parametar)
@@ -74,6 +111,28 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
 
         }
 
+        private void loginRadnika(object parametar)
+        {
+            using (var db = new OtpadDbContext())
+            {
+                UlogovaniRadnik = db.Radnici.Where(x => x.Username == UpisaniUsername && x.Password == UpisaniPass).FirstOrDefault();
+
+                if (UlogovaniRadnik == null)
+                {
+                    VerifikacijaPoruka = "Kombinacija password/username je nepostojeća.";
+                    NotifyPropertyChanged("VerifikacijaPoruka");
+                }
+                else
+                {
+                    VerifikacijaPoruka = "";
+                    NotifyPropertyChanged("VerifikacijaPoruka");
+                    NavigationService.Navigate(typeof(KupovinaRegistrovaniKupac), new KupovinaViewModel(this));
+                }
+            }
+
+        }
+
+
         private void ulazKaoGost(object parametar)
         {
             NavigationService.Navigate(typeof(PocetnaGost), new KupovinaViewModel(this));
@@ -84,15 +143,16 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
             NavigationService.Navigate(typeof(Views.AdminLogin), new AdminLoginViewModel(this));
         }
 
+        private void loginRadnikaNavigacija(object parametar)
+        {
+            NavigationService.Navigate(typeof(Views.RadnikLogin), new PocetnaViewModel(this));
+        }
+
 
         private void izlaz(object parametar)
         {
             Application.Current.Exit();
         }
 
-        public PocetnaViewModel(AdminLoginViewModel pvm)
-        {
-            User = pvm.User;
-        }
     }
 }

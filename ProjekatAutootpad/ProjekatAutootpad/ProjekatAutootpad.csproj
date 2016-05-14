@@ -136,6 +136,9 @@
     <Compile Include="Autootpad\Views\Pocetna.xaml.cs">
       <DependentUpon>Pocetna.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Autootpad\Views\RadnikLogin.xaml.cs">
+      <DependentUpon>RadnikLogin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="db\servisi.cs" />
     <Compile Include="Autootpad\Views\PocetnaGost.xaml.cs">
       <DependentUpon>PocetnaGost.xaml</DependentUpon>
@@ -209,6 +212,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Autootpad\Views\ProdajaRegistrovaniKupac.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Autootpad\Views\RadnikLogin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
