@@ -139,6 +139,9 @@
     <Compile Include="Autootpad\Views\RadnikLogin.xaml.cs">
       <DependentUpon>RadnikLogin.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Autootpad\Views\UlogovaniKupacMenu.xaml.cs">
+      <DependentUpon>UlogovaniKupacMenu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="db\servisi.cs" />
     <Compile Include="Autootpad\Views\PocetnaGost.xaml.cs">
       <DependentUpon>PocetnaGost.xaml</DependentUpon>
@@ -224,6 +227,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Autootpad\Views\ServisiRadnik.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Autootpad\Views\UlogovaniKupacMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -8,6 +8,7 @@ using System.ComponentModel;
 using ProjekatAutootpad.Autootpad.Helper;
 using System.Windows.Input;
 using Windows.UI.Xaml;
+using ProjekatAutootpad.Autootpad.Views;
 
 namespace ProjekatAutootpad.Autootpad.ViewModels
 {
@@ -28,6 +29,8 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
         public ICommand Izlaz { get; set; }
         public ICommand LoginRadnikaNavigacija { get; set; }
         public ICommand LoginRadnika { get; set; }
+        public ICommand Kupovina { get; set; }
+        public ICommand Prodaja { get; set; }
 
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -55,12 +58,15 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
             UlazKaoGost = new RelayCommand<object>(ulazKaoGost);
             Izlaz = new RelayCommand<object>(izlaz);
             LoginRadnikaNavigacija = new RelayCommand<object>(loginRadnikaNavigacija);
+            Kupovina = new RelayCommand<object>(kupovina);
+            Prodaja = new RelayCommand<object>(prodaja);
+
         }
 
-        public PocetnaViewModel(AdminLoginViewModel pvm)
+    public PocetnaViewModel(AdminLoginViewModel pvm)
         {
             NavigationService = new NavigationService();
-            User = new Kupac();
+
             VerifikacijaPoruka = "";
             UpisaniPass = "";
             UpisaniUsername = "";
@@ -71,13 +77,15 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
             UlazKaoGost = new RelayCommand<object>(ulazKaoGost);
             Izlaz = new RelayCommand<object>(izlaz);
             LoginRadnikaNavigacija = new RelayCommand<object>(loginRadnikaNavigacija);
+            Kupovina = new RelayCommand<object>(kupovina);
+            Prodaja = new RelayCommand<object>(prodaja);
 
         }
 
         public PocetnaViewModel(PocetnaViewModel pvm)
         {
             NavigationService = new NavigationService();
-            User = new Kupac();
+            User = pvm.User;
             VerifikacijaPoruka = "";
             UpisaniPass = "";
             UpisaniUsername = "";
@@ -88,6 +96,9 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
             UlazKaoGost = new RelayCommand<object>(ulazKaoGost);
             Izlaz = new RelayCommand<object>(izlaz);
             LoginRadnikaNavigacija = new RelayCommand<object>(loginRadnikaNavigacija);
+            Kupovina = new RelayCommand<object>(kupovina);
+            Prodaja = new RelayCommand<object>(prodaja);
+
         }
 
         private void loginKupca(object parametar)
@@ -105,7 +116,7 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
                 {
                     VerifikacijaPoruka = "";
                     NotifyPropertyChanged("VerifikacijaPoruka");
-                    NavigationService.Navigate(typeof(KupovinaRegistrovaniKupac), new KupovinaViewModel(this));
+                    NavigationService.Navigate(typeof(UlogovaniKupacMenu), new PocetnaViewModel(this));
                 }
             }
 
@@ -141,6 +152,16 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
         private void adminLogin(object parametar)
         {
             NavigationService.Navigate(typeof(Views.AdminLogin), new AdminLoginViewModel(this));
+        }
+
+        private void kupovina(object parametar)
+        {
+            NavigationService.Navigate(typeof(KupovinaRegistrovaniKupac), new KupovinaViewModel(this));
+        }
+
+        private void prodaja(object parametar)
+        {
+            NavigationService.Navigate(typeof(ProdajaRegistrovaniKupac), new ProdajaRegistrovaniKupacViewModel(this));
         }
 
         private void loginRadnikaNavigacija(object parametar)

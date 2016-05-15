@@ -24,37 +24,38 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
         }
 
         public decimal Cijena { get; set; }
-
-        public List<Dio> trazeniDijelovi
+        public Kupac User { get; set; }
+        public List<NarudžbaDijela> SveNarudzbe
         {
             get
             {
                 using (var db = new OtpadDbContext())
                 {
-                    return db.trazeniDijelovi.ToList();
+                    return db.NarudzbeDijelova.ToList();
                 }
             }
         }
 
-        public ICommand ponudi { get; set; }
+        public ICommand Ponudi { get; set; }
         public ICommand otkazi { get; set; }
         public NarudžbaDijela IzabranaNarudžba { get; set; }
 
-
-        void ponudiDio(object parametar)
+        public ProdajaRegistrovaniKupacViewModel(PocetnaViewModel pvm)
         {
-            ponudi = new RelayCommand<object>(dodavanje, mozeLiSeDodati);
+            User = pvm.User;
+            Ponudi = new RelayCommand<object>(ponudi, mozeLiSeDodati);
         }
 
-        void dodavanje(object parametar)
+        void ponudi(object parametar)
         {
             var db = new OtpadDbContext();
             db.Dijelovi.Add(new Dio(IzabranaNarudžba, Cijena));
             db.NarudzbeDijelova.Remove(IzabranaNarudžba);
+            db.SaveChanges();
+            IzabranaNarudžba = null;
             NotifyPropertyChanged("SveNarudzbe");
-
-            
         }
+
 
         bool mozeLiSeDodati(object parametar)
         {
