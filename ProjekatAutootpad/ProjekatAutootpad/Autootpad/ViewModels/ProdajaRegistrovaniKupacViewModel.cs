@@ -31,7 +31,7 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
             {
                 using (var db = new OtpadDbContext())
                 {
-                    return db.NarudzbeDijelova.Where(x=>x.Prihvaćena).ToList();
+                    return db.NarudzbeDijelova.ToList();
                 }
             }
         }

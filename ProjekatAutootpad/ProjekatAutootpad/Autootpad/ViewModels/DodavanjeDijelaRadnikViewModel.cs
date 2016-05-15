@@ -51,7 +51,7 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
         }
 
 
-        public void DodajPonudeniDio()
+        public void dodaj(object p)
         {
             using (var db = new OtpadDbContext())
             {
@@ -63,7 +63,7 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
             }
 
         }
-        public void OdbijPonudeniDio()
+        public void odbij(object p)
         {
             using (var db = new OtpadDbContext())
             {
@@ -77,20 +77,8 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
             }
 
         }
-
-
-        public void dodaj(object parametar)
-        {
-            var db = new OtpadDbContext();
-            // db.Dijelovi.Add(); // Dodavanje u listu Dijelovi koja sluzi za Dijelove koji su u prodaji
-            // Samo da ne javlja error zbog migracija, dodam dok skontam kako da povežem listu
-        }
-
-        public void odbij(object parametar)
-        {
-
-        }
-
+        
+        
         public bool mozeLiSeDodati(object parametar) // Za sada ovu funkciju koristimo i za odbijanje ponuđenog dijela
         {
             return true;

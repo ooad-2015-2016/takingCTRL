@@ -114,6 +114,10 @@
     <Compile Include="Autootpad\ViewModels\AdminLoginViewModel.cs" />
     <Compile Include="Autootpad\ViewModels\AdminPogledUposlenikaViewModel.cs" />
     <Compile Include="Autootpad\ViewModels\DodavanjeDijelaRadnikViewModel.cs" />
+    <Compile Include="Autootpad\ViewModels\NaručivanjeDijelaViewModel.cs" />
+    <Compile Include="Autootpad\Views\NaručivanjeDijela.xaml.cs">
+      <DependentUpon>NaručivanjeDijela.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Autootpad\ViewModels\ProdajaRegistrovaniKupacViewModel.cs" />
     <Compile Include="Autootpad\ViewModels\KupovinaViewModel.cs" />
     <Compile Include="Autootpad\ViewModels\PocetnaViewModel.cs" />
@@ -142,7 +146,6 @@
     <Compile Include="Autootpad\Views\UlogovaniKupacMenu.xaml.cs">
       <DependentUpon>UlogovaniKupacMenu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Autootpad\ViewModels\db\servisi.cs" />
     <Compile Include="Autootpad\Views\PocetnaGost.xaml.cs">
       <DependentUpon>PocetnaGost.xaml</DependentUpon>
     </Compile>
@@ -186,6 +189,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Autootpad\Views\NaručivanjeDijela.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Autootpad\Views\AdminLogin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

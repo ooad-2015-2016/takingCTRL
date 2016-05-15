@@ -22,6 +22,15 @@ namespace ProjekatAutootpad.Autootpad.Models
 
         }
 
+        public NarudžbaDijela(string proizvođač, string model, string naziv)
+        {
+            Proizvođač = proizvođač;
+            Model = model;
+            NazivDijela = naziv;
+            Prihvaćena = false;
+
+        }
+
         public NarudžbaDijela(Dio d)
         {
             Proizvođač = d.Proizvodjac;

@@ -16,25 +16,27 @@ using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace ProjekatAutootpad
+namespace ProjekatAutootpad.Autootpad.Views
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class DodavanjeDijelaRadnik : Page
+    public sealed partial class NaručivanjeDijela : Page
     {
-        public DodavanjeDijelaRadnik()
+        public NaručivanjeDijela()
         {
             this.InitializeComponent();
+            NavigationCacheMode = NavigationCacheMode.Required;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            /*DodavanjeDijelaRadnikViewModel dodavanjeDijelaRadnik = e.Parameter as DodavanjeDijelaRadnikViewModel;
-            DataContext = dodavanjeDijelaRadnik;*/
+            //Treba li ovo?
+            //var currentView = SystemNavigationManager.GetForCurrentView();
+            //currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
 
-            DodavanjeDijelaRadnikViewModel dodavanjeDijelaRadnik = e.Parameter as DodavanjeDijelaRadnikViewModel;
-            DataContext = dodavanjeDijelaRadnik;
+            NaručivanjeDijelaViewModel naručivanjeDijelaViewModel = e.Parameter as NaručivanjeDijelaViewModel;
+            DataContext = naručivanjeDijelaViewModel;
         }
     }
 }
