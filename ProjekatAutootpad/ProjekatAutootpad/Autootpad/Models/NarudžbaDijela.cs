@@ -16,5 +16,20 @@ namespace ProjekatAutootpad.Autootpad.Models
         public string Model { get; set; }
         public string NazivDijela { get; set; }
         public bool Prihvaćena { get; set; }
+
+        public NarudžbaDijela()
+        {
+
+        }
+
+        public NarudžbaDijela(Dio d)
+        {
+            Proizvođač = d.Proizvodjac;
+            Model = d.Model;
+            NazivDijela = d.ImeDijela;
+            Prihvaćena = false;
+        }
     }
+
+    
 }

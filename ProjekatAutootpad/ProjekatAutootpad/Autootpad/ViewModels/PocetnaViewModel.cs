@@ -31,6 +31,7 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
         public ICommand LoginRadnika { get; set; }
         public ICommand Kupovina { get; set; }
         public ICommand Prodaja { get; set; }
+        public ICommand DijeloviRadnik { get; set; }
 
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -48,6 +49,7 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
         {
             NavigationService = new NavigationService();
             User = new Kupac();
+            UlogovaniRadnik = new Radnik();
             VerifikacijaPoruka = "";
             UpisaniPass = "";
             UpisaniUsername = "";
@@ -60,8 +62,10 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
             LoginRadnikaNavigacija = new RelayCommand<object>(loginRadnikaNavigacija);
             Kupovina = new RelayCommand<object>(kupovina);
             Prodaja = new RelayCommand<object>(prodaja);
+            DijeloviRadnik = new RelayCommand<object>(dijeloviRadnik);
+    }
+    
 
-        }
 
     public PocetnaViewModel(AdminLoginViewModel pvm)
         {
@@ -86,6 +90,7 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
         {
             NavigationService = new NavigationService();
             User = pvm.User;
+            UlogovaniRadnik = pvm.UlogovaniRadnik;
             VerifikacijaPoruka = "";
             UpisaniPass = "";
             UpisaniUsername = "";
@@ -98,8 +103,11 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
             LoginRadnikaNavigacija = new RelayCommand<object>(loginRadnikaNavigacija);
             Kupovina = new RelayCommand<object>(kupovina);
             Prodaja = new RelayCommand<object>(prodaja);
+            DijeloviRadnik = new RelayCommand<object>(dijeloviRadnik);
 
         }
+
+
 
         private void loginKupca(object parametar)
         {
@@ -137,7 +145,7 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
                 {
                     VerifikacijaPoruka = "";
                     NotifyPropertyChanged("VerifikacijaPoruka");
-                    NavigationService.Navigate(typeof(KupovinaRegistrovaniKupac), new KupovinaViewModel(this));
+                    NavigationService.Navigate(typeof(RadnikMeni), new PocetnaViewModel(this));
                 }
             }
 
@@ -167,6 +175,11 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
         private void loginRadnikaNavigacija(object parametar)
         {
             NavigationService.Navigate(typeof(Views.RadnikLogin), new PocetnaViewModel(this));
+        }
+
+        private void dijeloviRadnik(object parametar)
+        {
+            NavigationService.Navigate(typeof(DodavanjeDijelaRadnik), new KupovinaViewModel(this));
         }
 
 

@@ -19,7 +19,8 @@ namespace ProjekatAutootpadMigrations
                     Model = table.Column(type: "TEXT", nullable: true),
                     NabavnaCijena = table.Column(type: "TEXT", nullable: false),
                     ProdajnaCijena = table.Column(type: "TEXT", nullable: false),
-                    Proizvodjac = table.Column(type: "TEXT", nullable: true)
+                    Proizvodjac = table.Column(type: "TEXT", nullable: true),
+                    UProdaji = table.Column(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {

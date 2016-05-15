@@ -16,6 +16,7 @@ namespace ProjekatAutootpad.Autootpad.Models
         public string Model { get; set; }
         public string Proizvodjac { get; set; }
         public string ImeDijela { get; set; }
+        public bool UProdaji { get; set; }
 
         [NotMapped]
         public decimal NabavnaCijena { get { return 1.1M * ProdajnaCijena; } private set { } }
@@ -31,6 +32,7 @@ namespace ProjekatAutootpad.Autootpad.Models
             Proizvodjac = nd.Proizvođač;
             ImeDijela = nd.NazivDijela;
             ProdajnaCijena = cijena;
+            UProdaji = false;
         }
     }
 }

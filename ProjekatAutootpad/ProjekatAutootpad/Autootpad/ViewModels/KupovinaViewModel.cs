@@ -34,9 +34,9 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
                 using (var db = new OtpadDbContext())
                 {
                     if (Izabrana == "Svi")
-                        return db.Dijelovi.ToList().Where(x => x.Model.StartsWith(Trazeni)).ToList();
+                        return db.Dijelovi.Where(x => x.Model.StartsWith(Trazeni) && x.UProdaji).ToList();
                     else
-                        return db.Dijelovi.ToList().Where(x => x.Model.StartsWith(Trazeni)).Where(x=>x.Proizvodjac==Izabrana).ToList();
+                        return db.Dijelovi.Where(x=>x.UProdaji).Where(x => x.Model.StartsWith(Trazeni)).Where(x=>x.Proizvodjac==Izabrana).ToList();
 
                 }
             }
@@ -51,7 +51,9 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
                 foreach(Dio d in SviDijelovi)
                     _proizvodjaci.Add(d.Proizvodjac);
 
-                return _proizvodjaci;
+                _proizvodjaci.Add("test");
+
+                return _proizvodjaci.Distinct().ToList();
             }
              set
             {

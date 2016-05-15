@@ -29,6 +29,8 @@ namespace ProjekatAutootpadMigrations
 
                     b.Property<string>("Proizvodjac");
 
+                    b.Property<bool>("UProdaji");
+
                     b.Key("DioID");
                 });
 

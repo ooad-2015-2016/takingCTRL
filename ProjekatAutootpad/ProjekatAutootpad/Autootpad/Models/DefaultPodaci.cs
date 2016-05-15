@@ -49,7 +49,8 @@ namespace ProjekatAutootpad.Autootpad.Models
                         ProdajnaCijena = 150.0M,
                         Model = "Golf 4",
                         Proizvodjac = "Volkswagen",
-                        ImeDijela = "Akumulator"
+                        ImeDijela = "Akumulator",
+                        UProdaji = true
                     }
                 );
 

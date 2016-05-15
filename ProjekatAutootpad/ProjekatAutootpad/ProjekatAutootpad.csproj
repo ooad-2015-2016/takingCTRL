@@ -142,16 +142,16 @@
     <Compile Include="Autootpad\Views\UlogovaniKupacMenu.xaml.cs">
       <DependentUpon>UlogovaniKupacMenu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="db\servisi.cs" />
+    <Compile Include="Autootpad\ViewModels\db\servisi.cs" />
     <Compile Include="Autootpad\Views\PocetnaGost.xaml.cs">
       <DependentUpon>PocetnaGost.xaml</DependentUpon>
     </Compile>
     <Compile Include="Autootpad\Views\ProdajaRegistrovaniKupac.xaml.cs">
       <DependentUpon>ProdajaRegistrovaniKupac.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20160514113317_Migracija.cs" />
-    <Compile Include="Migrations\20160514113317_Migracija.designer.cs">
-      <DependentUpon>20160514113317_Migracija.cs</DependentUpon>
+    <Compile Include="Migrations\20160515005840_Migracija.cs" />
+    <Compile Include="Migrations\20160515005840_Migracija.designer.cs">
+      <DependentUpon>20160515005840_Migracija.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\OtpadDbContextModelSnapshot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

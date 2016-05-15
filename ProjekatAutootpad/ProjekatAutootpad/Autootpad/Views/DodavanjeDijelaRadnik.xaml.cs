@@ -30,7 +30,10 @@ namespace ProjekatAutootpad
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            DodavanjeDijelaRadnikViewModel dodavanjeDijelaRadnik = e.Parameter as DodavanjeDijelaRadnikViewModel;
+            /*DodavanjeDijelaRadnikViewModel dodavanjeDijelaRadnik = e.Parameter as DodavanjeDijelaRadnikViewModel;
+            DataContext = dodavanjeDijelaRadnik;*/
+
+            KupovinaViewModel dodavanjeDijelaRadnik = e.Parameter as KupovinaViewModel;
             DataContext = dodavanjeDijelaRadnik;
         }
     }
