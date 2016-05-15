@@ -22,5 +22,13 @@ namespace ProjekatAutootpad.Autootpad.Models
         {
 
         }
+	public Korisnik(string imPr, string user, string pass, DateTime dRodj, string email)
+        {
+            imePrezime = imPr;
+            Username = user;
+            Password = pass;
+            DatumRodjenja = dRodj;
+            Email = email;
+        }
     }
 }

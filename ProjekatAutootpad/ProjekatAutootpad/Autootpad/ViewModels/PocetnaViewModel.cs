@@ -64,7 +64,8 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
             Kupovina = new RelayCommand<object>(kupovina);
             Prodaja = new RelayCommand<object>(prodaja);
             DijeloviRadnik = new RelayCommand<object>(dijeloviRadnik);
-    }
+            RegistracijaKupca = new RelayCommand<object>(kupacRegistracija);
+        }
     
 
 
@@ -84,7 +85,7 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
             LoginRadnikaNavigacija = new RelayCommand<object>(loginRadnikaNavigacija);
             Kupovina = new RelayCommand<object>(kupovina);
             Prodaja = new RelayCommand<object>(prodaja);
-
+            RegistracijaKupca = new RelayCommand<object>(kupacRegistracija);
         }
 
         public PocetnaViewModel(PocetnaViewModel pvm)
@@ -106,10 +107,28 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
             Prodaja = new RelayCommand<object>(prodaja);
             DijeloviRadnik = new RelayCommand<object>(dijeloviRadnik);
             Narudžba = new RelayCommand<object>(narudžba);
-
+            RegistracijaKupca = new RelayCommand<object>(kupacRegistracija);
         }
 
+        public PocetnaViewModel(RegistracijaKupacViewModel pvm)
+        {
+            NavigationService = new NavigationService();
 
+            VerifikacijaPoruka = "";
+            UpisaniPass = "";
+            UpisaniUsername = "";
+
+            LoginKupca = new RelayCommand<object>(loginKupca);
+            LoginRadnika = new RelayCommand<object>(loginRadnika);
+            AdminLogin = new RelayCommand<object>(adminLogin);
+            UlazKaoGost = new RelayCommand<object>(ulazKaoGost);
+            Izlaz = new RelayCommand<object>(izlaz);
+            LoginRadnikaNavigacija = new RelayCommand<object>(loginRadnikaNavigacija);
+            Kupovina = new RelayCommand<object>(kupovina);
+            Prodaja = new RelayCommand<object>(prodaja);
+            RegistracijaKupca = new RelayCommand<object>(kupacRegistracija);
+
+        }
 
         private void loginKupca(object parametar)
         {
@@ -189,6 +208,10 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
             NavigationService.Navigate(typeof(NaručivanjeDijela), new NaručivanjeDijelaViewModel(this));
         }
 
+        private void kupacRegistracija(object parametar)
+        {
+            NavigationService.Navigate(typeof(KupacRegistracija), new RegistracijaKupacViewModel(this));
+        }
         private void izlaz(object parametar)
         {
             Application.Current.Exit();

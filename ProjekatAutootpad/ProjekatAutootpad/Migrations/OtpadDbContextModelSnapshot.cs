@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Microsoft.Data.Entity;
 using Microsoft.Data.Entity.Metadata;
 using Microsoft.Data.Entity.Migrations.Infrastructure;
@@ -48,6 +48,8 @@ namespace ProjekatAutootpadMigrations
                     b.Property<string>("Username");
 
                     b.Property<string>("imePrezime");
+
+		    b.Property<bool>("jeliPenzioner");
 
                     b.Key("kupacId");
                 });

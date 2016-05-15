@@ -115,6 +115,7 @@
     <Compile Include="Autootpad\ViewModels\AdminPogledUposlenikaViewModel.cs" />
     <Compile Include="Autootpad\ViewModels\DodavanjeDijelaRadnikViewModel.cs" />
     <Compile Include="Autootpad\ViewModels\NaručivanjeDijelaViewModel.cs" />
+    <Compile Include="Autootpad\ViewModels\RegistracijaKupacViewModel.cs" />
     <Compile Include="Autootpad\Views\NaručivanjeDijela.xaml.cs">
       <DependentUpon>NaručivanjeDijela.xaml</DependentUpon>
     </Compile>

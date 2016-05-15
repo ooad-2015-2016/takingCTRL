@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Microsoft.Data.Entity.Migrations;
 using Microsoft.Data.Entity.Migrations.Builders;
 using Microsoft.Data.Entity.Migrations.Operations;
@@ -36,7 +36,8 @@ namespace ProjekatAutootpadMigrations
                     Email = table.Column(type: "TEXT", nullable: true),
                     Password = table.Column(type: "TEXT", nullable: true),
                     Username = table.Column(type: "TEXT", nullable: true),
-                    imePrezime = table.Column(type: "TEXT", nullable: true)
+                    imePrezime = table.Column(type: "TEXT", nullable: true),
+                    jeliPenzioner = table.Column(type: "BOOL", nullable: false)
                 },
                 constraints: table =>
                 {

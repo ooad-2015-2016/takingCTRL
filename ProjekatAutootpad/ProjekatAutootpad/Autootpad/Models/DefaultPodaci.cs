@@ -35,7 +35,8 @@ namespace ProjekatAutootpad.Autootpad.Models
                         Username = "ahodzic",
                         Password = "mojPassword",
                         // datumRodjenja = 1998,04,30, -> poslije ću
-                        Email = "ahodzic3@etf.unsa.ba"
+                        Email = "ahodzic3@etf.unsa.ba",
+			jeliPenzioner = false
                     }
                 );
                 context.SaveChanges();
