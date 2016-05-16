@@ -101,12 +101,12 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
             }
 
             else
+            {
                 db.Radnici.Add(EditovaniRadnik);
-
-
+            }
 
             db.SaveChanges();
-            
+            NotifyPropertyChanged("radnici");
 
         }
 

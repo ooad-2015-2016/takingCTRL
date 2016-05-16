@@ -23,7 +23,7 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
             }
         }
 
-        public decimal Cijena { get; set; }
+        public String Cijena { get; set; }
         public Kupac User { get; set; }
         public List<NarudžbaDijela> SveNarudzbe
         {
@@ -49,7 +49,7 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
         void ponudi(object parametar)
         {
             var db = new OtpadDbContext();
-            db.Dijelovi.Add(new Dio(IzabranaNarudžba, Cijena));
+            db.Dijelovi.Add(new Dio(IzabranaNarudžba, decimal.Parse(Cijena)));
             db.NarudzbeDijelova.Remove(IzabranaNarudžba);
             db.SaveChanges();
             IzabranaNarudžba = null;
