@@ -32,6 +32,5 @@
         <TextBlock x:Name="textBlock_ServisCijenaRadnik" HorizontalAlignment="Right" Margin="10,10,10,10" TextWrapping="Wrap" Text="Cijena: " Grid.Row="6" VerticalAlignment="Bottom"/>
         <TextBox x:Name="textBox_ServisCijenaRadnik" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,10,10" Grid.Row="5" Grid.RowSpan="2" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" InputScope="CurrencyAmount"/>
         <Button x:Name="button_ServisiranoRadnik" Content="Servisirano" HorizontalAlignment="Right" Margin="0,10.333,10,0" Grid.Row="6" VerticalAlignment="Top" Grid.Column="2"/>
-        <Button x:Name="button_IzlazServisRadnik" Content="Izlaz" Grid.Column="2" HorizontalAlignment="Right" Margin="10,10,10,10" Grid.Row="7" VerticalAlignment="Bottom"/>
     </Grid>
 </Page>

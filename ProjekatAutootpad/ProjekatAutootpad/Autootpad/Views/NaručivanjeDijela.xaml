@@ -31,6 +31,5 @@
         <TextBlock Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Validacija, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center"/>
         <TextBox Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="15,0,15,0" Text="{Binding ImeDijela, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         <Button Grid.Row="5" Grid.Column="1" Content="Naruči" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding Naruči, UpdateSourceTrigger=PropertyChanged}"/>
-        <Button Grid.Row="5" Grid.Column="0" Content="Otkaži" HorizontalAlignment="Center" VerticalAlignment="Center"/>
     </Grid>
 </Page>

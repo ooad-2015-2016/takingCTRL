@@ -41,7 +41,6 @@
             <RowDefinition Height="48*"/>
             <RowDefinition Height="60*"/>
         </Grid.RowDefinitions>
-        <Button Content="Izlaz" Grid.Column="2" Margin="0,0,10,10" Grid.Row="5" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
         <ComboBox  HorizontalAlignment="Left" Margin="28,70,0,0" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2" ItemsSource="{Binding Proizvodjaci}" SelectedValue="{Binding Izabrana, Mode=TwoWay}" />
         <TextBlock HorizontalAlignment="Left" Margin="28,10,0,0" TextWrapping="Wrap" Text="Proizvođač:" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
         <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Model:" VerticalAlignment="Top"/>

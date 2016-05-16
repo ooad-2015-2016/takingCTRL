@@ -20,6 +20,7 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
         public string uPassword { get; set; }
         public string uPassword2 { get; set; }
         public DateTime uDatumrodjenja { get; set; }
+        public DateTimeOffset uDatumrodjenjaTO { get; set; }
         public bool uPenzioner { get; set; }
         public string uEmail { get; set; }
 
@@ -77,6 +78,7 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
                         }
                         else
                         {
+                            uDatumrodjenja = uDatumrodjenjaTO.DateTime;
                             Kupac novi = new Kupac(uImeiprezime, uUsername, uPassword, uDatumrodjenja, uEmail, uPenzioner);
                             db.Kupci.Add(novi);
                             db.SaveChanges();
@@ -91,6 +93,7 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
         {
             NavigationService.Navigate(typeof(Pocetna), new PocetnaViewModel(this));
         }
+       
     }
 }
 

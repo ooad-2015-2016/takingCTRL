@@ -11,7 +11,7 @@ namespace ProjekatAutootpad.Autootpad.Models
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int kupacId { get; set; }
-	public bool jeliPenzioner { get; set; }
+	    public bool jeliPenzioner { get; set; }
 
         public List<string> obavijesti { get; set; }
 

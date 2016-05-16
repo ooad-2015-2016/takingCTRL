@@ -7,11 +7,11 @@ using ProjekatAutootpad.Autootpad.Models;
 namespace ProjekatAutootpadMigrations
 {
     [ContextType(typeof(OtpadDbContext))]
-    partial class Migracija
+    partial class migracija
     {
         public override string Id
         {
-            get { return "20160515005840_Migracija"; }
+            get { return "20160516181617_migracija"; }
         }
 
         public override string ProductVersion
@@ -58,6 +58,8 @@ namespace ProjekatAutootpadMigrations
                     b.Property<string>("Username");
 
                     b.Property<string>("imePrezime");
+
+                    b.Property<bool>("jeliPenzioner");
 
                     b.Key("kupacId");
                 });

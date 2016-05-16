@@ -1,11 +1,11 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using Microsoft.Data.Entity.Migrations;
 using Microsoft.Data.Entity.Migrations.Builders;
 using Microsoft.Data.Entity.Migrations.Operations;
 
 namespace ProjekatAutootpadMigrations
 {
-    public partial class Migracija : Migration
+    public partial class migracija : Migration
     {
         public override void Up(MigrationBuilder migration)
         {
@@ -14,7 +14,7 @@ namespace ProjekatAutootpadMigrations
                 columns: table => new
                 {
                     DioID = table.Column(type: "INTEGER", nullable: false),
-//                        .Annotation("Sqlite:Autoincrement", true),
+                        //.Annotation("Sqlite:Autoincrement", true),
                     ImeDijela = table.Column(type: "TEXT", nullable: true),
                     Model = table.Column(type: "TEXT", nullable: true),
                     NabavnaCijena = table.Column(type: "TEXT", nullable: false),
@@ -31,13 +31,13 @@ namespace ProjekatAutootpadMigrations
                 columns: table => new
                 {
                     kupacId = table.Column(type: "INTEGER", nullable: false),
-//                        .Annotation("Sqlite:Autoincrement", true),
+                        //.Annotation("Sqlite:Autoincrement", true),
                     DatumRodjenja = table.Column(type: "TEXT", nullable: false),
                     Email = table.Column(type: "TEXT", nullable: true),
                     Password = table.Column(type: "TEXT", nullable: true),
                     Username = table.Column(type: "TEXT", nullable: true),
                     imePrezime = table.Column(type: "TEXT", nullable: true),
-                    jeliPenzioner = table.Column(type: "BOOL", nullable: false)
+                    jeliPenzioner = table.Column(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -48,7 +48,7 @@ namespace ProjekatAutootpadMigrations
                 columns: table => new
                 {
                     NarudžbaDijelaId = table.Column(type: "INTEGER", nullable: false),
-//                        .Annotation("Sqlite:Autoincrement", true),
+                        //.Annotation("Sqlite:Autoincrement", true),
                     Model = table.Column(type: "TEXT", nullable: true),
                     NazivDijela = table.Column(type: "TEXT", nullable: true),
                     Prihvaćena = table.Column(type: "INTEGER", nullable: false),
@@ -63,7 +63,7 @@ namespace ProjekatAutootpadMigrations
                 columns: table => new
                 {
                     radnikId = table.Column(type: "INTEGER", nullable: false),
-//                        .Annotation("Sqlite:Autoincrement", true),
+                        //.Annotation("Sqlite:Autoincrement", true),
                     DatumRodjenja = table.Column(type: "TEXT", nullable: false),
                     Email = table.Column(type: "TEXT", nullable: true),
                     Password = table.Column(type: "TEXT", nullable: true),
@@ -79,7 +79,7 @@ namespace ProjekatAutootpadMigrations
                 columns: table => new
                 {
                     NarudzbaServisaId = table.Column(type: "INTEGER", nullable: false),
-//                        .Annotation("Sqlite:Autoincrement", true),
+                        //.Annotation("Sqlite:Autoincrement", true),
                     dioZaServisiranjeDioID = table.Column(type: "INTEGER", nullable: true),
                     narucilackupacId = table.Column(type: "INTEGER", nullable: true),
                     opisKvara = table.Column(type: "TEXT", nullable: true),
@@ -104,7 +104,7 @@ namespace ProjekatAutootpadMigrations
                 columns: table => new
                 {
                     servisId = table.Column(type: "INTEGER", nullable: false),
-//                        .Annotation("Sqlite:Autoincrement", true),
+                        //.Annotation("Sqlite:Autoincrement", true),
                     RadnikradnikId = table.Column(type: "INTEGER", nullable: true),
                     cijena = table.Column(type: "TEXT", nullable: false),
                     narudzbaNarudzbaServisaId = table.Column(type: "INTEGER", nullable: true),

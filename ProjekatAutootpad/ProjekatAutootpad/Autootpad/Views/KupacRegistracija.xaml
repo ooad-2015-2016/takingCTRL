@@ -33,11 +33,10 @@
         <TextBlock x:Name="textBlock_Password2" HorizontalAlignment="Right" Margin="10,10,10,10" TextWrapping="Wrap" Text="Ponovi password: " VerticalAlignment="Center" Grid.Row="3"/>
         <PasswordBox x:Name="passwordBox_Password2" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,10,10" VerticalAlignment="Center" Grid.Row="3" Password="{Binding uPassword2, Mode=TwoWay}"/>
         <TextBlock x:Name="textBlock_DatumRođenja" HorizontalAlignment="Right" Margin="10,10,10,10" TextWrapping="Wrap" Text="Datum rođenja: " VerticalAlignment="Center" Grid.Row="4"/>
-        <DatePicker Grid.Column="1" HorizontalAlignment="Left" Margin="10, 10, 10, 10" Grid.Row="4" VerticalAlignment="Center" Date="{Binding uDatumrodjenja, Mode=TwoWay}"/>
+        <DatePicker Grid.Column="1" HorizontalAlignment="Left" Margin="10, 10, 10, 10" Grid.Row="4" VerticalAlignment="Center" Date="{Binding uDatumrodjenjaTO, Mode=TwoWay}"/>
         <CheckBox x:Name="checkBox_Penzioner" Content="Penzioner" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,10,10" Grid.Row="5" VerticalAlignment="Center" IsChecked="{Binding uPenzioner, Mode=TwoWay}"/>
         <TextBlock x:Name="textBlock_Email" HorizontalAlignment="Right" Margin="10,10,10,10" TextWrapping="Wrap" Text="E-mail: " VerticalAlignment="Center" Grid.Row="6"/>
         <TextBox x:Name="textBox_Email" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,10,10" TextWrapping="Wrap" VerticalAlignment="Center" Grid.Row="6" Text="{Binding uEmail, Mode=TwoWay}"/>
-        <Button x:Name="button_Izlaz" Content="Nazad" HorizontalAlignment="Left" Margin="10,10,10,10" Grid.Row="7" VerticalAlignment="Top" Command="{Binding IzlazRegistracija}"/>
         <Button x:Name="button_Registruj" Content="Registruj se" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,10,10" Grid.Row="7" VerticalAlignment="Top" Command="{Binding RegistrujNovog}"/>
         <TextBlock Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,9.667,0,0" Grid.Row="8" TextWrapping="Wrap"  Text="{Binding VerifikacijaPoruka, UpdateSourceTrigger=PropertyChanged}" Foreground="#FFEE1212"/>
     </Grid>
