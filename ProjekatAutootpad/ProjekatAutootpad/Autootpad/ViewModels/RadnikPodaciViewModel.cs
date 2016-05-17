@@ -25,6 +25,7 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
 
         public ICommand DodajUposlenika { get; set; }
         public ICommand Uslikaj { get; set; }
+        public ICommand Ažuriraj { get; set; }
         //Negdje privremeno mora biti slika koja ce se prikazati kad se uslika
         private SoftwareBitmapSource slika;
         public SoftwareBitmapSource Slika { get { return slika; } set { slika = value; OnNotifyPropertyChanged("Slika"); } }
@@ -37,6 +38,16 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
 
             //DodajUposlenika = new RelayCommand<object>(dodajUposlenika, (object parametar) => true);
             Uslikaj = new RelayCommand<object>(uslikaj, (object parametar) => true);
+            Ažuriraj = new RelayCommand<object>(ažuriraj, (object parametar) => true);
+        }
+
+        public void ažuriraj(object param)
+        {
+            using (var db = new OtpadDbContext())
+            {
+                db.Update(UlogovaniRadnik);
+                db.SaveChanges();
+            }
         }
         //komanda koja inicira slikanje
         public async void uslikaj(object parametar)
