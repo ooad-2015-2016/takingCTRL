@@ -97,6 +97,8 @@ namespace ProjekatAutootpadMigrations
 
                     b.Property<string>("Password");
 
+                    b.Property<byte[]>("Slika");
+
                     b.Property<string>("Username");
 
                     b.Property<string>("imePrezime");

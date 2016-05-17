@@ -12,6 +12,8 @@ namespace ProjekatAutootpad.Autootpad.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int radnikId { get; set; }
 
+        public byte[] Slika { get; set; }
+
         public List<Servis> rasporedServisa { get; set; }
 
 

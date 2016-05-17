@@ -33,6 +33,8 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
         public ICommand Prodaja { get; set; }
         public ICommand Narudžba { get; set; }
         public ICommand DijeloviRadnik { get; set; }
+        public ICommand RadnikEditPodataka { get; set; }
+
 
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -108,6 +110,7 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
             DijeloviRadnik = new RelayCommand<object>(dijeloviRadnik);
             Narudžba = new RelayCommand<object>(narudžba);
             RegistracijaKupca = new RelayCommand<object>(kupacRegistracija);
+            RadnikEditPodataka = new RelayCommand<object>(radnikEditPodataka);
         }
 
         public PocetnaViewModel(RegistracijaKupacViewModel pvm)
@@ -204,6 +207,11 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
         private void loginRadnikaNavigacija(object parametar)
         {
             NavigationService.Navigate(typeof(Views.RadnikLogin), new PocetnaViewModel(this));
+        }
+
+        private void radnikEditPodataka (object parametar)
+        {
+            NavigationService.Navigate(typeof(RadnikPodaci), new RadnikPodaciViewModel(this));
         }
 
         private void dijeloviRadnik(object parametar)
