@@ -13,13 +13,14 @@ namespace ProjekatAutootpadMigrations
                 name: "Dio",
                 columns: table => new
                 {
-                    DioID = table.Column(type: "INTEGER", nullable: false),
-//                        .Annotation("Sqlite:Autoincrement", true),
+                    DioID = table.Column(type: "INTEGER", nullable: false)
+                        ,//.Annotation("Sqlite:Autoincrement", true),
                     ImeDijela = table.Column(type: "TEXT", nullable: true),
                     Model = table.Column(type: "TEXT", nullable: true),
                     NabavnaCijena = table.Column(type: "TEXT", nullable: false),
                     ProdajnaCijena = table.Column(type: "TEXT", nullable: false),
                     Proizvodjac = table.Column(type: "TEXT", nullable: true),
+                    QR = table.Column(type: "BLOB", nullable: true),
                     UProdaji = table.Column(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>

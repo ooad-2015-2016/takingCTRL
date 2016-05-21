@@ -42,6 +42,7 @@
         <ComboBox  HorizontalAlignment="Left" Margin="28,70,0,0" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2" ItemsSource="{Binding Proizvodjaci}" SelectedValue="{Binding Izabrana, Mode=TwoWay}" />
         <TextBlock HorizontalAlignment="Left" Margin="28,10,0,0" TextWrapping="Wrap" Text="Proizvođač:" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
         <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Model:" VerticalAlignment="Top"/>
+
         <TextBox  Grid.Column="2" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top" Width="120" Text="{Binding Trazeni, Mode=TwoWay}"/>
         <ListView  ItemTemplate="{StaticResource DioListTemplate}" ItemsSource="{Binding SviDijelovi, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Stretch" Margin="10,10,10,0" Grid.Row="2" VerticalAlignment="Stretch" Grid.ColumnSpan="3" Grid.RowSpan="1">
             <ListView.Template>
