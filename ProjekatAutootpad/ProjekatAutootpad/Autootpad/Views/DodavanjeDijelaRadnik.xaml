@@ -78,7 +78,7 @@
         
         <Button Content="Odbij" HorizontalAlignment="Left" Margin="20,19.8,0,0" Grid.Row="2" VerticalAlignment="Top" Height="32" Width="56" Command="{Binding Path=OdbijPonuduDijela}"/>
         <Button Content="Dodaj" Grid.Column="2" HorizontalAlignment="Left" Margin="10,9.8,0,0" Grid.Row="3" VerticalAlignment="Top" Command="{Binding Path=DodajDio}"/>
-        <CheckBox Content="QR kod" HorizontalAlignment="Right" Margin="10,9.8,20,0" Grid.Row="3" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+        <CheckBox Content="QR kod" HorizontalAlignment="Right" Margin="10,9.8,20,0" Grid.Row="3" VerticalAlignment="Top" Grid.ColumnSpan="2" IsChecked="{Binding QR, Mode=TwoWay}"/>
         <Button Content="Otkaži" HorizontalAlignment="Left" Margin="20,20,20,20" Grid.Row="4" VerticalAlignment="Bottom" Command="{Binding Path=OtkaziDodavanje}" />
 
     </Grid>
