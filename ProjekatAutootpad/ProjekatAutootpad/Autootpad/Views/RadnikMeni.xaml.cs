@@ -26,31 +26,14 @@ namespace ProjekatAutootpad
         public RadnikMeni()
         {
             this.InitializeComponent();
-            NavigationCacheMode = NavigationCacheMode.Required;
-            var currentView = SystemNavigationManager.GetForCurrentView();
-            currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
-            SystemNavigationManager.GetForCurrentView().BackRequested += ThisPage_BackRequested;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            //Treba li ovo?
-            //var currentView = SystemNavigationManager.GetForCurrentView();
-            //currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
-
+        
             PocetnaViewModel pocetnaViewModel = e.Parameter as PocetnaViewModel;
             DataContext = pocetnaViewModel;
-            var currentView = SystemNavigationManager.GetForCurrentView();
-            currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
         }
-        private void ThisPage_BackRequested(object sender, BackRequestedEventArgs e)
-        {
-            if (Frame.CanGoBack)
-            {
-                Frame.GoBack();
-                e.Handled = true;
-            }
-        }
-
+        
     }
 }

@@ -25,18 +25,6 @@ namespace ProjekatAutootpad
         public ServisiRadnik()
         {
             this.InitializeComponent();
-            NavigationCacheMode = NavigationCacheMode.Required;
-            var currentView = SystemNavigationManager.GetForCurrentView();
-            currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
-            SystemNavigationManager.GetForCurrentView().BackRequested += ThisPage_BackRequested;
-        }
-        private void ThisPage_BackRequested(object sender, BackRequestedEventArgs e)
-        {
-            if (Frame.CanGoBack)
-            {
-                Frame.GoBack();
-                e.Handled = true;
-            }
         }
     }
 }

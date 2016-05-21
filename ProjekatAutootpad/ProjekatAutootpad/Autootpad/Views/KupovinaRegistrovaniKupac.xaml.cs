@@ -27,30 +27,12 @@ namespace ProjekatAutootpad
         public KupovinaRegistrovaniKupac()
         {
             this.InitializeComponent();
-            NavigationCacheMode = NavigationCacheMode.Required;
-            var currentView = SystemNavigationManager.GetForCurrentView();
-            currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
-            SystemNavigationManager.GetForCurrentView().BackRequested += ThisPage_BackRequested;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            //Treba li ovo?
-            //var currentView = SystemNavigationManager.GetForCurrentView();
-            //currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
-
             KupovinaViewModel kupovinaViewModel = e.Parameter as KupovinaViewModel;
             DataContext = kupovinaViewModel;
-            var currentView = SystemNavigationManager.GetForCurrentView();
-            currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
-        }
-        private void ThisPage_BackRequested(object sender, BackRequestedEventArgs e)
-        {
-            if (Frame.CanGoBack)
-            {
-                Frame.GoBack();
-                e.Handled = true;
-            }
         }
     }
 }

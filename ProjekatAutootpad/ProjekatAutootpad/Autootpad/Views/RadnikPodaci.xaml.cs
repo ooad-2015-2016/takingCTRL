@@ -28,31 +28,14 @@ namespace ProjekatAutootpad.Autootpad.Views
         public RadnikPodaci()
         {
             this.InitializeComponent();
-            NavigationCacheMode = NavigationCacheMode.Required;
-            var currentView = SystemNavigationManager.GetForCurrentView();
-            currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
-            SystemNavigationManager.GetForCurrentView().BackRequested += ThisPage_BackRequested;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            /*DodavanjeDijelaRadnikViewModel dodavanjeDijelaRadnik = e.Parameter as DodavanjeDijelaRadnikViewModel;
-            DataContext = dodavanjeDijelaRadnik;*/
-
             RadnikPodaciViewModel radnikPodaciViewModel = e.Parameter as RadnikPodaciViewModel;
             radnikPodaciViewModel.Camera = new CameraHelper(PreviewControl);
             DataContext = radnikPodaciViewModel;
-            var currentView = SystemNavigationManager.GetForCurrentView();
-            currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
         }
-        private void ThisPage_BackRequested(object sender, BackRequestedEventArgs e)
-        {
-            if (Frame.CanGoBack)
-            {
-                Frame.GoBack();
-                e.Handled = true;
-            }
-        }
-    }
+     }
 }
 

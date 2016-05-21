@@ -26,30 +26,14 @@ namespace ProjekatAutootpad.Autootpad.Views
         public AdminLogin()
         {
             this.InitializeComponent();
-            NavigationCacheMode = NavigationCacheMode.Required;
-            var currentView = SystemNavigationManager.GetForCurrentView();
-            currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
-            SystemNavigationManager.GetForCurrentView().BackRequested += ThisPage_BackRequested;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            //Treba li ovo?
-            //var currentView = SystemNavigationManager.GetForCurrentView();
-            //currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
+            base.OnNavigatedTo(e);
 
             AdminLoginViewModel adminLoginViewModel = e.Parameter as AdminLoginViewModel;
             DataContext = adminLoginViewModel;
-            var currentView = SystemNavigationManager.GetForCurrentView();
-            currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
-        }
-        private void ThisPage_BackRequested(object sender, BackRequestedEventArgs e)
-        {
-            if (Frame.CanGoBack)
-            {
-                Frame.GoBack();
-                e.Handled = true;
-            }
         }
     }
 }
