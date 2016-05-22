@@ -64,7 +64,7 @@
         
         <Button 
             x:Name="button_NapraviZahtjevServisRegKupac" 
-            Content="Button" 
+            Content="Dodaj" 
             Grid.Column="1" 
             HorizontalAlignment="Right" 
             Margin="35,0,35,10" 
