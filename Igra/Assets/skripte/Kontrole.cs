@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-
 public class Kontrole : MonoBehaviour {
     float brzina_skretanja_h = 5.0f;
     float brzina_skretanja_v = 2.5f;
@@ -26,7 +25,6 @@ public class Kontrole : MonoBehaviour {
 
     AutoFactory autoFactory;
 
-
     ArrayList auta = new ArrayList();
 
     // Use this for initialization
@@ -50,7 +48,11 @@ public class Kontrole : MonoBehaviour {
         Invoke("DodajNovcic", 5.0f);
 
         while (auta.Count < nivo * 7)
-            auta.Add(autoFactory.generisiAuto('o'));
+        {
+            Auto novo = autoFactory.generisiAuto('o');
+            novo.StrategijaKretanja = new PravolinijskoKretanje();
+            auta.Add(novo);
+        }
 
         Physics.IgnoreLayerCollision(9, 9);
 
@@ -130,9 +132,19 @@ public class Kontrole : MonoBehaviour {
                 ++nivo;
                 audio_s.PlayOneShot(levelUpZvuk);
                 var pozadina = GameObject.Find("pozadina").GetComponent<ScrollSkripta>().brzina += 0.1f;
-                auta.Add(autoFactory.generisiAuto('a'));
-                auta.Add(autoFactory.generisiAuto('o'));
-                auta.Add(autoFactory.generisiAuto('o'));
+
+                Auto novo = autoFactory.generisiAuto('o');
+                novo.StrategijaKretanja = new PravolinijskoKretanje();
+                auta.Add(novo);
+
+                novo = autoFactory.generisiAuto('o');
+                novo.StrategijaKretanja = new PravolinijskoKretanje();
+                auta.Add(novo);
+
+                novo = autoFactory.generisiAuto('a');
+                novo.StrategijaKretanja = new CikCakKretanje();
+                auta.Add(novo);
+                
 
                 foreach (Auto a in auta)
                     a.Ubrzaj();
@@ -160,10 +172,8 @@ public class Kontrole : MonoBehaviour {
         public Auto ob_auto;
         public Ambulanta amb;
 
-        public float downConstraint; 
-
-
-
+        public float downConstraint;
+        
         public Auto generisiAuto(char a)
         {
             if (a == 'a')

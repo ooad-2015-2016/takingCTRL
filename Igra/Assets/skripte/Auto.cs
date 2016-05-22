@@ -1,20 +1,50 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+public interface IStrategijaKretanja
+{
+    void KreciSe(Auto a);
+}
+
+public class CikCakKretanje : IStrategijaKretanja
+{
+    public void KreciSe(Auto a)
+    {
+        
+        a.transform.Translate(Vector2.up * Time.deltaTime * a.koristena_brzina);
+        if (a.Smjer == 'l')
+            a.transform.Translate(Vector2.left * Time.deltaTime * 2);
+        else
+            a.transform.Translate(Vector2.right * Time.deltaTime * 2);
+    }
+}
+
+public class PravolinijskoKretanje : IStrategijaKretanja
+{
+    public void KreciSe(Auto a)
+    {
+        a.transform.Translate(Vector2.down * Time.deltaTime * a.koristena_brzina);
+    }
+}
+
 public abstract class Auto : MonoBehaviour {
 
     protected float brzina = 4.0f;
-    protected float koristena_brzina = 4.0f;
+    public float koristena_brzina = 4.0f;
     protected float leftConstraint;
     protected float rightConstraint;
     protected float upConstraint;
     protected float downConstraint;
+    
+    public char Smjer;
+    public IStrategijaKretanja StrategijaKretanja;
 
     public float vjerovatnoca;
 
 
     // Use this for initialization
     protected virtual void Start () {
+        Smjer = 'c';
         leftConstraint = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width * 0.0f, 0.0f, 0.0f)).x + 1;
         rightConstraint = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width * 1.0f, 0.0f, 0.0f)).x + 1;
         downConstraint = Camera.main.ScreenToWorldPoint(new Vector3(0.0f, Screen.height * 0.0f, 0.0f)).y;
@@ -25,7 +55,7 @@ public abstract class Auto : MonoBehaviour {
 	
 	// Update is called once per frame
 	protected virtual void Update () {
-        transform.Translate(Vector2.down * Time.deltaTime * koristena_brzina);
+        StrategijaKretanja.KreciSe(this);
     }
 
     public virtual void Postavi()

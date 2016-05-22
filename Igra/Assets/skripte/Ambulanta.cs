@@ -3,14 +3,14 @@ using System.Collections;
 
 public class Ambulanta : Auto {
 
-    char smjer;
     public AudioClip sirena;
+
 
     // Use this for initialization
     override protected void Start () {
         base.Start();
         brzina = base.brzina * 1.5f;
-        char smjer = 'l';
+        Smjer = 'l';
         InvokeRepeating("promijeni_smjer", 0.5f, 0.5f);
         base.vjerovatnoca = 0.9983f;
         //GetComponent<AudioSource>().PlayOneShot(sirena);
@@ -19,18 +19,14 @@ public class Ambulanta : Auto {
 
     private void promijeni_smjer()
     {
-        if (smjer == 'l')
-            smjer = 'r';
-        else smjer = 'l';
+        if (Smjer == 'l')
+            Smjer = 'r';
+        else Smjer = 'l';
     }
 	
 	// Update is called once per frame
 	protected override void Update () {
-        transform.Translate(Vector2.up * Time.deltaTime * koristena_brzina);
-        if (smjer == 'l')
-            transform.Translate(Vector2.left * Time.deltaTime);
-        else
-            transform.Translate(Vector2.right * Time.deltaTime * 2);
+        StrategijaKretanja.KreciSe(this);
 
         Debug.Log(string.Format("up je: {0} a trenutno: {1}", upConstraint, transform.position.y));
     }
