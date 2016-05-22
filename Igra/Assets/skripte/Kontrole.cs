@@ -24,6 +24,8 @@ public class Kontrole : MonoBehaviour {
 
     AudioSource audio_s;
 
+    AutoFactory autoFactory;
+
 
     ArrayList auta = new ArrayList();
 
@@ -39,13 +41,20 @@ public class Kontrole : MonoBehaviour {
 
         audio_s = GetComponent<AudioSource>();
 
+        autoFactory = new AutoFactory();
+        autoFactory.ob_auto = ob_auto;
+        autoFactory.amb = ambulanta;
+        autoFactory.downConstraint = downConstraint;
+
         auta = new ArrayList();
         Invoke("DodajNovcic", 5.0f);
 
         while (auta.Count < nivo * 7)
-            auta.Add((ObicnoAuto)Instantiate(ob_auto, new Vector3(0, downConstraint, 0), Quaternion.identity));
+            auta.Add(autoFactory.generisiAuto('o'));
 
         Physics.IgnoreLayerCollision(9, 9);
+
+
         //novoAuto.transform.parent = GameObject.Find("Canvas").transform;
         //novoAuto.transform.localPosition = new Vector3(0, 1, 0);
 
@@ -121,9 +130,9 @@ public class Kontrole : MonoBehaviour {
                 ++nivo;
                 audio_s.PlayOneShot(levelUpZvuk);
                 var pozadina = GameObject.Find("pozadina").GetComponent<ScrollSkripta>().brzina += 0.1f;
-                auta.Add((Ambulanta)Instantiate((ambulanta), new Vector3(1000, 1000, 0), Quaternion.identity));
-                auta.Add((ObicnoAuto)Instantiate(ob_auto, new Vector3(1000, 1000, 0), Quaternion.identity));
-                auta.Add((ObicnoAuto)Instantiate(ob_auto, new Vector3(1000, 1000, 0), Quaternion.identity));
+                auta.Add(autoFactory.generisiAuto('a'));
+                auta.Add(autoFactory.generisiAuto('o'));
+                auta.Add(autoFactory.generisiAuto('o'));
 
                 foreach (Auto a in auta)
                     a.Ubrzaj();
@@ -143,9 +152,26 @@ public class Kontrole : MonoBehaviour {
             else
                 audio_s.PlayOneShot(udaracZvuk);
         }
-
         
+    }
 
+    public class AutoFactory
+    {
+        public Auto ob_auto;
+        public Ambulanta amb;
+
+        public float downConstraint; 
+
+
+
+        public Auto generisiAuto(char a)
+        {
+            if (a == 'a')
+                return (Ambulanta)Instantiate((amb), new Vector3(1000, 1000, 0), Quaternion.identity);
+            else
+                return (ObicnoAuto)Instantiate(ob_auto, new Vector3(0, downConstraint, 0), Quaternion.identity);
+
+        }
     }
 
 }

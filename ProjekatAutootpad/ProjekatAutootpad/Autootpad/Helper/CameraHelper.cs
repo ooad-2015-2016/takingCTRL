@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.Devices.Enumeration;
@@ -37,6 +39,15 @@ namespace ProjekatAutootpad.Autootpad.Helper
         public SoftwareBitmapSource SlikaBitmap { get; set; }
         //Kontrola u view koja prikazuje trenutno stanje kamere, zaobilazak binding
         public CaptureElement PreviewControl { get; set; }
+
+        public async Task<byte[]> SlikaByte()
+        {
+            Byte[] bytes = new Byte[Slika.Size];
+            var _rez = await Slika.ReadAsync(bytes.AsBuffer(), (uint)Slika.Size, InputStreamOptions.None);
+            bytes = _rez.ToArray();
+            return bytes;
+
+        }
 
         public CameraHelper(CaptureElement previewControl)
         {
@@ -123,13 +134,13 @@ namespace ProjekatAutootpad.Autootpad.Helper
             Slika = new InMemoryRandomAccessStream();
             try
             {
+
                 //konvertovati uslikano u Software bitmap da se moze prikazati u image kontroli
                 await MediaCapture.CapturePhotoToStreamAsync(ImageEncodingProperties.CreateBmp(), Slika);
                 BitmapDecoder decoder = await BitmapDecoder.CreateAsync(Slika);
                 SoftwareBitmap softwareBitmap = await decoder.GetSoftwareBitmapAsync();
                 SoftwareBitmap softwareBitmapBGR8 = SoftwareBitmap.Convert(softwareBitmap,
-        BitmapPixelFormat.Bgra8,
-        BitmapAlphaMode.Premultiplied);
+                BitmapPixelFormat.Bgra8, BitmapAlphaMode.Premultiplied);
                  SlikaBitmap = new SoftwareBitmapSource();
                 await SlikaBitmap.SetBitmapAsync(softwareBitmapBGR8);
                 callback(SlikaBitmap);
@@ -145,6 +156,9 @@ namespace ProjekatAutootpad.Autootpad.Helper
         {
             //? je skracena verzija ako nije null
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(memberName));
+            var ts = new MemoryStream();
         }
+
+        
     }
 }
