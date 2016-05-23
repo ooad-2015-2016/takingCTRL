@@ -20,7 +20,7 @@ using Windows.UI.Xaml.Media.Imaging;
 
 namespace ProjekatAutootpad.Autootpad.Helper
 {
-    public class CameraHelper:INotifyPropertyChanged
+    public class CameraHelper : INotifyPropertyChanged
     {
         //meida capture, glavna variabla koja cuva api
         private MediaCapture mediaCapture;
@@ -33,6 +33,8 @@ namespace ProjekatAutootpad.Autootpad.Helper
         private bool _mirroringPreview;
         private readonly DisplayRequest _displayRequest = new DisplayRequest();
         public string internalStatus;
+        public byte[] SlikaByte { get; set; }
+
         //Ovdje se cuva zadnja uslikana slika Stream Verzija
         public InMemoryRandomAccessStream Slika { get; set; }
         //Ovdje se cuva zadnja uslikana slika Bitmap Verzija
@@ -40,14 +42,8 @@ namespace ProjekatAutootpad.Autootpad.Helper
         //Kontrola u view koja prikazuje trenutno stanje kamere, zaobilazak binding
         public CaptureElement PreviewControl { get; set; }
 
-        public async Task<byte[]> SlikaByte()
-        {
-            Byte[] bytes = new Byte[Slika.Size];
-            var _rez = await Slika.ReadAsync(bytes.AsBuffer(), (uint)Slika.Size, InputStreamOptions.None);
-            bytes = _rez.ToArray();
-            return bytes;
+        public BitmapImage PraviBitmap { get; set; }
 
-        }
 
         public CameraHelper(CaptureElement previewControl)
         {
@@ -86,7 +82,7 @@ namespace ProjekatAutootpad.Autootpad.Helper
                 }
                 catch (Exception ex)
                 {
-                    internalStatus = ("Exception when initializing MediaCapture with "+ cameraDevice.Id+ ex.ToString());
+                    internalStatus = ("Exception when initializing MediaCapture with " + cameraDevice.Id + ex.ToString());
                 }
 
                 // Ako se incijalizirala, prikazati preview u preview kontroli
@@ -123,7 +119,7 @@ namespace ProjekatAutootpad.Autootpad.Helper
             }
             catch (Exception ex)
             {
-                internalStatus = ("Exception when starting the preview:"+ ex.ToString());
+                internalStatus = ("Exception when starting the preview:" + ex.ToString());
             }
 
         }
@@ -136,12 +132,26 @@ namespace ProjekatAutootpad.Autootpad.Helper
             {
 
                 //konvertovati uslikano u Software bitmap da se moze prikazati u image kontroli
-                await MediaCapture.CapturePhotoToStreamAsync(ImageEncodingProperties.CreateBmp(), Slika);
+                await MediaCapture.CapturePhotoToStreamAsync(ImageEncodingProperties.CreateJpeg(), Slika);
+                await Slika.FlushAsync();
+
+                //PraviBitmap = new BitmapImage();
+                Slika.Seek(0);
+
+                SlikaByte = new byte[Slika.Size];
+                IBuffer buffer = SlikaByte.AsBuffer();
+                await Slika.ReadAsync(buffer, (uint)Slika.Size, InputStreamOptions.None);
+
+
+                //PraviBitmap.SetSource(Slika);
+
                 BitmapDecoder decoder = await BitmapDecoder.CreateAsync(Slika);
+                //PixelDataProvider pdp = await decoder.GetPixelDataAsync();
+                //SlikaByte = pdp.DetachPixelData();
                 SoftwareBitmap softwareBitmap = await decoder.GetSoftwareBitmapAsync();
                 SoftwareBitmap softwareBitmapBGR8 = SoftwareBitmap.Convert(softwareBitmap,
                 BitmapPixelFormat.Bgra8, BitmapAlphaMode.Premultiplied);
-                 SlikaBitmap = new SoftwareBitmapSource();
+                SlikaBitmap = new SoftwareBitmapSource();
                 await SlikaBitmap.SetBitmapAsync(softwareBitmapBGR8);
                 callback(SlikaBitmap);
             }
@@ -159,6 +169,6 @@ namespace ProjekatAutootpad.Autootpad.Helper
             var ts = new MemoryStream();
         }
 
-        
+
     }
 }

@@ -9,6 +9,10 @@ using ProjekatAutootpad.Autootpad.Helper;
 using System.Windows.Input;
 using Windows.UI.Xaml;
 using ProjekatAutootpad.Autootpad.Views;
+using Windows.UI.Xaml.Media.Imaging;
+using Windows.Storage.Streams;
+using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.Graphics.Imaging;
 
 namespace ProjekatAutootpad.Autootpad.ViewModels
 {
@@ -218,9 +222,28 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
             NavigationService.Navigate(typeof(Views.RadnikLogin), new PocetnaViewModel(this));
         }
 
-        private void radnikEditPodataka (object parametar)
+        private async void radnikEditPodataka (object parametar)
         {
-            NavigationService.Navigate(typeof(RadnikPodaci), new RadnikPodaciViewModel(this));
+            SoftwareBitmapSource Slika = new SoftwareBitmapSource();
+
+            if (UlogovaniRadnik.Slika != null)
+
+            {
+                InMemoryRandomAccessStream Slika_op = new InMemoryRandomAccessStream();
+
+                await Slika_op.WriteAsync(UlogovaniRadnik.Slika.AsBuffer());
+                await Slika_op.FlushAsync();
+                Slika_op.Seek(0);
+
+                BitmapDecoder decoder;
+                decoder = await BitmapDecoder.CreateAsync(Slika_op);
+                SoftwareBitmap softwareBitmap = await decoder.GetSoftwareBitmapAsync();
+                SoftwareBitmap softwareBitmapBGR8 = SoftwareBitmap.Convert(softwareBitmap,
+                BitmapPixelFormat.Bgra8, BitmapAlphaMode.Premultiplied);
+                await Slika.SetBitmapAsync(softwareBitmapBGR8);
+            }
+
+            NavigationService.Navigate(typeof(RadnikPodaci), new RadnikPodaciViewModel(this, Slika));
         }
 
         private void dijeloviRadnik(object parametar)

@@ -10,6 +10,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Windows.Graphics.Imaging;
+using Windows.Storage;
+using Windows.Storage.Pickers;
 using Windows.Storage.Streams;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Imaging;
@@ -36,10 +38,11 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
 
         //kontrola krsenje mvvm
         CaptureElement previewControl;
-        public RadnikPodaciViewModel(PocetnaViewModel pvm)
+        public RadnikPodaciViewModel(PocetnaViewModel pvm, SoftwareBitmapSource slika)
         {
             //incijalicacija uredjaja
             UlogovaniRadnik = pvm.UlogovaniRadnik;
+            Slika = slika;
 
             //DodajUposlenika = new RelayCommand<object>(dodajUposlenika, (object parametar) => true);
             Uslikaj = new RelayCommand<object>(uslikaj, (object parametar) => true);
@@ -79,38 +82,46 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
         //callback funkcija kad se uslika 
         public async void SlikanjeGotovo(SoftwareBitmapSource nova)
         {
-            UlogovaniRadnik.Slika = new byte[Camera.Slika.Size];
+            UlogovaniRadnik.Slika = Camera.SlikaByte;
 
-            await Camera.Slika.ReadAsync(UlogovaniRadnik.Slika.AsBuffer(), (uint) Camera.Slika.Size, InputStreamOptions.None);
+            //await Camera.Slika.ReadAsync(UlogovaniRadnik.Slika.AsBuffer(), (uint) Camera.Slika.Size, InputStreamOptions.None);
 
 
-            InMemoryRandomAccessStream randomAccessStream = new InMemoryRandomAccessStream();
-            await randomAccessStream.WriteAsync(UlogovaniRadnik.Slika.AsBuffer());
-            randomAccessStream.Seek(0);
-            
+            //InMemoryRandomAccessStream randomAccessStream = new InMemoryRandomAccessStream();
 
-            BitmapDecoder decoder = await BitmapDecoder.CreateAsync(randomAccessStream);
+            FileSavePicker fsp = new FileSavePicker();
+            fsp.FileTypeChoices.Add("JPG", new List<String>() { ".jpg" });
+            fsp.SuggestedFileName = "slika test";
+            StorageFile f = await fsp.PickSaveFileAsync();
+
+            Camera.Slika.Seek(0);
+
+            await FileIO.WriteBufferAsync(f, UlogovaniRadnik.Slika.AsBuffer());
+
+
+            /*byte[] bytes = new byte[Camera.Slika.Size];
+            IBuffer buffer = bytes.AsBuffer();
+            await Camera.Slika.ReadAsync(buffer, (uint) Camera.Slika.Size, InputStreamOptions.None);
+            await FileIO.WriteBufferAsync(f, buffer);
+
+            SoftwareBitmapSource nanoviji = new SoftwareBitmapSource();*/
+            InMemoryRandomAccessStream Slika_op = new InMemoryRandomAccessStream();
+
+            await Slika_op.WriteAsync(UlogovaniRadnik.Slika.AsBuffer());
+            await Slika_op.FlushAsync();
+            Slika_op.Seek(0);
+
+            BitmapDecoder decoder = await BitmapDecoder.CreateAsync(Slika_op);
+            //PixelDataProvider pdp = await decoder.GetPixelDataAsync();
+            //SlikaByte = pdp.DetachPixelData();
             SoftwareBitmap softwareBitmap = await decoder.GetSoftwareBitmapAsync();
             SoftwareBitmap softwareBitmapBGR8 = SoftwareBitmap.Convert(softwareBitmap,
             BitmapPixelFormat.Bgra8, BitmapAlphaMode.Premultiplied);
-            nova = new SoftwareBitmapSource();
-            await nova.SetBitmapAsync(softwareBitmapBGR8);
+            Slika = new SoftwareBitmapSource();
+            await Slika.SetBitmapAsync(softwareBitmapBGR8);
 
 
-            //UlogovaniRadnik.Slika = await Camera.SlikaByte();
 
-            //Slika = await ImageFromBytes(UlogovaniRadnik.Slika);
-
-            //var randomAccessStream = new InMemoryRandomAccessStream(UlogovaniRadnik.Slika);
-            /*var ims = new InMemoryRandomAccessStream();
-            DataWriter dw = new DataWriter(ims);
-            dw.WriteBytes(UlogovaniRadnik.Slika);
-            dw.StoreAsync();
-            ims.Seek(0);
-            BitmapImage bmp = new BitmapImage();
-            bmp.SetSource(ims);
-            */
-            Slika = nova;
         }
         //proeprty changed observer
         public event PropertyChangedEventHandler PropertyChanged;
