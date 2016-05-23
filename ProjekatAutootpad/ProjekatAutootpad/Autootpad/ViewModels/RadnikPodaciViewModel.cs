@@ -33,9 +33,7 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
         //Negdje privremeno mora biti slika koja ce se prikazati kad se uslika
         private SoftwareBitmapSource slika;
         public SoftwareBitmapSource Slika { get { return slika; } set { slika = value; OnNotifyPropertyChanged("Slika"); } }
-
-        public byte[] byteSlika;
-
+        
         //kontrola krsenje mvvm
         CaptureElement previewControl;
         public RadnikPodaciViewModel(PocetnaViewModel pvm, SoftwareBitmapSource slika)
@@ -65,7 +63,6 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
         public async void uslikaj(object parametar)
         {
             await Camera.TakePhotoAsync(SlikanjeGotovo);
-
         }
         //komanda za dodavanje uposlenika
         public void dodajUposlenika(object parametar)
@@ -83,20 +80,16 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
         public async void SlikanjeGotovo(SoftwareBitmapSource nova)
         {
             UlogovaniRadnik.Slika = Camera.SlikaByte;
-
-            //await Camera.Slika.ReadAsync(UlogovaniRadnik.Slika.AsBuffer(), (uint) Camera.Slika.Size, InputStreamOptions.None);
-
-
-            //InMemoryRandomAccessStream randomAccessStream = new InMemoryRandomAccessStream();
-
+            /*
             FileSavePicker fsp = new FileSavePicker();
             fsp.FileTypeChoices.Add("JPG", new List<String>() { ".jpg" });
             fsp.SuggestedFileName = "slika test";
             StorageFile f = await fsp.PickSaveFileAsync();
+            await FileIO.WriteBufferAsync(f, UlogovaniRadnik.Slika.AsBuffer());
 
+            */
             Camera.Slika.Seek(0);
 
-            await FileIO.WriteBufferAsync(f, UlogovaniRadnik.Slika.AsBuffer());
 
 
             /*byte[] bytes = new byte[Camera.Slika.Size];
@@ -119,8 +112,6 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
             BitmapPixelFormat.Bgra8, BitmapAlphaMode.Premultiplied);
             Slika = new SoftwareBitmapSource();
             await Slika.SetBitmapAsync(softwareBitmapBGR8);
-
-
 
         }
         //proeprty changed observer

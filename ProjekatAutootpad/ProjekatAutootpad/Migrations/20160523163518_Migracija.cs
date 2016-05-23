@@ -14,13 +14,14 @@ namespace ProjekatAutootpadMigrations
                 columns: table => new
                 {
                     DioID = table.Column(type: "INTEGER", nullable: false)
-                        ,//.Annotation("Sqlite:Autoincrement", true),
+                        ,
                     ImeDijela = table.Column(type: "TEXT", nullable: true),
                     Model = table.Column(type: "TEXT", nullable: true),
                     NabavnaCijena = table.Column(type: "TEXT", nullable: false),
                     ProdajnaCijena = table.Column(type: "TEXT", nullable: false),
                     Proizvodjac = table.Column(type: "TEXT", nullable: true),
                     QR = table.Column(type: "BLOB", nullable: true),
+                    Slika = table.Column(type: "BLOB", nullable: true),
                     UProdaji = table.Column(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
@@ -32,7 +33,7 @@ namespace ProjekatAutootpadMigrations
                 columns: table => new
                 {
                     kupacId = table.Column(type: "INTEGER", nullable: false)
-                        ,//.Annotation("Sqlite:Autoincrement", true),
+                        ,
                     DatumRodjenja = table.Column(type: "TEXT", nullable: false),
                     Email = table.Column(type: "TEXT", nullable: true),
                     Password = table.Column(type: "TEXT", nullable: true),
@@ -49,7 +50,7 @@ namespace ProjekatAutootpadMigrations
                 columns: table => new
                 {
                     NarudžbaDijelaId = table.Column(type: "INTEGER", nullable: false)
-                        ,//.Annotation("Sqlite:Autoincrement", true),
+                        ,
                     Model = table.Column(type: "TEXT", nullable: true),
                     NazivDijela = table.Column(type: "TEXT", nullable: true),
                     Prihvaćena = table.Column(type: "INTEGER", nullable: false),
@@ -64,7 +65,7 @@ namespace ProjekatAutootpadMigrations
                 columns: table => new
                 {
                     radnikId = table.Column(type: "INTEGER", nullable: false)
-                        ,//.Annotation("Sqlite:Autoincrement", true),
+                        ,
                     DatumRodjenja = table.Column(type: "TEXT", nullable: false),
                     Email = table.Column(type: "TEXT", nullable: true),
                     Password = table.Column(type: "TEXT", nullable: true),
@@ -81,7 +82,7 @@ namespace ProjekatAutootpadMigrations
                 columns: table => new
                 {
                     NarudzbaServisaId = table.Column(type: "INTEGER", nullable: false)
-                        ,//.Annotation("Sqlite:Autoincrement", true),
+                        ,
                     dioZaServisiranjeDioID = table.Column(type: "INTEGER", nullable: true),
                     narucilackupacId = table.Column(type: "INTEGER", nullable: true),
                     opisKvara = table.Column(type: "TEXT", nullable: true),
@@ -106,7 +107,7 @@ namespace ProjekatAutootpadMigrations
                 columns: table => new
                 {
                     servisId = table.Column(type: "INTEGER", nullable: false)
-                        ,//.Annotation("Sqlite:Autoincrement", true),
+                        ,
                     RadnikradnikId = table.Column(type: "INTEGER", nullable: true),
                     cijena = table.Column(type: "TEXT", nullable: false),
                     narudzbaNarudzbaServisaId = table.Column(type: "INTEGER", nullable: true),

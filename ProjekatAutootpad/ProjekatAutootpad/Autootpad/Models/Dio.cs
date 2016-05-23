@@ -18,7 +18,8 @@ namespace ProjekatAutootpad.Autootpad.Models
         public string ImeDijela { get; set; }
         public bool UProdaji { get; set; }
         public byte[] QR { get; set; }
-
+        public byte[] Slika { get; set; }
+        
         [NotMapped]
         public decimal NabavnaCijena { get { return 1.1M * ProdajnaCijena; } private set { } }
 

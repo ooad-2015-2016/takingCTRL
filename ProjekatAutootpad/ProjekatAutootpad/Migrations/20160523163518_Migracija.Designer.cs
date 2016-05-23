@@ -11,7 +11,7 @@ namespace ProjekatAutootpadMigrations
     {
         public override string Id
         {
-            get { return "20160521200856_Migracija"; }
+            get { return "20160523163518_Migracija"; }
         }
 
         public override string ProductVersion
@@ -40,6 +40,8 @@ namespace ProjekatAutootpadMigrations
                     b.Property<string>("Proizvodjac");
 
                     b.Property<byte[]>("QR");
+
+                    b.Property<byte[]>("Slika");
 
                     b.Property<bool>("UProdaji");
 

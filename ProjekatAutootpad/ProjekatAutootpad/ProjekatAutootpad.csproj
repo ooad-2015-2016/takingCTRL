@@ -118,6 +118,9 @@
     <Compile Include="Autootpad\ViewModels\NaručivanjeDijelaViewModel.cs" />
     <Compile Include="Autootpad\ViewModels\RegistracijaKupacViewModel.cs" />
     <Compile Include="Autootpad\ViewModels\RadnikPodaciViewModel.cs" />
+    <Compile Include="Autootpad\Views\PregledSlike.xaml.cs">
+      <DependentUpon>PregledSlike.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Autootpad\Views\RadnikPodaci.xaml.cs">
       <DependentUpon>RadnikPodaci.xaml</DependentUpon>
     </Compile>
@@ -149,6 +152,9 @@
     <Compile Include="Autootpad\Views\RadnikLogin.xaml.cs">
       <DependentUpon>RadnikLogin.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Autootpad\Views\SlikanjeDijela.xaml.cs">
+      <DependentUpon>SlikanjeDijela.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Autootpad\Views\UlogovaniKupacMenu.xaml.cs">
       <DependentUpon>UlogovaniKupacMenu.xaml</DependentUpon>
     </Compile>
@@ -158,9 +164,9 @@
     <Compile Include="Autootpad\Views\ProdajaRegistrovaniKupac.xaml.cs">
       <DependentUpon>ProdajaRegistrovaniKupac.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20160521200856_Migracija.cs" />
-    <Compile Include="Migrations\20160521200856_Migracija.designer.cs">
-      <DependentUpon>20160521200856_Migracija.cs</DependentUpon>
+    <Compile Include="Migrations\20160523163518_Migracija.cs" />
+    <Compile Include="Migrations\20160523163518_Migracija.designer.cs">
+      <DependentUpon>20160523163518_Migracija.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\OtpadDbContextModelSnapshot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -195,6 +201,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Autootpad\Views\PregledSlike.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Autootpad\Views\RadnikPodaci.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -244,6 +254,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Autootpad\Views\ServisiRadnik.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Autootpad\Views\SlikanjeDijela.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -31,6 +31,8 @@ namespace ProjekatAutootpadMigrations
 
                     b.Property<byte[]>("QR");
 
+                    b.Property<byte[]>("Slika");
+
                     b.Property<bool>("UProdaji");
 
                     b.Key("DioID");
