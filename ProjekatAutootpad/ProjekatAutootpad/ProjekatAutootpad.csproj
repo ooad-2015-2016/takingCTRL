@@ -115,9 +115,13 @@
     <Compile Include="Autootpad\ViewModels\AdminLoginViewModel.cs" />
     <Compile Include="Autootpad\ViewModels\AdminPogledUposlenikaViewModel.cs" />
     <Compile Include="Autootpad\ViewModels\DodavanjeDijelaRadnikViewModel.cs" />
+    <Compile Include="Autootpad\ViewModels\GeolokacijaViewModel.cs" />
     <Compile Include="Autootpad\ViewModels\NaručivanjeDijelaViewModel.cs" />
     <Compile Include="Autootpad\ViewModels\RegistracijaKupacViewModel.cs" />
     <Compile Include="Autootpad\ViewModels\RadnikPodaciViewModel.cs" />
+    <Compile Include="Autootpad\Views\Geolokacija.xaml.cs">
+      <DependentUpon>Geolokacija.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Autootpad\Views\PregledSlike.xaml.cs">
       <DependentUpon>PregledSlike.xaml</DependentUpon>
     </Compile>
@@ -201,6 +205,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Autootpad\Views\Geolokacija.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Autootpad\Views\PregledSlike.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

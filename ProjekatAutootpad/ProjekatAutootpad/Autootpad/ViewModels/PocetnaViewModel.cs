@@ -39,6 +39,8 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
         public ICommand Servis { get; set; }
         public ICommand DijeloviRadnik { get; set; }
         public ICommand RadnikEditPodataka { get; set; }
+        public ICommand PokreniGeolokaciju { get; set; }
+
 
 
 
@@ -73,6 +75,12 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
             Servis = new RelayCommand<object>(servis);
             DijeloviRadnik = new RelayCommand<object>(dijeloviRadnik);
             RegistracijaKupca = new RelayCommand<object>(kupacRegistracija);
+            PokreniGeolokaciju = new RelayCommand<object>(pokreniGeolokaciju);
+        }
+
+        public void pokreniGeolokaciju(object p)
+        {
+            NavigationService.Navigate(typeof(Geolokacija));
         }
     
 
