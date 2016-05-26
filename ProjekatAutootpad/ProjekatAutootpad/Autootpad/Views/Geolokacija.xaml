@@ -18,9 +18,10 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <TextBlock Text="{Binding Lokacija}" />
+        <TextBlock Text="{Binding op}" />
         <TextBlock Text="{Binding Adresa}"  Grid.Row="1"/>
         <!--Bez oneway binding ne radi, ne zaboraviti ukljuciti maps gore-->
-        <maps:MapControl x:Name="mapa" Grid.Row="3" Center="{Binding TrenutnaLokacija, Mode=OneWay}"  />
+        <maps:MapControl x:Name="mapa" Grid.Row="3" Center="{Binding TrenutnaLokacija, Mode=OneWay}" ZoomLevel="20" />
     </Grid>
 
 </Page>

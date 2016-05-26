@@ -31,8 +31,6 @@ namespace ProjekatAutootpad.Autootpad.Views
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
 
-            mapa.Style = Windows.UI.Xaml.Controls.Maps.MapStyle.Aerial3DWithRoads;
-            mapa.ZoomLevel = 20;
 
             this.DataContext = new GeolokacijaViewModel(mapa);
 

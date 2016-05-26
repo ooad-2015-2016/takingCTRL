@@ -99,8 +99,10 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Autootpad\Helper\BoolAndMinWidthStateTrigger.cs" />
     <Compile Include="Autootpad\Helper\CameraHelper.cs" />
     <Compile Include="Autootpad\Helper\INavigationService.cs" />
+    <Compile Include="Autootpad\Helper\ITriggerValue.cs" />
     <Compile Include="Autootpad\Helper\NavigationService.cs" />
     <Compile Include="Autootpad\Helper\RelayCommand.cs" />
     <Compile Include="Autootpad\Models\DefaultPodaci.cs" />

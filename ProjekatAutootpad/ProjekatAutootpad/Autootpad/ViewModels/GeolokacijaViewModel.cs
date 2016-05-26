@@ -26,9 +26,17 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
         //krsenje mvvm za mapu .. neophodno
         public MapControl Mapa;
 
+        public string op { get; set; }
+
         public GeolokacijaViewModel(MapControl mapa)
         {
+            op = "test";
             Mapa = mapa;
+            mapa.MapServiceToken = "OV8STFWl2enWQRhKdfS9~9lyEu-9ZmmSu2hmTEeXT4g~Ao5ZgWzoy-au9XW3WOl4SpP8QuViCDD1AMOfzX0u6o1F5Ly3I9VfIFxI9K2piUpG";
+
+            mapa.ZoomLevel = 20;
+            mapa.Style = Windows.UI.Xaml.Controls.Maps.MapStyle.Aerial3DWithRoads;
+
             dajLokaciju();
         }
 

@@ -38,8 +38,7 @@
             <RowDefinition Height="36*"/>
             <RowDefinition Height="310*"/>
             <RowDefinition Height="53*"/>
-            <RowDefinition Height="48*"/>
-            <RowDefinition Height="60*"/>
+
         </Grid.RowDefinitions>
         <ComboBox  HorizontalAlignment="Left" Margin="28,70,0,0" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2" ItemsSource="{Binding Proizvodjaci}" SelectedValue="{Binding Izabrana, Mode=TwoWay}" />
         <TextBlock HorizontalAlignment="Left" Margin="28,10,0,0" TextWrapping="Wrap" Text="Proizvođač:" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
@@ -79,9 +78,6 @@
         <Button Content="Dodaj" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="3" VerticalAlignment="Top"/>
         <Button Content="Očisti" Grid.Column="1" HorizontalAlignment="Left" Margin="10.333,10,0,0" Grid.Row="3" VerticalAlignment="Top"/>
         <Button Content="Kupi" Grid.Column="2" HorizontalAlignment="Left" Margin="30,10,0,0" Grid.Row="3" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Right" Margin="0,10,9,0" Grid.Row="4" TextWrapping="Wrap" Text="Tražim dio: " VerticalAlignment="Top" Grid.Column="1"/>
-        <TextBox Grid.Column="2" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="4" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
-        <Button Content="Podnesi zahtjev" Grid.Column="0" HorizontalAlignment="Right" Margin="0,10,10,0" Grid.Row="5" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
         <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2" TextWrapping="Wrap" Text="Dijelovi:" VerticalAlignment="Top"/>
 
     </Grid>

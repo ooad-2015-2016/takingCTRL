@@ -9,23 +9,24 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <PasswordBox x:Name="textBox1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="10,10,10,10" Grid.Row="1"  Width="120" Password="{Binding UpisaniPass, Mode=TwoWay}"  Grid.Column="2"/>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="0,98,0,0" TextWrapping="Wrap" Text="Administrator: Ibro" VerticalAlignment="Top" Width="170" Grid.ColumnSpan="2" Grid.Column="1"/>
-        <TextBlock x:Name="textBlock1" HorizontalAlignment="Center" Grid.Row="1" TextWrapping="Wrap" Text="Password: " VerticalAlignment="Center" Grid.Column="1" Margin="10,10,10,10"/>
-        <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="32,47,0,0" Grid.Row="2" TextWrapping="Wrap" Text="{Binding VerifikacijaPoruka, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
-        <Button x:Name="button" Content="Login" Grid.Column="2" HorizontalAlignment="Left" Height="37" Margin="25,10,0,0" Grid.Row="2" VerticalAlignment="Top" Width="70" Command="{Binding LoginAdmina}"/>
+
+        <StackPanel Grid.ColumnSpan="2" HorizontalAlignment="Center">
+            <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="0,98,0,0" TextWrapping="Wrap" Text="Administrator: Ibro" VerticalAlignment="Top" Width="170" Grid.ColumnSpan="2" Grid.Column="1"/>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock x:Name="textBlock1" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Password: " VerticalAlignment="Center" Grid.Column="1" Margin="10,10,10,10"/>
+                <PasswordBox x:Name="textBox1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="10,10,10,10" Grid.Row="1"  Width="120" Password="{Binding UpisaniPass, Mode=TwoWay}"  Grid.Column="2"/>
+            </StackPanel>
+
+            <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="0,0,0,0" Grid.Row="2" TextWrapping="Wrap" Text="{Binding VerifikacijaPoruka, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Foreground="#FFEE1212"/>
+            <Button x:Name="button" Content="Login"  HorizontalAlignment="Right" Height="37" Margin="0,0,0,0" VerticalAlignment="Top" Width="70" Command="{Binding LoginAdmina}"/>
+        </StackPanel>
     </Grid>
 </Page>
 <!---->

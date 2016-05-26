@@ -33,13 +33,17 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
 
         public NaručivanjeDijelaViewModel(PocetnaViewModel pvm)
         {
+            Proizvođač = "";
+            Model = "";
+            ImeDijela = "";
+            Validacija = "";
             Naručilac = pvm.User;
             Naruči = new RelayCommand<object>(naruči, možeLiNaručiti);
         }
 
         bool možeLiNaručiti(object p)
         {
-            /*            bool uspjeh = Proizvođač.Length > 0 && Model.Length > 0 && ImeDijela.Length > 0;
+                        /*bool uspjeh = Proizvođač.Length > 0 && Model.Length > 0 && ImeDijela.Length > 0;
                         if (!uspjeh)
                         {
                             Validacija = "Morate unijeti sva polja!";
@@ -53,19 +57,29 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
 
         void naruči(object p)
         {
-            using (var db = new OtpadDbContext())
+            bool uspjeh = Proizvođač.Length > 0 && Model.Length > 0 && ImeDijela.Length > 0;
+            if (!uspjeh)
             {
-                db.NarudzbeDijelova.Add(new NarudžbaDijela(Proizvođač, Model, ImeDijela));
-                db.SaveChanges();
-                Validacija = "Narudžba uspješna!";
-                Proizvođač = "";
-                Model = "";
-                ImeDijela = "";
-
-                NotifyPropertyChanged("Proizvođač");
-                NotifyPropertyChanged("Model");
-                NotifyPropertyChanged("ImeDijela");
+                Validacija = "Morate unijeti sva polja!";
                 NotifyPropertyChanged("Validacija");
+            }
+            else
+            {
+
+               using (var db = new OtpadDbContext())
+                {
+                    db.NarudzbeDijelova.Add(new NarudžbaDijela(Proizvođač, Model, ImeDijela));
+                    db.SaveChanges();
+                    Validacija = "Narudžba uspješna!";
+                    Proizvođač = "";
+                    Model = "";
+                    ImeDijela = "";
+
+                    NotifyPropertyChanged("Proizvođač");
+                    NotifyPropertyChanged("Model");
+                    NotifyPropertyChanged("ImeDijela");
+                    NotifyPropertyChanged("Validacija");
+                }
             }
         }
     }
