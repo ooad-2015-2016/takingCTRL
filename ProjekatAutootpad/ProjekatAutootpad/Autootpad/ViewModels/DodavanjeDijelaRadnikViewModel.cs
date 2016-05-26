@@ -54,10 +54,6 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
         public SoftwareBitmapSource PrikazSlike { get { return slika; } set { slika = value; OnNotifyPropertyChanged("Slika"); } }
 
 
-
-
-
-
         public List<Dio> SviDijelovi
         {
             get
@@ -91,9 +87,10 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
 
         public async void pogledSlike(object p)
         {
+
             PrikazSlike = new SoftwareBitmapSource();
 
-            if (UlogovaniRadnik.Slika != null)
+            if (IzabraniDio.Slika != null)
 
             {
                 InMemoryRandomAccessStream Slika_op = new InMemoryRandomAccessStream();
@@ -108,12 +105,10 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
                 SoftwareBitmap softwareBitmapBGR8 = SoftwareBitmap.Convert(softwareBitmap,
                 BitmapPixelFormat.Bgra8, BitmapAlphaMode.Premultiplied);
                 await PrikazSlike.SetBitmapAsync(softwareBitmapBGR8);
+                NavigationService.Navigate(typeof(PregledSlike), new DodavanjeDijelaRadnikViewModel(this));
             }
 
-            NavigationService.Navigate(typeof(PregledSlike), new DodavanjeDijelaRadnikViewModel(this));
         }
-
-
 
 
         public async void dodaj(object p)
@@ -125,29 +120,29 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
                 
                 if (QR)
                 { 
-                String MiniQRApiUrl = String.Format("http://miniqr.com/api/create.php?api=http&content={0}&size=150&rtype=json", ("Proizvodjac: " + IzabraniDio.Proizvodjac + "\nModel: " + IzabraniDio.Model + "\nDio: " + IzabraniDio.ImeDijela + "\nCijena: " + IzabraniDio.ProdajnaCijena.ToString()).Replace(" ", "%20").Replace("\n", "%0A"));
+                    String MiniQRApiUrl = String.Format("http://miniqr.com/api/create.php?api=http&content={0}&size=150&rtype=json", ("Proizvodjac: " + IzabraniDio.Proizvodjac + "\nModel: " + IzabraniDio.Model + "\nDio: " + IzabraniDio.ImeDijela + "\nCijena: " + IzabraniDio.ProdajnaCijena.ToString()).Replace(" ", "%20").Replace("\n", "%0A"));
 
-                Uri StartUri = new Uri(MiniQRApiUrl);
+                    Uri StartUri = new Uri(MiniQRApiUrl);
 
-                HttpClient httpClient = new HttpClient();
-                string response = await httpClient.GetStringAsync(StartUri);
+                    HttpClient httpClient = new HttpClient();
+                    string response = await httpClient.GetStringAsync(StartUri);
                 
-                JsonObject val = JsonValue.Parse(response).GetObject();
-                string URLSlike = val.GetNamedString("imageurl");
-                URLSlike.Replace('\\', '/');
+                    JsonObject val = JsonValue.Parse(response).GetObject();
+                    string URLSlike = val.GetNamedString("imageurl");
+                    URLSlike.Replace('\\', '/');
                 
-                HttpWebRequest req = (HttpWebRequest) WebRequest.Create(URLSlike);
+                    HttpWebRequest req = (HttpWebRequest) WebRequest.Create(URLSlike);
                 
-                WebResponse resp = await req.GetResponseAsync();
+                    WebResponse resp = await req.GetResponseAsync();
 
-                if(req.HaveResponse)
-                {
-                    Stream receiveStream = resp.GetResponseStream();
-                        using (BinaryReader br = new BinaryReader(receiveStream))
-                        {
-                            IzabraniDio.QR = br.ReadBytes(500000);
-                            br.Dispose();
-                        }
+                    if(req.HaveResponse)
+                    {
+                        Stream receiveStream = resp.GetResponseStream();
+                            using (BinaryReader br = new BinaryReader(receiveStream))
+                            {
+                                IzabraniDio.QR = br.ReadBytes(500000);
+                                br.Dispose();
+                            }
 
                     /*FileSavePicker fsp = new FileSavePicker();
                     fsp.FileTypeChoices.Add("PNG", new List<String>() { ".png" });

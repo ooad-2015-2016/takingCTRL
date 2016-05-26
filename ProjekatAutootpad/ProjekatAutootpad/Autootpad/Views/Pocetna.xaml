@@ -37,7 +37,7 @@
                 <Button Content="Login radnika" Width="150" Height="50" HorizontalAlignment="Stretch" Margin="0,0,0,0" RenderTransformOrigin="0.418,1.025" Command="{Binding LoginRadnikaNavigacija}" Background="#ffffff"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button Content="Mapa" HorizontalAlignment="Stretch" Width="150" Height="50" Margin="0,0,0,0" RenderTransformOrigin="0.418,1.025" Command="{Binding PokreniGeolokaciju}" Background="#f1cbff"/>
+                <Button Content="Kontakt" HorizontalAlignment="Stretch" Width="150" Height="50" Margin="0,0,0,0" RenderTransformOrigin="0.418,1.025" Command="{Binding Kontakt}" Background="#f1cbff"/>
                 <Button Content="Pomoć"  HorizontalAlignment="Stretch" Width="150" Height="50" Margin="0,0,0,0" RenderTransformOrigin="0.418,1.025" Command="{Binding OtvoriPomoć}" Background="#e1f7d5"/>
             </StackPanel>
 

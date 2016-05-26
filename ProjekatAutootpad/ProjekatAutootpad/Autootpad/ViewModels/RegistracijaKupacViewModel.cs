@@ -9,6 +9,7 @@ using ProjekatAutootpad.Autootpad.Helper;
 using System.Windows.Input;
 using Windows.UI.Xaml;
 using ProjekatAutootpad.Autootpad.Views;
+using System.Text.RegularExpressions;
 
 namespace ProjekatAutootpad.Autootpad.ViewModels
 {
@@ -51,6 +52,16 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
             RegistrujNovog = new RelayCommand<object>(registrujNovog);
         }
 
+        private bool validanMail(string uneseniMail)
+        {
+            Regex regx = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+            Match match = regx.Match(uneseniMail);
+            if (match.Success)
+                return true;
+
+            return false;
+        }
+    
         private void registrujNovog(object parametar)
         {
             using (var db = new OtpadDbContext())
@@ -59,6 +70,11 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
                 {
 
                     VerifikacijaPoruka = "Unesite sve tražene podatke.";
+                    NotifyPropertyChanged("VerifikacijaPoruka");
+                }
+                else if (!validanMail(uEmail))
+                {
+                    VerifikacijaPoruka = "Niste unijeli validnu email adresu.";
                     NotifyPropertyChanged("VerifikacijaPoruka");
                 }
                 else

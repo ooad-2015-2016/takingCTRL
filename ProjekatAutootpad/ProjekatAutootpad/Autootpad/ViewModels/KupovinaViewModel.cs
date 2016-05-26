@@ -50,8 +50,7 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
 
                 foreach(Dio d in SviDijelovi)
                     _proizvodjaci.Add(d.Proizvodjac);
-
-                _proizvodjaci.Add("test");
+                
 
                 return _proizvodjaci.Distinct().ToList();
             }

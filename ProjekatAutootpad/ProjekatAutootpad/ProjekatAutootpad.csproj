@@ -118,11 +118,15 @@
     <Compile Include="Autootpad\ViewModels\AdminPogledUposlenikaViewModel.cs" />
     <Compile Include="Autootpad\ViewModels\DodavanjeDijelaRadnikViewModel.cs" />
     <Compile Include="Autootpad\ViewModels\GeolokacijaViewModel.cs" />
+    <Compile Include="Autootpad\ViewModels\KontaktViewModel.cs" />
     <Compile Include="Autootpad\ViewModels\NaručivanjeDijelaViewModel.cs" />
     <Compile Include="Autootpad\ViewModels\RegistracijaKupacViewModel.cs" />
     <Compile Include="Autootpad\ViewModels\RadnikPodaciViewModel.cs" />
     <Compile Include="Autootpad\Views\Geolokacija.xaml.cs">
       <DependentUpon>Geolokacija.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Autootpad\Views\KontaktView.xaml.cs">
+      <DependentUpon>KontaktView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Autootpad\Views\PregledSlike.xaml.cs">
       <DependentUpon>PregledSlike.xaml</DependentUpon>
@@ -211,6 +215,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Autootpad\Views\KontaktView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Autootpad\Views\PregledSlike.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -280,7 +288,11 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <SDKReference Include="WindowsMobile, Version=10.0.10586.0">
+      <Name>Windows Mobile Extensions for the UWP</Name>
+    </SDKReference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
