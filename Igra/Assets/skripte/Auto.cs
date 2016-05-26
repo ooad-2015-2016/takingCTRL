@@ -41,6 +41,22 @@ public abstract class Auto : MonoBehaviour {
 
     public float vjerovatnoca;
 
+    public IObserver KontrolniObjekti;
+    
+    public void Attach(IObserver kontrolniObjekt)
+    {
+        KontrolniObjekti =  kontrolniObjekt;
+    }
+
+    public void Detach(IObserver kontrolniObjekt)
+    {
+        KontrolniObjekti = null;
+    }
+
+    public void Notify()
+    {
+            KontrolniObjekti.Ažuriraj(this);
+    }
 
     // Use this for initialization
     protected virtual void Start () {
@@ -49,6 +65,7 @@ public abstract class Auto : MonoBehaviour {
         rightConstraint = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width * 1.0f, 0.0f, 0.0f)).x + 1;
         downConstraint = Camera.main.ScreenToWorldPoint(new Vector3(0.0f, Screen.height * 0.0f, 0.0f)).y;
         upConstraint = Camera.main.ScreenToWorldPoint(new Vector3(0.0f, Screen.height * 1.0f, 0.0f)).y + 2;
+        
         //Postavi();
         
     }
@@ -56,6 +73,9 @@ public abstract class Auto : MonoBehaviour {
 	// Update is called once per frame
 	protected virtual void Update () {
         StrategijaKretanja.KreciSe(this);
+        if (Gotov())
+            KontrolniObjekti.Ažuriraj(this);
+
     }
 
     public virtual void Postavi()

@@ -1,7 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Kontrole : MonoBehaviour {
+public interface IObserver
+{
+    void Ažuriraj(Auto a);
+}
+
+public class Kontrole : MonoBehaviour, IObserver {
     float brzina_skretanja_h = 5.0f;
     float brzina_skretanja_v = 2.5f;
     float leftConstraint;
@@ -26,6 +31,13 @@ public class Kontrole : MonoBehaviour {
     AutoFactory autoFactory;
 
     ArrayList auta = new ArrayList();
+    ArrayList GotovaAuta = new ArrayList();
+
+    public void Ažuriraj(Auto a)
+    {
+        if (!GotovaAuta.Contains(a))
+            GotovaAuta.Add(a);
+    }
 
     // Use this for initialization
     void Start () {
@@ -50,8 +62,10 @@ public class Kontrole : MonoBehaviour {
         while (auta.Count < nivo * 7)
         {
             Auto novo = autoFactory.generisiAuto('o');
+            novo.KontrolniObjekti = this;
             novo.StrategijaKretanja = new PravolinijskoKretanje();
             auta.Add(novo);
+            GotovaAuta.Add(novo);
         }
 
         Physics.IgnoreLayerCollision(9, 9);
@@ -100,12 +114,23 @@ public class Kontrole : MonoBehaviour {
             //Debug.Log("kliknuto dole; transformacija");
         }
 
-        foreach (Auto a in auta)
+        /*foreach (Auto a in auta)
         {
             if(a.Gotov())
             {
                 if (Random.value > a.vjerovatnoca)
                     a.Postavi();
+            }
+        }*/
+
+        for (int i = 0; i < GotovaAuta.Count; ++i)
+        {
+            Auto a = GotovaAuta[i] as Auto;
+            if (Random.value > a.vjerovatnoca)
+            {
+                a.Postavi();
+                GotovaAuta.RemoveAt(i);
+                --i;
             }
         }
 
@@ -135,14 +160,20 @@ public class Kontrole : MonoBehaviour {
 
                 Auto novo = autoFactory.generisiAuto('o');
                 novo.StrategijaKretanja = new PravolinijskoKretanje();
+                novo.KontrolniObjekti = this;
+                GotovaAuta.Add(novo);
                 auta.Add(novo);
 
                 novo = autoFactory.generisiAuto('o');
                 novo.StrategijaKretanja = new PravolinijskoKretanje();
+                novo.KontrolniObjekti = this;
+                GotovaAuta.Add(novo);
                 auta.Add(novo);
 
                 novo = autoFactory.generisiAuto('a');
                 novo.StrategijaKretanja = new CikCakKretanje();
+                novo.KontrolniObjekti = this;
+                GotovaAuta.Add(novo);
                 auta.Add(novo);
                 
 
