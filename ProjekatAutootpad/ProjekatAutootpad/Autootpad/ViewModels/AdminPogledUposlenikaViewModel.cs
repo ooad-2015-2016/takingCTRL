@@ -26,18 +26,13 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
 
         public Radnik User { get; set; }
         private Radnik _editovaniRadnik;
-        public Radnik EditovaniRadnik {
-            get { return _editovaniRadnik; }
-            set { _editovaniRadnik = value;
-                NotifyPropertyChanged("EditovaniRadnik.imePrezime");
-                NotifyPropertyChanged("EditovaniRadnik.Username");
-                NotifyPropertyChanged("EditovaniRadnik.Password");
-                NotifyPropertyChanged("EditovaniRadnik.DatumRodjenja");
-                NotifyPropertyChanged("EditovaniRadnik.Email");
-            }
-        }
 
-        public Radnik KliknutiRadnik        { get; set; }
+        public string ImePrezime { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
+        public string Email { get; set; }
+        
+        public Radnik KliknutiRadnik { get; set; }
 
         public INavigationService NavigationService { get; set; }
         public ICommand IzmjenaRadnika { get; set; }
@@ -70,12 +65,11 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
             IzmjenaRadnika = new RelayCommand<object>(izmjenaRadnika);
             DodavanjeRadnika = new RelayCommand<object>(dodavanjeRadnika);
             BrisanjeRadnika = new RelayCommand<object>(brisanjeRadnika);
-            EditovaniRadnik = new Radnik();
-            /*EditovaniUsername = "";
-            EditovanoIme = "";
-            EditovaniPass = "";
-            EditovaniDatum = new DateTime();
-            EditovaniEmail = "";*/
+            Username = "";
+            ImePrezime = "";
+            Password = "";
+            //EditovaniDatum = new DateTime();
+            Email = "";
             SelectionChanged = new RelayCommand<object>(selectionChanged);
             Izbriši = new RelayCommand<object>(izbriši);
         }
@@ -120,16 +114,29 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
         public void dodavanjeRadnika(object parametar)
         {
             using (var db = new OtpadDbContext())
-            { 
-                if (db.Radnici.Any(x => x.radnikId == EditovaniRadnik.radnikId))
-                    db.Update(EditovaniRadnik);
+            {
+                Radnik novi = new Radnik();
+                novi.imePrezime = ImePrezime;
+                novi.Username = Username;
+                novi.Password = Password;
+                novi.Email = Email; 
+                //datum
+                db.Radnici.Add(novi);
 
-                else
-                    db.Radnici.Add(EditovaniRadnik);
+                db.SaveChanges();
+                ImePrezime = "";
+                Username = "";
+                Password = "";
+                Email = "";
 
-            db.SaveChanges();
-            EditovaniRadnik = new Radnik();
-            NotifyPropertyChanged("radnici");
+                NotifyPropertyChanged("ImePrezime");
+                NotifyPropertyChanged("Username");
+                NotifyPropertyChanged("Password");
+                NotifyPropertyChanged("Email");
+                NotifyPropertyChanged("radnici");
+
+
+
             }
 
         }
