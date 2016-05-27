@@ -8,6 +8,7 @@ using System.ComponentModel;
 using ProjekatAutootpad.Autootpad.Helper;
 using System.Windows.Input;
 using Windows.UI.Xaml;
+using ProjekatAutootpad.Autootpad.Views;
 
 namespace ProjekatAutootpad.Autootpad.ViewModels
 {
@@ -25,7 +26,6 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
         }
 
         public Radnik User { get; set; }
-        private Radnik _editovaniRadnik;
 
         public string ImePrezime { get; set; }
         public string Username { get; set; }
@@ -39,6 +39,7 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
         public ICommand DodavanjeRadnika { get; set; }
         public ICommand BrisanjeRadnika { get; set; }
         public ICommand SelectionChanged { get; set; }
+        public ICommand Edituj { get; set; }
         public ICommand Izbriši { get; set; }
 
 
@@ -65,6 +66,7 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
             IzmjenaRadnika = new RelayCommand<object>(izmjenaRadnika);
             DodavanjeRadnika = new RelayCommand<object>(dodavanjeRadnika);
             BrisanjeRadnika = new RelayCommand<object>(brisanjeRadnika);
+            Edituj = new RelayCommand<object>(edituj);
             Username = "";
             ImePrezime = "";
             Password = "";
@@ -92,6 +94,14 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
                 }
             }
         }
+
+        public void edituj(object o)
+        {
+            NavigationService.Navigate(typeof(EditRadnikaAdminView), new EditRadnikaAdminViewModel(this));
+            //NavigationService.Navigate(typeof(TestView), new TestViewModel(this));
+
+        }
+
 
         public void selectionChanged(object p)
         {

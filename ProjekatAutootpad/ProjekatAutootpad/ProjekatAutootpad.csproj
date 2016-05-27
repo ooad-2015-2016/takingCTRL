@@ -117,11 +117,16 @@
     <Compile Include="Autootpad\ViewModels\AdminLoginViewModel.cs" />
     <Compile Include="Autootpad\ViewModels\AdminPogledUposlenikaViewModel.cs" />
     <Compile Include="Autootpad\ViewModels\DodavanjeDijelaRadnikViewModel.cs" />
+    <Compile Include="Autootpad\ViewModels\EditRadnikaAdminViewModel.cs" />
     <Compile Include="Autootpad\ViewModels\GeolokacijaViewModel.cs" />
     <Compile Include="Autootpad\ViewModels\KontaktViewModel.cs" />
     <Compile Include="Autootpad\ViewModels\NaručivanjeDijelaViewModel.cs" />
     <Compile Include="Autootpad\ViewModels\RegistracijaKupacViewModel.cs" />
     <Compile Include="Autootpad\ViewModels\RadnikPodaciViewModel.cs" />
+    <Compile Include="Autootpad\ViewModels\TestViewModel.cs" />
+    <Compile Include="Autootpad\Views\EditRadnikaAdminView.xaml.cs">
+      <DependentUpon>EditRadnikaAdminView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Autootpad\Views\Geolokacija.xaml.cs">
       <DependentUpon>Geolokacija.xaml</DependentUpon>
     </Compile>
@@ -164,6 +169,9 @@
     </Compile>
     <Compile Include="Autootpad\Views\SlikanjeDijela.xaml.cs">
       <DependentUpon>SlikanjeDijela.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Autootpad\Views\TestView.xaml.cs">
+      <DependentUpon>TestView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Autootpad\Views\UlogovaniKupacMenu.xaml.cs">
       <DependentUpon>UlogovaniKupacMenu.xaml</DependentUpon>
@@ -211,6 +219,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Autootpad\Views\EditRadnikaAdminView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Autootpad\Views\Geolokacija.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -276,6 +288,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Autootpad\Views\SlikanjeDijela.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Autootpad\Views\TestView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
