@@ -23,8 +23,6 @@
                 </Grid.ColumnDefinitions>
                 <!--Iz ViewModela koji je povezan sa Page ce uzeti objekat Komponenta i njen naziv staviti u textblok-->
                 <TextBlock Text="{Binding Username}" Grid.Column="0" Margin="5,0,0,0"/>
-                <TextBlock Text="{Binding Password}" Grid.Column="1" Margin="5,0,0,0" />
-                <Button Content="Delete" Command="{Binding BrisanjeRadnika}" Grid.Column="4" Margin="5,5,5,5"/>
             </Grid>
         </DataTemplate>
     </Page.Resources>
@@ -49,17 +47,19 @@
         <!--Polja za unos novog restorana-->
 
         <TextBlock Grid.Row="0" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Ime" VerticalAlignment="Top"/>
-        <TextBox Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" Margin="3,3,3,3"  TextWrapping="Wrap" Text="{Binding EditovanoIme, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBox Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" Margin="3,3,3,3"  TextWrapping="Wrap" Text="{Binding EditovaniRadnik.Username, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         <TextBlock Grid.Row="1" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Username" VerticalAlignment="Top"/>
-        <TextBox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" Margin="3,3,3,3"  TextWrapping="Wrap" Text="{Binding EditovaniUsername, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" Margin="3,3,3,3"  TextWrapping="Wrap" Text="{Binding EditovaniRadnik.Username, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}"/>
         <TextBlock Grid.Row="2" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top"/>
-        <TextBox Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" Margin="3,3,3,3"  TextWrapping="Wrap" Text="{Binding EditovaniPass, Mode=TwoWay}"/>
+        <TextBox Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" Margin="3,3,3,3"  TextWrapping="Wrap" Text="{Binding EditovaniRadnik.Email, Mode=TwoWay}"/>
         <TextBlock Grid.Row="3" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="E-mail" VerticalAlignment="Top"/>
-        <TextBox Grid.Row="3" Grid.Column="1" HorizontalAlignment="Stretch" Margin="3,3,3,3"  TextWrapping="Wrap" Text="{Binding EditovaniEmail, Mode=TwoWay}"/>
+        <TextBox Grid.Row="3" Grid.Column="1" HorizontalAlignment="Stretch" Margin="3,3,3,3"  TextWrapping="Wrap" Text="{Binding EditovaniRadnik.Email, Mode=TwoWay}"/>
         <TextBlock Grid.Row="4" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Rođen" VerticalAlignment="Top"/>
-        <CalendarDatePicker Grid.Row="4" Grid.Column="1" HorizontalAlignment="Stretch" Margin="3,3,3,3"  Date="{Binding EditovaniDatum, Mode=TwoWay}" />
+        <CalendarDatePicker Grid.Row="4" Grid.Column="1" HorizontalAlignment="Stretch" Margin="3,3,3,3"  Date="{Binding EditovaniRadnik.DatumRodjenja, Mode=TwoWay}" />
         <Button Content="Dodaj" HorizontalAlignment="Stretch" Margin="5,5,5,0" Grid.Row="5" VerticalAlignment="Top" Command="{Binding DodavanjeRadnika}" />
-        <ListView  Name="RadniciIS"  ItemTemplate="{StaticResource RadnikListTemplate}" ItemsSource="{Binding radnici, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Stretch" Margin="30,10,50,0" Grid.Row="7" VerticalAlignment="Stretch" Grid.ColumnSpan="3" Grid.RowSpan="1" SelectedItem="{Binding EditovaniRadnik, Mode=TwoWay}" >
+        <Button Content="Izbriši" Margin="5,5,5,0" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Command="{Binding Izbriši}" />
+
+        <ListView  Name="RadniciIS"  ItemTemplate="{StaticResource RadnikListTemplate}" ItemsSource="{Binding radnici, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Stretch" Margin="30,10,50,0" Grid.Row="7" VerticalAlignment="Stretch" Grid.ColumnSpan="3" Grid.RowSpan="1" SelectedItem="{Binding KliknutiRadnik, Mode=TwoWay}" >
             <ListView.Template>
                 <ControlTemplate>
                     <Grid>
@@ -76,9 +76,8 @@
 
                             </Grid.ColumnDefinitions>
                             <TextBlock HorizontalAlignment="Left" Grid.Column="0">Username</TextBlock>
-                            <TextBlock HorizontalAlignment="Center" Grid.Column="1">Password</TextBlock>
+                            <TextBlock HorizontalAlignment="Right" Grid.Column="1"></TextBlock>
                             <TextBlock HorizontalAlignment="Right" Grid.Column="2"></TextBlock>
-                            <TextBlock HorizontalAlignment="Right" Grid.Column="3"></TextBlock>
                         </Grid>
                         <!-- Ostatak da bude lista koja je orginalno trebala biti -->
                         <ItemsPresenter Grid.Row="1"></ItemsPresenter>

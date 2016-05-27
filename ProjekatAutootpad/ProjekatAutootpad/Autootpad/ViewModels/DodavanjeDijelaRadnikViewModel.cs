@@ -155,10 +155,11 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
                     }
                 }
 
-                NotifyPropertyChanged("SviDijelovi");
-
                 IzabraniDio = null;
                 db.SaveChanges();
+
+                NotifyPropertyChanged("SviDijelovi");
+
             }
 
         }
