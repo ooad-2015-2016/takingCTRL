@@ -31,7 +31,9 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
         public string Username { get; set; }
         public string Password { get; set; }
         public string Email { get; set; }
-        
+        public string Verifikacija { get; set; }
+
+
         public Radnik KliknutiRadnik { get; set; }
 
         public INavigationService NavigationService { get; set; }
@@ -70,6 +72,7 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
             Username = "";
             ImePrezime = "";
             Password = "";
+            Verifikacija = "";
             //EditovaniDatum = new DateTime();
             Email = "";
             SelectionChanged = new RelayCommand<object>(selectionChanged);
@@ -90,6 +93,8 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
 
                     db.Remove(KliknutiRadnik);
                     db.SaveChanges();
+                    Verifikacija = "Uspješno izbrisan radnik.";
+                    NotifyPropertyChanged("Verifikacija");
                     NotifyPropertyChanged("radnici");
                 }
             }
@@ -123,32 +128,46 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
 
         public void dodavanjeRadnika(object parametar)
         {
-            using (var db = new OtpadDbContext())
-            {
-                Radnik novi = new Radnik();
-                novi.imePrezime = ImePrezime;
-                novi.Username = Username;
-                novi.Password = Password;
-                novi.Email = Email; 
-                //datum
-                db.Radnici.Add(novi);
+            if (ImePrezime.Length == 0)
+                Verifikacija = "Morate unijeti ime radnika.";
 
-                db.SaveChanges();
-                ImePrezime = "";
-                Username = "";
-                Password = "";
-                Email = "";
+            else if (Username.Length == 0)
+                Verifikacija = "Morate unijeti username.";
 
-                NotifyPropertyChanged("ImePrezime");
-                NotifyPropertyChanged("Username");
-                NotifyPropertyChanged("Password");
-                NotifyPropertyChanged("Email");
-                NotifyPropertyChanged("radnici");
+            else if (Password.Length < 4)
+                Verifikacija = "Password mora imati barem 4 znaka.";
+
+            //verifikacija maila i datuma
 
 
+            else
+                using (var db = new OtpadDbContext())
+                {
+                    Radnik novi = new Radnik();
+                    novi.imePrezime = ImePrezime;
+                    novi.Username = Username;
+                    novi.Password = Password;
+                    novi.Email = Email; 
+                    //datum
+                    db.Radnici.Add(novi);
 
-            }
+                    db.SaveChanges();
+                    ImePrezime = "";
+                    Username = "";
+                    Password = "";
+                    Email = "";
+                    Verifikacija = "Uspješno dodan radnik";
+
+                    NotifyPropertyChanged("ImePrezime");
+                    NotifyPropertyChanged("Username");
+                    NotifyPropertyChanged("Password");
+                    NotifyPropertyChanged("Email");
+                    NotifyPropertyChanged("radnici");
+                }
+
+            NotifyPropertyChanged("Verifikacija");
 
         }
+
     }
 }

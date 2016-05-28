@@ -43,6 +43,7 @@
             <RowDefinition Height="40" />
 
             <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <!--Polja za unos novog restorana-->
@@ -60,8 +61,8 @@
         <Button Content="Dodaj" HorizontalAlignment="Stretch" Margin="5,5,5,0" Grid.Row="5" VerticalAlignment="Top" Command="{Binding DodavanjeRadnika}" />
         <Button Content="Izbriši" Margin="5,5,5,0" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Command="{Binding Izbriši}" />
         <Button Content="Detalji" Margin="5,5,5,0" Grid.Row="5" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top" Command="{Binding Edituj}" />
-
-        <ScrollViewer Grid.Row="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="3">
+        <TextBox Text="{Binding Verifikacija, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Row="6" Grid.ColumnSpan="3" Foreground="Red"/>
+        <ScrollViewer Grid.Row="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="3">
         <ListView  Name="RadniciIS"  ItemTemplate="{StaticResource RadnikListTemplate}" ItemsSource="{Binding radnici, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Stretch" Margin="30,10,50,0" VerticalAlignment="Stretch" Grid.ColumnSpan="3" Grid.RowSpan="1" SelectedItem="{Binding KliknutiRadnik, Mode=TwoWay}" >
             <ListView.Template>
                 <ControlTemplate>
