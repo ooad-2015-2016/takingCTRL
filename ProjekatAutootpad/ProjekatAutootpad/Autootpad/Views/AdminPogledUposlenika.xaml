@@ -63,7 +63,7 @@
         <Button Content="Detalji" Margin="5,5,5,0" Grid.Row="5" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top" Command="{Binding Edituj}" />
         <TextBlock Text="{Binding Verifikacija, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Row="6" Grid.ColumnSpan="3" Foreground="Red"/>
         <ScrollViewer Grid.Row="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="3">
-        <ListView  Name="RadniciIS"  ItemTemplate="{StaticResource RadnikListTemplate}" ItemsSource="{Binding radnici, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Stretch" Margin="30,10,50,0" VerticalAlignment="Stretch" Grid.ColumnSpan="3" Grid.RowSpan="1" SelectedItem="{Binding KliknutiRadnik, Mode=TwoWay}" >
+        <ListView  Name="RadniciIS" ItemTemplate="{StaticResource RadnikListTemplate}" ItemsSource="{Binding radnici, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Stretch" Margin="30,10,50,0" VerticalAlignment="Stretch" Grid.ColumnSpan="3" Grid.RowSpan="1" SelectedItem="{Binding KliknutiRadnik, Mode=TwoWay}" >
             <ListView.Template>
                 <ControlTemplate>
                     <Grid>
@@ -79,10 +79,11 @@
                                 <ColumnDefinition Width="*" />
 
                             </Grid.ColumnDefinitions>
-                                <TextBlock HorizontalAlignment="Left" Grid.Column="0">Radnik</TextBlock>
-                            </Grid>
+                            <TextBlock HorizontalAlignment="Left" Grid.Column="0">Radnik</TextBlock>
+                        </Grid>
                         <!-- Ostatak da bude lista koja je orginalno trebala biti -->
                         <ItemsPresenter Grid.Row="1"></ItemsPresenter>
+
                     </Grid>
                 </ControlTemplate>
             </ListView.Template>

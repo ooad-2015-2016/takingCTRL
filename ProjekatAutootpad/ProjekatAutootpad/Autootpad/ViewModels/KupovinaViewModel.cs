@@ -1,10 +1,12 @@
-﻿using ProjekatAutootpad.Autootpad.Models;
+﻿using ProjekatAutootpad.Autootpad.Helper;
+using ProjekatAutootpad.Autootpad.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace ProjekatAutootpad.Autootpad.ViewModels
 {
@@ -68,7 +70,8 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
             set {
                 _sUgradnjom = value;
 
-                _cijena = _izabraniDio.ProdajnaCijena;
+                if (_izabraniDio != null)
+                    _cijena = _izabraniDio.ProdajnaCijena;
 
                 if (_sUgradnjom)
                     _cijena += 75M;
@@ -76,8 +79,11 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
                 if (User.jeliPenzioner)
                     _cijena -= 0.1m * _cijena;
 
-                CijenaTekst = "Cijena: " + _cijena.ToString();
-                NotifyPropertyChanged("CijenaTekst");
+                if (_izabraniDio != null)
+                {
+                    CijenaTekst = "Cijena: " + _cijena.ToString();
+                    NotifyPropertyChanged("CijenaTekst");
+                }
             }
         }
 
@@ -102,7 +108,8 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
             set
             {
                 _izabraniDio = value;
-                _cijena = _izabraniDio.ProdajnaCijena;
+                if (_izabraniDio != null)
+                    _cijena = _izabraniDio.ProdajnaCijena;
 
                 if (SUgradnjom)
                     _cijena += 75M;
@@ -114,6 +121,10 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
 
             }
         }
+
+        public string Verifikacija { get; set; }
+
+        public ICommand Kupi { get; set; }
         
         public KupovinaViewModel(PocetnaViewModel pvm)
         {
@@ -123,6 +134,35 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
             _cijena = 0.0m;
             _cijenaTekst = "";
             _sUgradnjom = false;
+            Verifikacija = "";
+            Kupi = new RelayCommand<object>(kupi);
+        }
+
+        public async void kupi(object param)
+        {
+            if (IzabraniDio == null)
+            {
+                Verifikacija = "Morate odabrati dio.";
+                NotifyPropertyChanged("Verifikacija");
+            }
+            else
+            {
+                using (var db = new OtpadDbContext())
+                {
+                    db.Dijelovi.Remove(IzabraniDio);
+                    await db.SaveChangesAsync();
+                    IzabraniDio = null;
+                    NotifyPropertyChanged("IzabraniDio");
+                    NotifyPropertyChanged("SviDijelovi");
+
+                    SUgradnjom = false;
+                    CijenaTekst = "";
+                    NotifyPropertyChanged("SUgradnjom");
+                    Verifikacija = "Uspješno ste kupili dio.";
+                    NotifyPropertyChanged("Verifikacija");
+
+                }
+            }
         }
 
     }
