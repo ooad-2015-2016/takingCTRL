@@ -22,9 +22,9 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
         }
 
         public String _izabrana;
-        public String Izabrana { get { return _izabrana; } set{ _izabrana = value; NotifyPropertyChanged("SviDijelovi"); } }
+        public String Izabrana { get { return _izabrana; } set { _izabrana = value; NotifyPropertyChanged("SviDijelovi"); } }
 
-        public Korisnik User { get; set; }
+        public Kupac User { get; set; }
         //public 
         private String _trazeni;
         public String Trazeni { get { return _trazeni; } set { _trazeni = value; NotifyPropertyChanged("SviDijelovi"); NotifyPropertyChanged("Dummy"); } }
@@ -33,39 +33,95 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
 
                 using (var db = new OtpadDbContext())
                 {
-                    if (Izabrana == "Svi")
-                        return db.Dijelovi.Where(x => x.Model.StartsWith(Trazeni) && x.UProdaji).ToList();
-                    else
-                        return db.Dijelovi.Where(x=>x.UProdaji).Where(x => x.Model.StartsWith(Trazeni)).Where(x=>x.Proizvodjac==Izabrana).ToList();
+                    return db.Dijelovi.Where(x => x.UProdaji).Where(x => x.Model.StartsWith(Trazeni)).Where(x => x.Proizvodjac == Izabrana).ToList();
 
                 }
             }
         }
-        
+
         public List<String> Proizvodjaci { get
             {
 
                 List<String> _proizvodjaci = new List<string>();
-                _proizvodjaci.Add("Svi");
+                List<Dio> _dijelovi;
 
-                foreach(Dio d in SviDijelovi)
+                using (var db = new OtpadDbContext())
+                    _dijelovi = db.Dijelovi.ToList();
+
+                foreach (Dio d in _dijelovi)
                     _proizvodjaci.Add(d.Proizvodjac);
-                
 
                 return _proizvodjaci.Distinct().ToList();
             }
-             set
+            set
             {
             }
         }
 
-        public List<Dio> Narudzba { get; set; }
+        private decimal _cijena;
+
+        private bool _sUgradnjom;
+
+        public bool SUgradnjom
+        {
+            get { return _sUgradnjom; }
+            set {
+                _sUgradnjom = value;
+
+                _cijena = _izabraniDio.ProdajnaCijena;
+
+                if (SUgradnjom)
+                    _cijena += 75M;
+
+                if (User.jeliPenzioner)
+                    _cijena -= 0.1m * _cijena;
+
+                CijenaTekst = "Cijena: " + _cijena.ToString();
+            }
+        }
+
+        private string _cijenaTekst;
+        public string CijenaTekst
+        {
+            set { _cijenaTekst = value;
+                NotifyPropertyChanged("CijenaTekst");
+            }
+            get { return _cijenaTekst; }
+        }
+
+        //public List<Dio> Narudzba { get; set; }
+        private Dio _izabraniDio;
+
+        public Dio IzabraniDio
+        {
+            get
+            {
+                return _izabraniDio;
+            }
+            set
+            {
+                _izabraniDio = value;
+                _cijena = _izabraniDio.ProdajnaCijena;
+
+                if (SUgradnjom)
+                    _cijena += 75M;
+
+                if (User.jeliPenzioner)
+                    _cijena -= 0.1m * _cijena;
+
+                CijenaTekst = "Cijena: " + _cijena.ToString();
+
+            }
+        }
         
         public KupovinaViewModel(PocetnaViewModel pvm)
         {
             User = pvm.User;
             _trazeni = "";
             _izabrana = "Svi";
+            _cijena = 0.0m;
+            _cijenaTekst = "";
+            _sUgradnjom = false;
         }
 
     }

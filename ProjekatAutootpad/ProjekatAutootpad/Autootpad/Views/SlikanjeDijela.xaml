@@ -11,24 +11,24 @@
         <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
-        </Grid.RowDefinitions>
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+
+            </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="auto" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <CaptureElement Name="PreviewControl" Source="{Binding Path=Camera.MediaCapture,Mode=TwoWay}" Stretch="Uniform" Grid.Row="0"/>
-        <Image Name="SlikaControl" HorizontalAlignment="Center" Margin="5,5,5,5" VerticalAlignment="Center"  Source="{Binding Slika, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1"/>
-        <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Grid.Row="2" Grid.ColumnSpan="2">
-        <Button Content="Uslikaj" Command="{Binding Uslikaj}"  HorizontalAlignment="Stretch"></Button>
-            <Button Content="Prihvati sliku" Command="{Binding Prihvati}" HorizontalAlignment="Stretch"></Button>
+            <Button Content="Uslikaj" Command="{Binding Uslikaj}"  HorizontalAlignment="Stretch" Grid.Row="0" />
+            <Button Content="Prihvati sliku" Command="{Binding Prihvati}" HorizontalAlignment="Stretch" Grid.Row="1"/>
 
-
-        </StackPanel>
-    </Grid>
+            <CaptureElement Name="PreviewControl" Source="{Binding Path=Camera.MediaCapture,Mode=TwoWay}" Stretch="Uniform" Grid.Row="2"/>
+            <TextBlock Text="Izabrana: " Grid.Row="3"/>
+            <Image Name="SlikaControl" HorizontalAlignment="Stretch" Margin="5,5,5,5" VerticalAlignment="Center" Stretch="Uniform" Source="{Binding Slika, UpdateSourceTrigger=PropertyChanged}" Grid.Row="4"/>
+            </Grid>
     </ScrollViewer>
 
 </Page>

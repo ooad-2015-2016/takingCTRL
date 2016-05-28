@@ -30,6 +30,7 @@ namespace ProjekatAutootpad.Autootpad.Views
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            //base.OnNavigatedTo(e);
             PocetnaViewModel pocetnaViewModel = e.Parameter as PocetnaViewModel;
             DataContext = pocetnaViewModel;
         }

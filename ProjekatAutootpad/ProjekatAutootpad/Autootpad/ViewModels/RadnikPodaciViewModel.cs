@@ -70,11 +70,6 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
 //          eksterniServis.dodajKorisnika(CreateUposlenik);
             
         }
-        //callback na read rfid
-        public void RfidReadSomething(string rfidKod)
-        {
-            //CreateUposlenik.RfidKartica = rfidKod;
-        }
 
         //callback funkcija kad se uslika 
         public async void SlikanjeGotovo(SoftwareBitmapSource nova)
@@ -121,23 +116,5 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
             //? je skracena verzija ako nije null
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(memberName));
         }
-
-        /*public async static Task<SoftwareBitmapSource> ImageFromBytes(Byte[] bytes)
-        {
-            SoftwareBitmapSource image = new SoftwareBitmapSource();
-            using (InMemoryRandomAccessStream stream = new InMemoryRandomAccessStream())
-            {
-                await stream.WriteAsync(bytes.AsBuffer());
-                
-                stream.Seek(0);
-
-                var decoder = await BitmapDecoder.CreateAsync(stream);
-                var softwareBitmap = await decoder.GetSoftwareBitmapAsync();
-
-                SoftwareBitmap softwareBitmapBGR8 = SoftwareBitmap.Convert(softwareBitmap, BitmapPixelFormat.Bgra8, BitmapAlphaMode.Premultiplied);
-                await image.SetBitmapAsync(softwareBitmapBGR8).AsTask();
-            }
-            return image;
-        }*/
-        }
     }
+}

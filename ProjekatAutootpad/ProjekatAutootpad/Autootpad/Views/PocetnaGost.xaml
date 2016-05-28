@@ -17,12 +17,10 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <TextBlock Text="{x:Bind Proizvodjac}" HorizontalAlignment="Left"/>
-                <TextBlock Text="{x:Bind Model}" Grid.Column="1" HorizontalAlignment="Center"/>
-                <TextBlock Text="{x:Bind ImeDijela}" Grid.Column="2" HorizontalAlignment="Center"/>
-                <TextBlock Text="{x:Bind ProdajnaCijena}" Grid.Column="3" HorizontalAlignment="Right"/>
+                <TextBlock Text="{x:Bind Model}" Grid.Column="0" HorizontalAlignment="Center"/>
+                <TextBlock Text="{x:Bind ImeDijela}" Grid.Column="1" HorizontalAlignment="Center"/>
+                <TextBlock Text="{x:Bind ProdajnaCijena}" Grid.Column="2" HorizontalAlignment="Right"/>
             </Grid>
         </DataTemplate>
     </Page.Resources>
@@ -57,12 +55,10 @@
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
-                            <TextBlock HorizontalAlignment="Left" Grid.Column="0">Proizvođač</TextBlock>
-                            <TextBlock HorizontalAlignment="Center" Grid.Column="1">Model</TextBlock>
-                            <TextBlock HorizontalAlignment="Center" Grid.Column="2">Dio</TextBlock>
-                            <TextBlock HorizontalAlignment="Right" Grid.Column="3">Cijena</TextBlock>
+                            <TextBlock HorizontalAlignment="Center" Grid.Column="0">Model</TextBlock>
+                            <TextBlock HorizontalAlignment="Center" Grid.Column="1">Dio</TextBlock>
+                            <TextBlock HorizontalAlignment="Right" Grid.Column="2">Cijena</TextBlock>
                         </Grid>
                         <ItemsPresenter Grid.Row="1"></ItemsPresenter>
                     </Grid>
