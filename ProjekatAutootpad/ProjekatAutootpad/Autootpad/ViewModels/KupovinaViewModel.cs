@@ -70,13 +70,14 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
 
                 _cijena = _izabraniDio.ProdajnaCijena;
 
-                if (SUgradnjom)
+                if (_sUgradnjom)
                     _cijena += 75M;
 
                 if (User.jeliPenzioner)
                     _cijena -= 0.1m * _cijena;
 
                 CijenaTekst = "Cijena: " + _cijena.ToString();
+                NotifyPropertyChanged("CijenaTekst");
             }
         }
 

@@ -8,23 +8,21 @@
     xmlns:models="using:ProjekatAutootpad.Autootpad.Models"
     mc:Ignorable="d">
     <Page.Resources>
-    <DataTemplate x:Key="DioListTemplate"  x:DataType="models:Dio">
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-            <TextBlock Text="{x:Bind Proizvodjac}" HorizontalAlignment="Left"/>
-            <TextBlock Text="{x:Bind Model}" Grid.Column="1" HorizontalAlignment="Center"/>
-            <TextBlock Text="{x:Bind ImeDijela}" Grid.Column="2" HorizontalAlignment="Center"/>
-            <TextBlock Text="{x:Bind ProdajnaCijena}" Grid.Column="3" HorizontalAlignment="Right"/>
-        </Grid>
-    </DataTemplate>
+        <DataTemplate x:Key="DioListTemplate"  x:DataType="models:Dio">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="{x:Bind Model}" Grid.Column="0" HorizontalAlignment="Center"/>
+                <TextBlock Text="{x:Bind ImeDijela}" Grid.Column="1" HorizontalAlignment="Center"/>
+                <TextBlock Text="{x:Bind ProdajnaCijena}" Grid.Column="2" HorizontalAlignment="Right"/>
+            </Grid>
+        </DataTemplate>
     </Page.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -34,17 +32,19 @@
             <ColumnDefinition Width="336*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="133*"/>
-            <RowDefinition Height="36*"/>
-            <RowDefinition Height="310*"/>
-            <RowDefinition Height="53*"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="65"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="55"/>
+            <RowDefinition Height="55"/>
 
         </Grid.RowDefinitions>
-        <ComboBox  HorizontalAlignment="Left" Margin="28,70,0,0" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2" ItemsSource="{Binding Proizvodjaci}" SelectedValue="{Binding Izabrana, Mode=TwoWay}" />
+        <ComboBox  HorizontalAlignment="Left" Margin="28,22,0,0" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2" ItemsSource="{Binding Proizvodjaci}" SelectedValue="{Binding Izabrana, Mode=TwoWay}" Grid.Row="1" />
         <TextBlock HorizontalAlignment="Left" Margin="28,10,0,0" TextWrapping="Wrap" Text="Proizvođač:" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
         <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Model:" VerticalAlignment="Top"/>
-        <TextBox  Grid.Column="2" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top" Width="120" Text="{Binding Trazeni, Mode=TwoWay}"/>
-        <ListView  ItemTemplate="{StaticResource DioListTemplate}" ItemsSource="{Binding SviDijelovi, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Stretch" Margin="10,10,10,0" Grid.Row="2" VerticalAlignment="Stretch" Grid.ColumnSpan="3" Grid.RowSpan="1">
+        <TextBox  Grid.Column="2" HorizontalAlignment="Left" Margin="10,22,0,0" VerticalAlignment="Top" Width="120" Text="{Binding Trazeni, Mode=TwoWay}" Grid.Row="1"/>
+        <ListView  ItemTemplate="{StaticResource DioListTemplate}" ItemsSource="{Binding SviDijelovi, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Stretch" Margin="10,9.667,10,0.333" Grid.Row="3" VerticalAlignment="Stretch" Grid.ColumnSpan="3" Grid.RowSpan="1" SelectedItem="{Binding IzabraniDio, Mode=TwoWay}">
             <ListView.Template>
                 <ControlTemplate>
                     <Grid>
@@ -57,12 +57,10 @@
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
-                            <TextBlock HorizontalAlignment="Left" Grid.Column="0">Proizvođač</TextBlock>
-                            <TextBlock HorizontalAlignment="Center" Grid.Column="1">Model</TextBlock>
-                            <TextBlock HorizontalAlignment="Center" Grid.Column="2">Dio</TextBlock>
-                            <TextBlock HorizontalAlignment="Right" Grid.Column="3">Cijena</TextBlock>
+                            <TextBlock HorizontalAlignment="Center" Grid.Column="0">Model</TextBlock>
+                            <TextBlock HorizontalAlignment="Center" Grid.Column="1">Dio</TextBlock>
+                            <TextBlock HorizontalAlignment="Right" Grid.Column="2">Cijena</TextBlock>
                         </Grid>
                         <ItemsPresenter Grid.Row="1"></ItemsPresenter>
                     </Grid>
@@ -75,10 +73,10 @@
                 </Style>
             </ListView.ItemContainerStyle>
         </ListView>
-        <Button Content="Dodaj" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="3" VerticalAlignment="Top"/>
-        <Button Content="Očisti" Grid.Column="1" HorizontalAlignment="Left" Margin="10.333,10,0,0" Grid.Row="3" VerticalAlignment="Top"/>
-        <Button Content="Kupi" Grid.Column="2" HorizontalAlignment="Left" Margin="30,10,0,0" Grid.Row="3" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2" TextWrapping="Wrap" Text="Dijelovi:" VerticalAlignment="Top"/>
+        <TextBlock Text="{Binding CijenaTekst, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center" />
+        <CheckBox Content="Ugradnja (+ 75KM)" IsChecked="{Binding SUgradnjom, Mode=TwoWay}" Grid.Row="4" Grid.Column="2" Margin="5, 0, 0, 0" VerticalAlignment="Center" />
+        <Button Content="Kupi" Grid.Column="0" HorizontalAlignment="Left" Margin="5,5,5,0" Grid.Row="5" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Dijelovi:" VerticalAlignment="Top"/>
 
     </Grid>
 </Page>
