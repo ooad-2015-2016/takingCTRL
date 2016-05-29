@@ -83,19 +83,18 @@ namespace ProjekatAutootpadMigrations
                 {
                     NarudzbaServisaId = table.Column(type: "INTEGER", nullable: false)
                         ,
-                    dioZaServisiranjeDioID = table.Column(type: "INTEGER", nullable: true),
-                    narucilackupacId = table.Column(type: "INTEGER", nullable: true),
+
                     opisKvara = table.Column(type: "TEXT", nullable: true),
-                    prihvacena = table.Column(type: "INTEGER", nullable: false)
+                    narucilackupacId = table.Column(type: "INTEGER", nullable: true),
+
+                    Model = table.Column(type: "TEXT", nullable: true),
+                    Proizvodjac = table.Column(type: "TEXT", nullable: true),
+                    NacinPlacanja = table.Column(type: "TEXT", nullable: true),
+                    
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_NarudzbaServisa", x => x.NarudzbaServisaId);
-                    table.ForeignKey(
-                        name: "FK_NarudzbaServisa_Dio_dioZaServisiranjeDioID",
-                        columns: x => x.dioZaServisiranjeDioID,
-                        referencedTable: "Dio",
-                        referencedColumn: "DioID");
                     table.ForeignKey(
                         name: "FK_NarudzbaServisa_Kupac_narucilackupacId",
                         columns: x => x.narucilackupacId,

@@ -14,8 +14,10 @@ namespace ProjekatAutootpad.Autootpad.Models
 
         public string opisKvara { get; set; }
         public Kupac narucilac { get; set; }
-        public bool prihvacena { get; set; }
-        public Dio dioZaServisiranje { get; set; } // Napomena: ovo treba dodati u dijagram klasa
+
+        public string Model { get; set; }
+        public string Proizvodjac { get; set; }
+        public string NacinPlacanja { get; set; }
     }
 }
 

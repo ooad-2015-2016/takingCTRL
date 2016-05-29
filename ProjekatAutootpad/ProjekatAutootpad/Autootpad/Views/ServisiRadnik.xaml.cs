@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Windows.UI.Core;
+using ProjekatAutootpad.Autootpad.ViewModels;
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace ProjekatAutootpad
@@ -26,5 +27,12 @@ namespace ProjekatAutootpad
         {
             this.InitializeComponent();
         }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            RadnikServisiViewModel radnikServisiViewModel = e.Parameter as RadnikServisiViewModel;
+            DataContext = radnikServisiViewModel;
+        }
+
     }
 }

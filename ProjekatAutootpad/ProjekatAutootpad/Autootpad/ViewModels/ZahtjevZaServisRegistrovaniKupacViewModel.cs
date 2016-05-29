@@ -16,9 +16,14 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
         public PocetnaViewModel Parent { get; set; }
         public Kupac _User { get; set; }
         public ICommand Dodaj { get; set; }
+
+        public bool Online { get; set; }
+        public bool Gotovinom { get; set; }
+
+
+
         public ZahtjevZaServisRegistrovaniKupacViewModel(PocetnaViewModel pvm)
         {
-            _User = new Kupac();
             narudzbaServisa = new NarudzbaServisa();
             _User = pvm.User;
             this.Parent = pvm;
@@ -29,12 +34,16 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
         {
             Dodaj = new RelayCommand<object>(dodaj, mozeLiSeDodati);
         }
-        
+
         public void dodaj(object parametar)
         {
-            var db = new OtpadDbContext();
-            narudzbaServisa.narucilac = _User;
-            db.narudzbeServisa.Add(narudzbaServisa);
+
+            using (var db = new OtpadDbContext())
+            {
+                //narudzbaServisa.narucilac = _User;
+                db.narudzbeServisa.Add(narudzbaServisa);
+                db.SaveChanges();
+            }
             Parent.NavigationService.GoBack();
         }
 

@@ -23,7 +23,7 @@
         </Grid.ColumnDefinitions>
 
         <Button x:Name="button" Content="Ponuđeni dijelovi" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Margin="0,0,0,0"  Command="{Binding DijeloviRadnik}" Background="#ffbdbd" />
-        <Button x:Name="button1" Content="Servisi" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Margin="0,0,0,0" Background="#e1f7d5" />
+        <Button x:Name="button1" Command="{Binding RadnikServis}" Content="Servisi" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Margin="0,0,0,0" Background="#e1f7d5" />
         <Button x:Name="button2" Content="Lični podaci" Grid.Column="1" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch"  Grid.Row="2" Margin="0,0,0,0" Background="#c9c9ff" Command="{Binding RadnikEditPodataka}"/>
         <Button Content="Logout" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Margin="0,0,0,0" Background="#f1cbff" />
 

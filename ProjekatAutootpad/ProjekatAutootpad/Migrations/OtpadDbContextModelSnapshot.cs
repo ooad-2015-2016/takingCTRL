@@ -63,14 +63,14 @@ namespace ProjekatAutootpadMigrations
                     b.Property<int>("NarudzbaServisaId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int?>("dioZaServisiranjeDioID");
+                    b.Property<string>("opisKvara");
 
                     b.Property<int?>("narucilackupacId");
 
-                    b.Property<string>("opisKvara");
+                    b.Property<string>("Model");
 
-                    b.Property<bool>("prihvacena");
-
+                    b.Property<string>("Proizvodjac");
+                    
                     b.Key("NarudzbaServisaId");
                 });
 

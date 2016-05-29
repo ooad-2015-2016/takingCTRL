@@ -121,6 +121,7 @@
     <Compile Include="Autootpad\ViewModels\GeolokacijaViewModel.cs" />
     <Compile Include="Autootpad\ViewModels\KontaktViewModel.cs" />
     <Compile Include="Autootpad\ViewModels\NaručivanjeDijelaViewModel.cs" />
+    <Compile Include="Autootpad\ViewModels\RadnikServisiViewModel.cs" />
     <Compile Include="Autootpad\ViewModels\RegistracijaKupacViewModel.cs" />
     <Compile Include="Autootpad\ViewModels\RadnikPodaciViewModel.cs" />
     <Compile Include="Autootpad\ViewModels\TestViewModel.cs" />
