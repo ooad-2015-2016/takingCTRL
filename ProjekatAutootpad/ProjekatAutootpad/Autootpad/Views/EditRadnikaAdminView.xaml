@@ -18,8 +18,9 @@
             <RowDefinition Height="50" />
             <RowDefinition Height="50" />
             <RowDefinition Height="50" />
+            <RowDefinition Height="2*" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <TextBlock Text="Ime: " Grid.Row="0" Grid.Column="0" />
@@ -38,7 +39,7 @@
         <TextBox Text="{Binding EditovaniRadnik.DatumRodjenja, Mode=TwoWay}" Grid.Row="4" Grid.Column="1" />
 
         <TextBlock Text="{Binding Verifikacija, Mode=TwoWay}" Grid.Row="5" Grid.Column="0" Foreground="Red" Grid.ColumnSpan="2"/>
-
-        <Button Content="Ažuriraj" Command="{Binding Ažuriraj}" Grid.Row="7"/>
+        <Button Content="Skini QR" Command="{Binding QR}" Grid.Row="6" Grid.ColumnSpan="2" />
+        <Button Content="Ažuriraj" Command="{Binding Ažuriraj}" Grid.Row="7" />
     </Grid>
 </Page>

@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Windows.Storage;
+using Windows.Storage.Pickers;
 
 namespace ProjekatAutootpad.Autootpad.ViewModels
 {
@@ -125,7 +127,8 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
         public string Verifikacija { get; set; }
 
         public ICommand Kupi { get; set; }
-        
+        public ICommand QR { get; set; }
+
         public KupovinaViewModel(PocetnaViewModel pvm)
         {
             User = pvm.User;
@@ -136,7 +139,33 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
             _sUgradnjom = false;
             Verifikacija = "";
             Kupi = new RelayCommand<object>(kupi);
+            QR = new RelayCommand<object>(qr);
         }
+
+        public async void qr(object param)
+        {
+            if (IzabraniDio == null)
+            {
+                Verifikacija = "Izaberite dio.";
+                NotifyPropertyChanged("Verifikacija");
+                return;
+            }
+
+            else if (IzabraniDio.QR == null)
+            {
+                Verifikacija = "Dio nema QR.";
+                NotifyPropertyChanged("Verifikacija");
+                return;
+            }
+            FileSavePicker fsp = new FileSavePicker();
+            fsp.FileTypeChoices.Add("PNG", new List<String>() { ".png" });
+            fsp.SuggestedFileName = "QR " + IzabraniDio.ImeDijela;
+    
+            StorageFile f = await fsp.PickSaveFileAsync();
+
+            await FileIO.WriteBytesAsync(f, IzabraniDio.QR);
+        }
+
 
         public async void kupi(object param)
         {
