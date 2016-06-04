@@ -19,6 +19,7 @@ using Windows.Storage;
 using Windows.Storage.Pickers;
 using Windows.Storage.Streams;
 using Windows.UI.Xaml.Media.Imaging;
+using ProjekatAutootpad.Autootpad.Servis;
 
 namespace ProjekatAutootpad.Autootpad.ViewModels
 {
@@ -117,7 +118,6 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
             {
                 IzabraniDio.UProdaji = true;
                 db.Dijelovi.Update(IzabraniDio);
-                
                 if (QR)
                 { 
                     String MiniQRApiUrl = String.Format("http://miniqr.com/api/create.php?api=http&content={0}&size=150&rtype=json", ("Proizvodjac: " + IzabraniDio.Proizvodjac + "\nModel: " + IzabraniDio.Model + "\nDio: " + IzabraniDio.ImeDijela + "\nCijena: " + IzabraniDio.ProdajnaCijena.ToString()).Replace(" ", "%20").Replace("\n", "%0A"));
@@ -154,10 +154,10 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
                  
                     }
                 }
-
-                IzabraniDio = null;
                 db.SaveChanges();
-
+                EksterniServis _dodajDio = new EksterniServis();
+                _dodajDio.dodajDio(IzabraniDio);
+                IzabraniDio = null;
                 NotifyPropertyChanged("SviDijelovi");
 
             }

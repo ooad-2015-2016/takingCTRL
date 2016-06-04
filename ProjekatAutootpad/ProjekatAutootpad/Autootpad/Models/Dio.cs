@@ -4,20 +4,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Runtime.Serialization;
 
 namespace ProjekatAutootpad.Autootpad.Models
 {
+    [DataContract]
     class Dio
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [DataMember]
         public int DioID { get; set; }
-
+        [DataMember]
         public decimal ProdajnaCijena { get; set; }
+        [DataMember]
         public string Model { get; set; }
+        [DataMember]
         public string Proizvodjac { get; set; }
+        [DataMember]
         public string ImeDijela { get; set; }
+        [DataMember]
         public bool UProdaji { get; set; }
+        [DataMember]
         public byte[] QR { get; set; }
+        [DataMember]
         public byte[] Slika { get; set; }
         
         [NotMapped]
