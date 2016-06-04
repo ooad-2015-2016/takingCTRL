@@ -1,0 +1,51 @@
+﻿@model IEnumerable<ASPNETProjekatAutootpad.Models._Dio>
+
+@{
+    ViewBag.Title = "Dijelovi";
+}
+
+<h2>Dijelovi</h2>
+<table class="table">
+    <tr>
+        <th>
+            Cijena
+        </th>
+        <th>
+            Vozilo
+        </th>
+        <th>
+            Proizvođač 
+        </th>
+        <th>
+            Naziv dijela
+        </th>
+        <th>
+            Prodaje se
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProdajnaCijena)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Model)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Proizvodjac)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ImeDijela)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UProdaji)
+        </td>
+        <td>
+            @Html.ActionLink("Detaljnjije", "Details", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

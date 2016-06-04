@@ -1,0 +1,72 @@
+﻿@model ASPNETProjekatAutootpad.Models._Dio
+
+@{
+    ViewBag.Title = "Detaljno";
+}
+
+
+<div>
+    <h4>Dio</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Cijena
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProdajnaCijena)
+        </dd>
+
+        <dt>
+            Vozilo
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Model)
+        </dd>
+
+        <dt>
+            Proizvođač
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Proizvodjac)
+        </dd>
+
+        <dt>
+            Naziv dijela
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImeDijela)
+        </dd>
+
+        <dt>
+            U prodaji
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UProdaji)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QR)
+        </dt>
+
+        <dd>
+            <img src="@ViewBag.ImageData" />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Slika)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Slika)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Nazad", "Index")
+</p>
