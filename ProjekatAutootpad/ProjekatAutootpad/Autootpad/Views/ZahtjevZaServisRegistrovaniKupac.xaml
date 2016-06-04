@@ -15,6 +15,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="71*"/>
@@ -25,9 +26,9 @@
         <TextBox 
             x:Name="textBox_OpisKvaraServisRegKupac" 
             HorizontalAlignment="Stretch" 
-            Margin="10,30,29,3" 
+            Margin="10,10,10,10" 
             TextWrapping="Wrap" 
-            Text="{Binding Path=narudzbaServisa.opisKvara}" 
+            Text="{Binding narudzbaServisa.opisKvara, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
             VerticalAlignment="Stretch" 
             Grid.Column="1"/>
 
@@ -37,10 +38,10 @@
             x:Name="textBox_ProizvođačServisRegKupac" 
             Grid.Column="1" 
             HorizontalAlignment="Stretch" 
-            Margin="10,10,29,0" 
+            Margin="10,10,10,10" 
             Grid.Row="1" 
             TextWrapping="Wrap" 
-            Text="{Binding Path=narudzbaServisa.Proizvodjac, Mode=TwoWay}" 
+            Text="{Binding Path=narudzbaServisa.Proizvodjac, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
             VerticalAlignment="Top" />
 
         <TextBlock x:Name="textBlock_ModelServisRegKupac" Grid.Row="2" HorizontalAlignment="Right" Margin="0,10,29,0" TextWrapping="WrapWholeWords" Text="Model: " VerticalAlignment="Top"/>
@@ -48,26 +49,21 @@
         <TextBox 
             x:Name="textBox_ModelServisRegKupac" 
             HorizontalAlignment="Stretch" 
-            Margin="10,10,29,0" 
+            Margin="10,10,10,10" 
             Grid.Row="2" 
             TextWrapping="Wrap" 
-            Text="{Binding Path=narudzbaServisa.Model, Mode=TwoWay}" 
+            Text="{Binding Path=narudzbaServisa.Model, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
             VerticalAlignment="Top" 
             Grid.Column ="1"/>
         <RadioButton x:Name="radioButton_PlaćanjePoDolaskuServisRegKupac" IsChecked="{Binding Gotovinom, Mode=TwoWay}" Content="Po dolasku" HorizontalAlignment="Left" Margin="10,4,0,0" Grid.Row="4" VerticalAlignment="Top" Grid.Column="1" GroupName="način_plaćanja"/>
         <TextBlock x:Name="textBlock_PlaćanjeServisRegKupac" Grid.Row="3" HorizontalAlignment="Right" Margin="0,10,29,0" TextWrapping="WrapWholeWords" Text="Način plaćanja: " VerticalAlignment="Top"/>
         <RadioButton x:Name="radioButton_PlaćanjeOnlineServisRegKupac" Content="Online" HorizontalAlignment="Left" Margin="10,4,0,0" Grid.Row="3" VerticalAlignment="Top" IsChecked="{Binding Online, Mode=TwoWay}" Grid.Column="1" GroupName="način_plaćanja"/>
 
-        <Button 
-            x:Name="button_NapraviZahtjevServisRegKupac" 
-            Content="Dodaj" 
-            Grid.Column="1" 
-            HorizontalAlignment="Right" 
-            Margin="35,0,35,10" 
-            Grid.Row="6"
-            VerticalAlignment="Bottom"
-            Command="{Binding Path=Dodaj}"
-            />
+        <TextBlock Text="{Binding Validacija, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="2" Margin="5,5,5,5" Grid.Row="5" Foreground="Red" VerticalAlignment="Center" />
+
+
+
+        <Button x:Name="button_NapraviZahtjevServisRegKupac" Content="Dodaj" Grid.Column="1" HorizontalAlignment="Right" Margin="5,0,5,5" Grid.Row="6" VerticalAlignment="Bottom" Command="{Binding Path=Dodaj}" />
 
     </Grid>
 </Page>

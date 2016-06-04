@@ -8,6 +8,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Windows.Data.Json;
@@ -83,15 +84,17 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
 
         public void ažuriraj(object param)
         {
+            Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+            Match match = regex.Match(EditovaniRadnik.Email);
+
             if (EditovaniRadnik.imePrezime.Length == 0)
                 Verifikacija = "Niste upisali ime.";
             else if (EditovaniRadnik.Password.Length < 4)
                 Verifikacija = "Password mora biti duži od 4 karaktera.";
-            //else if (verifikacija maila)
-            //Verifikacija = "Password mora biti duži od 4 karaktera.";
+            else if (!match.Success)
+                Verifikacija = "Nije validna mail adresa.";
             else if (EditovaniRadnik.Username.Length == 0)
                 Verifikacija = "Niste upisali username.";
-
             else
                 using (var db = new OtpadDbContext())
                 {
@@ -99,9 +102,7 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
                     db.SaveChanges();
                     Verifikacija = "Uspješno ažurirani podaci!";
                 }
-
             NotifyPropertyChanged("Verifikacija");
-
         }
     }
 }

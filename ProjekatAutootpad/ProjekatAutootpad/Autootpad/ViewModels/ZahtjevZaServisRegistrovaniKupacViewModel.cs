@@ -10,8 +10,17 @@ using System.Windows.Input;
 
 namespace ProjekatAutootpad.Autootpad.ViewModels
 {
-    class ZahtjevZaServisRegistrovaniKupacViewModel
+    class ZahtjevZaServisRegistrovaniKupacViewModel : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void NotifyPropertyChanged(String info)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(info));
+            }
+        }
+
         public NarudzbaServisa narudzbaServisa { get; set; }
         public PocetnaViewModel Parent { get; set; }
         public Kupac _User { get; set; }
@@ -19,6 +28,8 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
 
         public bool Online { get; set; }
         public bool Gotovinom { get; set; }
+
+        public string Validacija { get; set; }
 
 
 
@@ -28,28 +39,44 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
             _User = pvm.User;
             this.Parent = pvm;
             Dodaj = new RelayCommand<object>(dodaj, mozeLiSeDodati);
+            Validacija = "";
+            narudzbaServisa = new NarudzbaServisa();
+            narudzbaServisa.opisKvara = "";
+            narudzbaServisa.Model = "";
+            narudzbaServisa.Proizvodjac = "";
+            narudzbaServisa.narucilac = this._User;
         }
 
-        public void spasiZahtjevZaServis()
-        {
-            Dodaj = new RelayCommand<object>(dodaj, mozeLiSeDodati);
-        }
 
         public void dodaj(object parametar)
         {
 
-            using (var db = new OtpadDbContext())
-            {
-                //narudzbaServisa.narucilac = _User;
-                db.narudzbeServisa.Add(narudzbaServisa);
-                db.SaveChanges();
-            }
-            Parent.NavigationService.GoBack();
+            if (narudzbaServisa.Model == "" || narudzbaServisa.Proizvodjac == "" || narudzbaServisa.opisKvara == "")
+                Validacija = "Morate ispuniti sva polja.";
+
+            else
+                using (var db = new OtpadDbContext())
+                {
+                    //narudzbaServisa.narucilac = _User;
+                    db.narudzbeServisa.Add(narudzbaServisa);
+                    db.SaveChanges();
+                    Validacija = "Uspješno podnesen zahtjev.";
+                    narudzbaServisa = new NarudzbaServisa();
+                    narudzbaServisa.narucilac = this._User;
+                }
+            NotifyPropertyChanged("Validacija");
+
+
+
+
+            //Parent.NavigationService.GoBack();
         }
 
         public bool mozeLiSeDodati(object parametar)
         {
             return true;
         }
+        
+
     }
 }

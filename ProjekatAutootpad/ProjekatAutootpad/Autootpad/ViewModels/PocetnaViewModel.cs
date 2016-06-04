@@ -41,6 +41,7 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
         public ICommand RadnikEditPodataka { get; set; }
         public ICommand PokreniGeolokaciju { get; set; }
         public ICommand RadnikServis { get; set; }
+        public ICommand Logout { get; set; }
         public ICommand Kontakt { get; set; }
 
 
@@ -112,6 +113,11 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
             RegistracijaKupca = new RelayCommand<object>(kupacRegistracija);
         }
 
+        public void logout(object p)
+        {
+            NavigationService.GoBack();
+        }
+
         public PocetnaViewModel(PocetnaViewModel pvm)
         {
             NavigationService = new NavigationService();
@@ -134,6 +140,8 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
             RegistracijaKupca = new RelayCommand<object>(kupacRegistracija);
             Servis = new RelayCommand<object>(servis);
             RadnikEditPodataka = new RelayCommand<object>(radnikEditPodataka);
+            Logout = new RelayCommand<object>(logout);
+
             RadnikServis = new RelayCommand<object>(radnikServis);
         }
 

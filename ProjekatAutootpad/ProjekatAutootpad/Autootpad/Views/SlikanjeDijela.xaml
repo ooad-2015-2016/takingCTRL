@@ -8,26 +8,51 @@
     mc:Ignorable="d">
     <ScrollViewer>
 
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="DugiEkran">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="600" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="TrenutnaSlikaTextBlock.(Grid.Row)" Value="1" />
+                        <Setter Target="TrenutnaSlikaTextBlock.(Grid.Column)" Value="1" />
+
+                        <Setter Target="TrenutnaSlikaRow.Height" Value="0" />
+                        <Setter Target="PosljednjiRed.Height" Value="0" />
+                        <Setter Target="HorizontalCol.Width" Value="*" />
+                        <Setter Target="SlikaControl.(Grid.Row)" Value="2" />
+                        <Setter Target="SlikaControl.(Grid.Column)" Value="1" />
+                        <Setter Target="SlikaControl.(Grid.ColumnSpan)" Value="1" />
+
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+
         <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
         <Grid.RowDefinitions>
                 <RowDefinition Height="40" />
                 <RowDefinition Height="40" />
                 <RowDefinition Height="*" />
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="*" />
+                <RowDefinition x:Name="TrenutnaSlikaRow" Height="auto" />
+                <RowDefinition x:Name="PosljednjiRed" Height="*" />
 
             </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
+                
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition x:Name="HorizontalCol" Width="0" />
         </Grid.ColumnDefinitions>
 
             <Button Content="Uslikaj" Command="{Binding Uslikaj}"  HorizontalAlignment="Stretch" Grid.Row="0" />
             <Button Content="Prihvati sliku" Command="{Binding Prihvati}" HorizontalAlignment="Stretch" Grid.Row="1"/>
 
             <CaptureElement Name="PreviewControl" Source="{Binding Path=Camera.MediaCapture,Mode=TwoWay}" Stretch="Uniform" Grid.Row="2"/>
-            <TextBlock Text="Izabrana: " Grid.Row="3"/>
-            <Image Name="SlikaControl" HorizontalAlignment="Stretch" Margin="5,5,5,5" VerticalAlignment="Center" Stretch="Uniform" Source="{Binding Slika, UpdateSourceTrigger=PropertyChanged}" Grid.Row="4"/>
+            <TextBlock x:Name="TrenutnaSlikaTextBlock" Text="Izabrana: " Grid.Row="3"/>
+            <Image x:Name="SlikaControl" HorizontalAlignment="Stretch" Margin="5,5,5,5" VerticalAlignment="Center" Stretch="Uniform" Source="{Binding Slika, UpdateSourceTrigger=PropertyChanged}" Grid.Row="4"/>
             </Grid>
     </ScrollViewer>
 
