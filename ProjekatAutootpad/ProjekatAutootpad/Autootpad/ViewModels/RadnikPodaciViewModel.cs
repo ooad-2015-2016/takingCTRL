@@ -15,11 +15,21 @@ using Windows.Storage.Pickers;
 using Windows.Storage.Streams;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Imaging;
+using System.Text.RegularExpressions;
 
 namespace ProjekatAutootpad.Autootpad.ViewModels
 {
     class RadnikPodaciViewModel : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void NotifyPropertyChanged(String info)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(info));
+            }
+        }
+
         //uposlenik koji se priprema za kreiranje
         public Radnik UlogovaniRadnik { get; set; }
 
@@ -30,6 +40,7 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
         public ICommand DodajUposlenika { get; set; }
         public ICommand Uslikaj { get; set; }
         public ICommand Ažuriraj { get; set; }
+        public string VerifikacijaPoruka { get; set; }
         //Negdje privremeno mora biti slika koja ce se prikazati kad se uslika
         private SoftwareBitmapSource slika;
         public SoftwareBitmapSource Slika { get { return slika; } set { slika = value; OnNotifyPropertyChanged("Slika"); } }
@@ -50,13 +61,34 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
                 Slika = ImageFromBytes(UlogovaniRadnik.Slika);*/
 
         }
+        private bool validanMail(string uneseniMail)
+        {
+            Regex regx = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+            Match match = regx.Match(uneseniMail);
+            if (match.Success)
+                return true;
 
+            return false;
+        }
         public void ažuriraj(object param)
         {
             using (var db = new OtpadDbContext())
             {
-                db.Update(UlogovaniRadnik);
-                db.SaveChanges();
+                if (UlogovaniRadnik.imePrezime == "")
+                {
+                    VerifikacijaPoruka = "Unesite ime.";
+                    NotifyPropertyChanged("VerifikacijaPoruka");
+                }
+                else if (!validanMail(UlogovaniRadnik.Email))
+                {
+                    VerifikacijaPoruka = "Niste unijeli validnu email adresu.";
+                    NotifyPropertyChanged("VerifikacijaPoruka");
+                }
+                else
+                {
+                    db.Update(UlogovaniRadnik);
+                    db.SaveChanges();
+                }
             }
         }
         //komanda koja inicira slikanje
@@ -110,7 +142,6 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
 
         }
         //proeprty changed observer
-        public event PropertyChangedEventHandler PropertyChanged;
         protected void OnNotifyPropertyChanged([CallerMemberName] string memberName = "")
         {
             //? je skracena verzija ako nije null
