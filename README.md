@@ -6,8 +6,13 @@
 3. Ahmed Humkić
 4. Edo Imamović
 
+##Napomene:
+* zbog sporog vremena pokretanja, ASP aplikacija je demonstrirana u odvojenom videu.
+* da bi ProjekatAutootpad mogao surađivati s ASP.net aplikacijom, potrebno je prebaciti datoteku eksterniServisConfig.json u bin nakon što se builda (inače ovo se ne prenosi na github zbog gitignore, pa je bitno napomenuti, inače će biti bačen izuzetak pri snimanju)
+* ...pročitati i napomenu ispod za adaptive layout prije gledanja videa
+* ...ako bude problem jer fali datoteka temporary key, appconfig ili tako nešto, javiti se nekome iz tima mailom da pošalje tu datoteku
+
 ####Zaključno:
-Napomena: zbog sporog vremena pokretanja, ASP aplikacija je demonstrirana u odvojenom videu.
 
 * Sistem koristi lokalnu SQLlite bazu.
 * Kao eksterni uređaj sistem koristi kameru.
