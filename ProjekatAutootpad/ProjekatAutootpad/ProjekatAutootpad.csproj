@@ -136,6 +136,9 @@
     <Compile Include="Autootpad\Views\KontaktView.xaml.cs">
       <DependentUpon>KontaktView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Autootpad\Views\PomocView.xaml.cs">
+      <DependentUpon>PomocView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Autootpad\Views\PregledSlike.xaml.cs">
       <DependentUpon>PregledSlike.xaml</DependentUpon>
     </Compile>
@@ -231,6 +234,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Autootpad\Views\KontaktView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Autootpad\Views\PomocView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

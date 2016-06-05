@@ -1,0 +1,54 @@
+﻿<Page
+    x:Class="ProjekatAutootpad.Autootpad.Views.PomocView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ProjekatAutootpad.Autootpad.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+        </Grid.ColumnDefinitions>
+        <StackPanel HorizontalAlignment="Stretch" Margin="0,0,0,0" >
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock x:Name="naslovTextBlock" Grid.Column="0" Margin="5,5,5,5" TextWrapping="Wrap" Text="Upute za korištenje" SelectionChanged="textBlock_SelectionChanged" FontWeight="Bold" FontSize="18"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock x:Name="tekstTextBlock" Grid.Column="0" Margin="5,5,5,5" TextWrapping="Wrap" SelectionChanged="textBlock_SelectionChanged" Width="350" Height="578" FontSize="12">
+                	<Run Text="Aplikaciju možete koristiti različito, ovisno od ovlasti koje imate."/>
+                	<LineBreak/>
+                	<Run Text="- Za pregledavanje dostupnih dijelova, bez potreba za loginom kliknite &quot;Uđi kao gost&quot; komandu na početnoj stranici aplikacije."/>
+                	<LineBreak/>
+                	<Run Text="-Dijelovi se prikazuju nakon što odaberete proizvođača koristeći padajući meni predviđen za to."/>
+                	<LineBreak/>
+                	<Run Text="Status registrovanog korisnika Vam omogućava naručivanje i kupovinu dijelova, te naručivanje servisa vozila."/>
+                	<LineBreak/>
+                	<Run Text="- Za registrovanje novog računa kliknite &quot;Registracija&quot; komandu na početnoj stranici aplikacije. Nakon toga vršite popunjavanje prikazane forme. Registraciju završavate klikom na &quot;Registruj se&quot; komandu na stranici registracije."/>
+                	<LineBreak/>
+                	<Run Text="- Login vršite unošenjem korisničkog imena i lozinke na početnoj stranici aplikacije, zatim klikanjem &quot;Login&quot; komande."/>
+                	<LineBreak/>
+                	<Run/>
+                	<LineBreak/>
+                	<Run Text="Nakon logina prikazan Vam je izbornik za registrovanog korisnika. Odabir bilo koje od opcija vršite klikanjem na istu. Svaka od opcija prikazuje formu koju je potrebno popuniti za pokretanje određenog procesa. "/>
+                	<LineBreak/>
+                	<Run Text="Administrator aplikacije dodaje nove radnike u aplikaciju, i to nakon sto izvrši login kroz formu koja se prikazuje nakon klika na komandu &quot;Administracija&quot; na početnoj stranici aplikacije."/>
+                	<LineBreak/>
+                	<Run Text="Login radnika se vrši kroz formu koja se prikaze nakon klika nakomandu &quot;Login radnika&quot; na početnoj stranici aplikacije."/>
+                	<LineBreak/>
+                	<Run Text="Radnici za login koriste podatke koje im dostavi administrator aplikacije."/>
+                	<LineBreak/>
+                	<Run/>
+                	<LineBreak/>
+                	<Run Text="Ulogovani radnik ima na raspolaganju izbornik koji mu omogućava obavljanje svih zadataka u skladu sa potrebama firme i korisnika ove aplikacije. Odabir bilo koje od opcija vrši se klikanjem na istu."/>
+                	<LineBreak/>
+                	<Run/>
+                	<LineBreak/>
+                	<Run Text="Ukoliko je potrebno obrisati ili urediti neku od stavki unutar listi, koje se prikazuju na određenim stranicama, prvenstveno je potrebno kliknuti na stavku, a zatim na komandu za brisanje ili uređivanje, ukoliko je ista dostupna na datoj stranici."/>
+                </TextBlock>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

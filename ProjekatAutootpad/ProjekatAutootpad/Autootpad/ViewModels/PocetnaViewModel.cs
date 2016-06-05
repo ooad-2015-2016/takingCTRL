@@ -43,6 +43,7 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
         public ICommand RadnikServis { get; set; }
         public ICommand Logout { get; set; }
         public ICommand Kontakt { get; set; }
+        public ICommand Pomoc { get; set; }
 
 
 
@@ -80,6 +81,7 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
             RegistracijaKupca = new RelayCommand<object>(kupacRegistracija);
             //PokreniGeolokaciju = new RelayCommand<object>(pokreniGeolokaciju);
             Kontakt = new RelayCommand<object>(kontakt);
+            Pomoc = new RelayCommand<object>(prikaziPomoc);
         }
 
         public void pokreniGeolokaciju(object p)
@@ -111,6 +113,7 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
             Prodaja = new RelayCommand<object>(prodaja);
             Servis = new RelayCommand<object>(servis);
             RegistracijaKupca = new RelayCommand<object>(kupacRegistracija);
+            Pomoc = new RelayCommand<object>(prikaziPomoc);
         }
 
         public void logout(object p)
@@ -141,7 +144,7 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
             Servis = new RelayCommand<object>(servis);
             RadnikEditPodataka = new RelayCommand<object>(radnikEditPodataka);
             Logout = new RelayCommand<object>(logout);
-
+            Pomoc = new RelayCommand<object>(prikaziPomoc);
             RadnikServis = new RelayCommand<object>(radnikServis);
         }
 
@@ -168,7 +171,7 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
             Prodaja = new RelayCommand<object>(prodaja);
             Servis = new RelayCommand<object>(servis);
             RegistracijaKupca = new RelayCommand<object>(kupacRegistracija);
-
+            Pomoc = new RelayCommand<object>(prikaziPomoc);
         }
 
         private void loginKupca(object parametar)
@@ -220,7 +223,10 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
             }
 
         }
-
+        public void prikaziPomoc(object parametar)
+        {
+            NavigationService.Navigate(typeof(PomocView), new PocetnaViewModel(this));
+        }
 
         private void ulazKaoGost(object parametar)
         {
