@@ -17,7 +17,7 @@
   * Jedna od upotreba (https://github.com/ooad-2015-2016/takingCTRL/blob/master/ProjekatAutootpad/ProjekatAutootpad/Autootpad/ViewModels/DodavanjeDijelaRadnikViewModel.cs)
 * Od mobilnih funkcionalnosti implementirana je mogućnost poziva kroz kontakt formu naše aplikacije
   * Primjer (https://github.com/ooad-2015-2016/takingCTRL/blob/master/ProjekatAutootpad/ProjekatAutootpad/Autootpad/ViewModels/KontaktViewModel.cs)
-  * Layout aplikacije se mijenja u viewu za uređivanje podataka radnika kao i za view dodavanja slike dijela kod kupaca (https://github.com/ooad-2015-2016/takingCTRL/blob/master/ProjekatAutootpad/ProjekatAutootpad/Autootpad/Views/RadnikPodaci.xaml)
+  * Layout aplikacije se mijenja u viewu za uređivanje podataka radnika kao i za view dodavanja slike dijela kod kupaca (https://github.com/ooad-2015-2016/takingCTRL/blob/master/ProjekatAutootpad/ProjekatAutootpad/Autootpad/Views/RadnikPodaci.xaml) (Napomena: ono što se vidi u videu vezano za adaptivni layout, naknadno je promijenjena jedna sitnica u odnosu na prikazano, tj. popravljeno je pozicioniranje textboxa)
 * Web servis dopušta pregled dijelova koji su snimljeni u bazi naše aplikacije.
   * Web servis (https://github.com/ooad-2015-2016/takingCTRL/tree/master/ASPNETProjekatAutootpad)
   * Kod unutar aplikacije:
