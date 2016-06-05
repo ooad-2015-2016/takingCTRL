@@ -11,6 +11,7 @@
 * da bi ProjekatAutootpad mogao surađivati s ASP.net aplikacijom, potrebno je prebaciti datoteku eksterniServisConfig.json koja se trenutno nalazi u folderu ProjekatAutootpad\ProjekatAutootpad u bin nakon što se builda (inače ovo se ne prenosi na github zbog gitignore, pa je bitno napomenuti, inače će biti bačen izuzetak pri snimanju)
 * ...pročitati i napomenu ispod za adaptive layout prije gledanja videa
 * ...ako bude problem jer fali datoteka temporary key, appconfig ili tako nešto, javiti se nekome iz tima mailom da pošalje tu datoteku
+* u videu je prikazana po jedna upotreba svega, što ne znači da je to sve - npr. prikazana je jedna upotreba QR koda iako u programu postoje dvije, i sl.
 
 ####Zaključno:
 
