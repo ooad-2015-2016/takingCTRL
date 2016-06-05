@@ -43,6 +43,7 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
         public byte[] PrihvaćenaSlikaByte;
 
         public String Cijena { get; set; }
+        public String Validacija { get; set; }
         public Kupac User { get; set; }
         public List<NarudžbaDijela> SveNarudzbe
         {
@@ -76,6 +77,7 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
             Uslikaj = new RelayCommand<object>(uslikaj);
             PočniSlikanje = new RelayCommand<object>(počniSlikanje);
             Prihvati = new RelayCommand<object>(prihvati);
+            Validacija = "";
         }
 
 
@@ -90,6 +92,7 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
             PočniSlikanje = new RelayCommand<object>(počniSlikanje);
             Prihvati = new RelayCommand<object>(prihvati);
             PrihvaćenaSlikaByte = pvm.PrihvaćenaSlikaByte;
+            Validacija = "";
 
         }
 
@@ -150,13 +153,26 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
         void ponudi(object parametar)
         {
             var db = new OtpadDbContext();
-            Dio NoviDio = new Dio(IzabranaNarudžba, decimal.Parse(Cijena));
-            NoviDio.Slika = PrihvaćenaSlikaByte;
-            db.Dijelovi.Add(NoviDio);
-            db.NarudzbeDijelova.Remove(IzabranaNarudžba);
-            db.SaveChanges();
-            IzabranaNarudžba = null;
-            NotifyPropertyChanged("SveNarudzbe");
+            try
+            {
+                Dio NoviDio = new Dio(IzabranaNarudžba, decimal.Parse(Cijena));
+                NoviDio.Slika = PrihvaćenaSlikaByte;
+                db.Dijelovi.Add(NoviDio);
+                db.NarudzbeDijelova.Remove(IzabranaNarudžba);
+                db.SaveChanges();
+                IzabranaNarudžba = null;
+                Validacija = "";
+
+                NotifyPropertyChanged("SveNarudzbe");
+                NotifyPropertyChanged("Validacija");
+            }
+            catch(Exception ex)
+            {
+                Validacija = "Niste unijeli ispravnu cijenu.";
+                NotifyPropertyChanged("Validacija");
+
+
+            }
         }
 
 

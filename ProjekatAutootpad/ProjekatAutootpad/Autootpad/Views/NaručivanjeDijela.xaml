@@ -23,11 +23,11 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="1" Grid.Column="0" Text="Proizvođač:" VerticalAlignment="Center"/>
-        <TextBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="15,0,15,0" Text="{Binding Proizvođač, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBlock Grid.Row="2" Grid.Column="0" Text="Model:" VerticalAlignment="Center"/>
+        <TextBlock Margin="5"  Grid.Row="1" Grid.Column="0" Text="Proizvođač:" VerticalAlignment="Center"/>
+        <TextBox  Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="15,0,15,0" Text="{Binding Proizvođač, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock Margin="5" Grid.Row="2" Grid.Column="0" Text="Model:" VerticalAlignment="Center"/>
         <TextBox Grid.Row="2" Grid.Column="1"  VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="15,0,15,0" Text="{Binding Model, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBlock Grid.Row="3" Grid.Column="0" Text="Dio:" VerticalAlignment="Center"/>
+        <TextBlock Margin="5" Grid.Row="3" Grid.Column="0" Text="Dio:" VerticalAlignment="Center"/>
         <TextBlock Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Validacija, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Foreground="#FFEE1212"/>
         <TextBox Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="15,0,15,0" Text="{Binding ImeDijela, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         <Button Grid.Row="5" Grid.Column="1" Content="Naruči" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding Naruči, UpdateSourceTrigger=PropertyChanged}"/>

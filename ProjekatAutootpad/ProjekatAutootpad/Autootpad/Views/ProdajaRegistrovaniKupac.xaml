@@ -35,6 +35,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="50"/>
             <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="27*"/>
@@ -76,9 +77,9 @@
 
         <TextBlock Grid.Column="1" HorizontalAlignment="Right" Margin="5,5,5,5" Grid.Row="2" TextWrapping="Wrap" Text="Cijena: " VerticalAlignment="Center"/>
         <TextBox Grid.Column="2" HorizontalAlignment="Left" Margin="5,5,5,5" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Center" InputScope="CurrencyAmount" Text="{Binding Cijena, Mode=TwoWay}"/>
-
+        <TextBlock Text="{Binding Validacija, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Foreground="Red" Grid.Row="3" Grid.ColumnSpan="3" />
         <Button Content="Uslikaj" Grid.Column="1" HorizontalAlignment="Left" Margin="5,5,5,5" Grid.Row="2" VerticalAlignment="Top" Command="{Binding Path= PočniSlikanje}"/>
-        <Button Content="Ponudi" Grid.Column="2" HorizontalAlignment="Left" Margin="5,5,5,5" Grid.Row="3" VerticalAlignment="Top" Command="{Binding Path= Ponudi}"/>
+        <Button Content="Ponudi" Grid.Column="2" HorizontalAlignment="Left" Margin="5,5,5,5" Grid.Row="4" VerticalAlignment="Top" Command="{Binding Path= Ponudi}"/>
 
     </Grid>
 </Page>

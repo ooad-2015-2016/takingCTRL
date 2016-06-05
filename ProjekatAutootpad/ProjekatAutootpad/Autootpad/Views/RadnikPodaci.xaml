@@ -59,7 +59,7 @@
 
             <CaptureElement  Name="PreviewControl" HorizontalAlignment="Stretch" Stretch="Uniform" Source="{Binding Path=Camera.MediaCapture,Mode=TwoWay}"  Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"/>
             <TextBlock x:Name="VerifikacijaPorukaTextBlock" Text="{Binding VerifikacijaPoruka, UpdateSourceTrigger=PropertyChanged}" Grid.Row="5" HorizontalAlignment="Left" Width="257" Grid.ColumnSpan="2"/>
-            <TextBlock x:Name="TrenutnaSlikaTextBlock" Text="Trenutna slika: " Grid.Row="5" Grid.Column="1" HorizontalAlignment="Right" Width="98"/>
+            <TextBlock x:Name="TrenutnaSlikaTextBlock" Text="Trenutna slika: " Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="98"/>
             <Image  x:Name="SlikaControl" HorizontalAlignment="Stretch" Stretch="Uniform" Margin="5,5,5,5" VerticalAlignment="Center"  Source="{Binding Slika, UpdateSourceTrigger=PropertyChanged}" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2"/>
 
         </Grid>

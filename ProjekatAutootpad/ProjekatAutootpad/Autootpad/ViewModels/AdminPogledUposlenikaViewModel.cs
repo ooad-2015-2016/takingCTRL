@@ -9,6 +9,7 @@ using ProjekatAutootpad.Autootpad.Helper;
 using System.Windows.Input;
 using Windows.UI.Xaml;
 using ProjekatAutootpad.Autootpad.Views;
+using System.Text.RegularExpressions;
 
 namespace ProjekatAutootpad.Autootpad.ViewModels
 {
@@ -128,16 +129,21 @@ namespace ProjekatAutootpad.Autootpad.ViewModels
 
         public void dodavanjeRadnika(object parametar)
         {
+            Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+            Match match = regex.Match(Email); 
+
+
             if (ImePrezime.Length == 0)
                 Verifikacija = "Morate unijeti ime radnika.";
+            else if (!match.Success)
+                    Verifikacija = "Nije validna mail adresa.";
 
-            else if (Username.Length == 0)
+                else if (Username.Length == 0)
                 Verifikacija = "Morate unijeti username.";
 
             else if (Password.Length < 4)
                 Verifikacija = "Password mora imati barem 4 znaka.";
-
-            //verifikacija maila i datuma
+            
 
 
             else

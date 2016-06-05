@@ -30,11 +30,9 @@ namespace ProjekatAutootpad.Autootpad.Models
                 context.Kupci.AddRange(
                     new Kupac()
                     {
-//                        KorisnikId = 1,
                         imePrezime = "Alma Hodžić",
                         Username = "ahodzic",
-                        Password = "mojPassword",
-                        // datumRodjenja = 1998,04,30, -> poslije ću
+                        Password = "alminpass",
                         Email = "ahodzic3@etf.unsa.ba",
 			jeliPenzioner = false
                     }
@@ -42,29 +40,29 @@ namespace ProjekatAutootpad.Autootpad.Models
                 context.SaveChanges();
 
             }
-            if (!context.Dijelovi.Any())
-            {
-                context.Dijelovi.AddRange(
-                    new Dio()
-                    {
-                        ProdajnaCijena = 150.0M,
-                        Model = "Golf 4",
-                        Proizvodjac = "Volkswagen",
-                        ImeDijela = "Akumulator",
-                        UProdaji = true
-                    }
-                );
+//            if (!context.Dijelovi.Any())
+//            {
+//                context.Dijelovi.AddRange(
+//                    new Dio()
+                    //{
+//                        ProdajnaCijena = 150.0M,
+//                        Model = "Golf 4",
+//                        Proizvodjac = "Volkswagen",
+//                        ImeDijela = "Akumulator",
+//                        UProdaji = true
+//                    }
+//              );
 
-                try
-                {
-                    context.SaveChanges();
-                }
-                catch (Exception dbEx)
-                {
+//                try
+//                {
+//                    context.SaveChanges();
+//                }
+//                catch (Exception dbEx)
+//                {
 
-                    throw dbEx.InnerException;
-                }
-            }
+//                    throw dbEx.InnerException;
+//                }
+//            }
 
             if (!context.servisi.Any())
             {
