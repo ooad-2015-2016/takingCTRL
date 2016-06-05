@@ -7,6 +7,8 @@
 4. Edo Imamović
 
 ####Zaključno:
+Napomena: zbog sporog vremena pokretanja, ASP aplikacija je demonstrirana u odvojenom videu.
+
 * Sistem koristi lokalnu SQLlite bazu.
 * Kao eksterni uređaj sistem koristi kameru.
   * Implementacija klase kamere (https://github.com/ooad-2015-2016/takingCTRL/blob/master/ProjekatAutootpad/ProjekatAutootpad/Autootpad/Helper/CameraHelper.cs)
