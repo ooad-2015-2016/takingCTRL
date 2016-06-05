@@ -6,6 +6,24 @@
 3. Ahmed Humkić
 4. Edo Imamović
 
+####Zaključno:
+* Sistem koristi lokalnu SQLlite bazu.
+* Kao eksterni uređaj sistem koristi kameru.
+  * Implementacija klase kamere (https://github.com/ooad-2015-2016/takingCTRL/blob/master/ProjekatAutootpad/ProjekatAutootpad/Autootpad/Helper/CameraHelper.cs)
+  * Jedna od upotreba (https://github.com/ooad-2015-2016/takingCTRL/blob/master/ProjekatAutootpad/ProjekatAutootpad/Autootpad/ViewModels/RadnikPodaciViewModel.cs)
+* Validacije su urađene za sve forme u sistemu.
+  * Jedna od validacija pri dodavanju u bazu (https://github.com/ooad-2015-2016/takingCTRL/blob/master/ProjekatAutootpad/ProjekatAutootpad/Autootpad/ViewModels/RegistracijaKupacViewModel.cs)
+* Sistem koristi eksterni servis za generisanje QR koda (http://miniqr.com).
+  * Jedna od upotreba (https://github.com/ooad-2015-2016/takingCTRL/blob/master/ProjekatAutootpad/ProjekatAutootpad/Autootpad/ViewModels/DodavanjeDijelaRadnikViewModel.cs)
+* Od mobilnih funkcionalnosti implementirana je mogućnost poziva kroz kontakt formu naše aplikacije
+  * Primjer (https://github.com/ooad-2015-2016/takingCTRL/blob/master/ProjekatAutootpad/ProjekatAutootpad/Autootpad/ViewModels/KontaktViewModel.cs)
+  * Layout aplikacije se mijenja u viewu za uređivanje podataka radnika kao i za view dodavanja slike dijela kod kupaca (https://github.com/ooad-2015-2016/takingCTRL/blob/master/ProjekatAutootpad/ProjekatAutootpad/Autootpad/Views/RadnikPodaci.xaml)
+* Web servis dopušta pregled dijelova koji su snimljeni u bazi naše aplikacije.
+  * Web servis (https://github.com/ooad-2015-2016/takingCTRL/tree/master/ASPNETProjekatAutootpad)
+  * Kod unutar aplikacije:
+    * Klasa servisa (https://github.com/ooad-2015-2016/takingCTRL/blob/master/ProjekatAutootpad/ProjekatAutootpad/Autootpad/Servis/EksterniServis.cs)
+    * Upotreba pri dodavanju novog dijela (https://github.com/ooad-2015-2016/takingCTRL/blob/master/ProjekatAutootpad/ProjekatAutootpad/Autootpad/ViewModels/DodavanjeDijelaRadnikViewModel.cs)
+
 ###Opis teme:
 
 Auto-otpad "Ibro Autodijelovi" je mala kompanija koja se bavi kupoprodajom polovnih autodijelova i servisiranjem automobila.
@@ -62,11 +80,9 @@ od drugih korisnika iste aplikacije, upotrebom sistema zahtjeva i obavijesti o d
 * mogućnost podnošenja zahtjeva za nabavku artikla koji nije na stanju
 * mogućnost podnošenja zahtjeva za servisiranje vozila
 * mogućnost dodavanja, uređivanja i brisanja artikala (administracija)
-* mogućnost odobravanja podnešenih zahtjeva i kreiranja odgovora na iste (radnici)
-* kreiranje QR pomoću eksternog servisa (ukoliko se bude mogao iskoristiti servis)
-* čitanje QR koda pomoću kamere (ukoliko bude dovoljno jednostavno implementirati)
-* dodavanje slike dijela koji se prodaje pomoću kamere (-//-)
-* plaćanje preko PayPala (-//-)
+* mogućnost odobravanja podnešenih zahtjeva (radnici)
+* kreiranje QR pomoću eksternog servisa
+* dodavanje slike dijela koji se prodaje pomoću kamere
 
 ###Akteri:
 #####1. Neregistrovani klijent
@@ -77,5 +93,5 @@ Korisnik koji može naručiti ili prodati dio ili zakazati servis
 Predstavljaju same radnike prodavnice i servisa, koji na osnovu stvarnog stanja administriraju sistem,
 odnosno odobravaju zahtjeve, rezervišu termine i vrše interakciju sa korisnicima.
 #####3. Supervizor sistema 
-Vlasnik radionice (**Ibro**), ima potpun uvid u sve što se dešava unutar sistema i mogućnost izmjene, dodavanja i brisanja svake moguće stavke. On je zadužen za registraciju uposlenika.
-#####4. Vanjski servisi (planirano generator QR koda, PayPal)
+Vlasnik radionice (**Ibro**). On je zadužen za registraciju uposlenika.
+#####4. Vanjski servisi (generator QR koda)
